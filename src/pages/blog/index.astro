@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { blogPostsList } from '../../data/blog';
+
+const title = "Blog de Psicología | María Ángeles Mata - Artículos sobre Bienestar";
+const description = "Artículos sobre psicología, salud mental, terapia y crecimiento personal. Consejos prácticos de una psicóloga clínica con 15+ años de experiencia en Córdoba.";
+---
+
+<Layout 
+  title={title}
+  description={description}
+  type="website"
+>
+  <Header activePage="Blog" />
+  
+  <main id="main-content" role="main">
+    <PageHeader
+      label="Blog"
+      title="Reflexiones sobre"
+      highlight="bienestar"
+      description="Artículos sobre psicología, salud mental y crecimiento personal escritos desde la experiencia clínica."
+    />
+
+    <section class="section-padding bg-ivory" aria-labelledby="blog-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <h2 id="blog-heading" class="sr-only">Artículos recientes</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+          {blogPostsList.map((post, index) => (
+            <article 
+              role="listitem"
+              class="group bg-bg-surface border border-border-light rounded-2xl overflow-hidden hover:shadow-card transition-all duration-500 hover-lift"
+            >
+              <a href={`/blog/${post.slug}`} class="block" aria-label={`Leer artículo: ${post.title}`}>
+                <div class="aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    width="800"
+                    height="500"
+                  />
+                </div>
+                
+                <div class="p-6 lg:p-8">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="text-[10px] font-sans tracking-[0.15em] uppercase text-sage/70 px-3 py-1 bg-sage/10 rounded-full">
+                      {post.category}
+                    </span>
+                    <span class="text-[11px] text-stone/40">{post.readTime}</span>
+                  </div>
+                  
+                  <h3 class="font-serif text-xl lg:text-2xl text-charcoal mb-3 group-hover:text-sage transition-colors duration-300 leading-tight">
+                    {post.title}
+                  </h3>
+                  
+                  <p class="text-[14px] text-stone/60 leading-relaxed mb-4 font-light line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div class="flex items-center justify-between">
+                    <time datetime={post.date} class="text-[12px] text-stone/40">{post.date}</time>
+                    <span class="flex items-center gap-2 text-sm text-sage opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>Leer</span>
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

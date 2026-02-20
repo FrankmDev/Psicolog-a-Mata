@@ -2,51 +2,77 @@
 const values = [
 	{
 		title: "Confidencialidad",
-		description: "Tu privacidad es sagrada. Todo lo que compartas en la consulta está protegido por el secreto profesional."
+		subtitle: "absoluta",
+		description:
+			"Tu privacidad es el pilar de nuestra relación. Todo lo compartido en consulta está estrictamente protegido por el secreto profesional.",
+		number: "01"
 	},
 	{
 		title: "Compromiso",
-		description: "Me dedico a acompañarte durante todo el proceso, con la dedicación y atención que necesitas."
+		subtitle: "terapéutico",
+		description:
+			"Me implico activamente en tu proceso, ofreciéndote la dedicación, el tiempo y la atención focalizada que necesitas para avanzar.",
+		number: "02"
 	},
 	{
-		title: "Evidencia científica",
-		description: "Utilizo técnicas y metodologías validadas científicamente para ofrecerte los mejores resultados."
+		title: "Rigor",
+		subtitle: "científico",
+		description:
+			"La empatía se complementa con la ciencia. Empleo exclusivamente enfoques y metodologías avaladas por la investigación clínica.",
+		number: "03"
 	},
 	{
 		title: "Empatía",
-		description: "Te escucho sin juzgar, creando un espacio seguro donde puedas ser tú mismo y expresar lo que sientes."
-	}
+		subtitle: "profunda",
+		description:
+			"Te ofrezco un espacio de aceptación incondicional, libre de juicios, donde puedes ser auténticamente tú.",
+		number: "04"
+	},
 ];
 ---
 
-<section class="section-lg bg-charcoal relative overflow-hidden">
-	<div class="absolute inset-0 bg-grain"></div>
-	<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sage/30 to-transparent"></div>
+<section class="section-padding bg-sage relative overflow-hidden" id="valores">
+	<div class="absolute inset-0 bg-grain opacity-[0.03]"></div>
 	
-	<div class="relative max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
-			<div>
-				<div class="flex items-center gap-4 mb-6">
-					<span class="eyebrow text-sage-muted">Valores</span>
-					<div class="line-elegant bg-sage/30"></div>
-				</div>
-				
-				<h2 class="font-serif text-4xl lg:text-5xl text-ivory max-w-md">
-					Los principios que guían mi <span class="text-sage italic">práctica</span>
-				</h2>
+	<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ivory/20 to-transparent"></div>
+	<div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ivory/20 to-transparent"></div>
+	
+	<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-ivory/5 rounded-full blur-[150px]"></div>
+	<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sage-dark/10 rounded-full blur-[100px]"></div>
+	
+	<div class="container-elegant relative z-10">
+		<div class="mb-16 lg:mb-24">
+			<div class="flex items-center gap-4 mb-4">
+				<div class="w-12 h-[1px] bg-ivory/30"></div>
+				<span class="text-[11px] font-sans tracking-[0.3em] uppercase text-ivory/60">Valores Clínicos</span>
 			</div>
 			
-			<div class="grid sm:grid-cols-2 gap-8 lg:gap-12">
-				{values.map((value) => (
-					<div class="group">
-						<div class="w-10 h-10 flex items-center justify-center border border-sage/30 mb-6 group-hover:bg-sage/10 transition-colors duration-300">
-							<div class="w-2 h-2 bg-sage/50 group-hover:bg-sage transition-colors duration-300"></div>
+			<h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-ivory leading-[1.1] max-w-2xl">
+				Los principios que guían cada sesión
+			</h2>
+		</div>
+		
+		<div class="grid lg:grid-cols-2 gap-x-16 gap-y-12 lg:gap-y-20">
+			{values.map((value, index) => (
+				<article class={`group ${index === values.length - 1 && values.length % 2 !== 0 ? 'lg:col-span-2 lg:max-w-lg' : ''}`}>
+					<div class="flex items-baseline gap-4 mb-4">
+						<span class="font-serif text-6xl lg:text-7xl text-ivory/10 font-light">
+							{value.number}
+						</span>
+						<div>
+							<h3 class="font-serif text-2xl lg:text-3xl text-ivory leading-tight">
+								{value.title} <span class="text-ivory/60 italic font-light">{value.subtitle}</span>
+							</h3>
 						</div>
-						<h3 class="font-serif text-xl text-ivory mb-3">{value.title}</h3>
-						<p class="text-warm-gray text-sm leading-relaxed font-light">{value.description}</p>
 					</div>
-				))}
-			</div>
+					
+					<div class="pl-4 border-l border-ivory/20 ml-6">
+						<p class="text-[15px] lg:text-base text-ivory/70 leading-relaxed font-light">
+							{value.description}
+						</p>
+					</div>
+				</article>
+			))}
 		</div>
 	</div>
 </section>

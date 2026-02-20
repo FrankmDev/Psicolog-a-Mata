@@ -3,69 +3,120 @@ const credentials = [
 	{
 		title: "Psicóloga General Sanitaria",
 		subtitle: "Colegio Oficial de Psicólogos",
-		description: "Colegiada nº AN-01452 con habilitación para ejercer la psicología clínica en el ámbito sanitario."
+		description:
+			"Colegiada nº AN-01452 con habilitación para ejercer la psicología clínica en el ámbito sanitario.",
 	},
 	{
 		title: "Máster en Psicología Clínica",
 		subtitle: "Universidad de Málaga",
-		description: "Especialización en intervención psicológica basada en evidencia científica."
+		description:
+			"Especialización en intervención psicológica basada en evidencia científica.",
 	},
 	{
 		title: "Formación Continua",
 		subtitle: "Especializaciones",
-		description: "Terapia Cognitivo-Conductual, Terapia de Pareja EFT, y Terapia Sistémica Familiar."
-	}
+		description:
+			"Terapia Cognitivo-Conductual, Terapia de Pareja EFT, y Terapia Sistémica Familiar.",
+	},
 ];
 ---
 
-<section class="section-lg bg-linen" id="sobre-mi">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-			
-			<div class="relative">
-				<div class="absolute -inset-4 border border-sage/20 rounded-sm"></div>
-				<div class="relative aspect-[3/4] overflow-hidden rounded-sm">
-					<img 
-						src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
-						alt="María Ángeles Mata - Consulta de psicología" 
-						class="w-full h-full object-cover"
-					/>
+<section class="section-padding lg:py-32 bg-bg-base relative" id="sobre-mi">
+	<div class="container-elegant">
+		<div class="grid lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+			<div class="lg:col-span-5 lg:col-start-1 relative">
+				<div
+					class="relative w-full aspect-[3/4] max-w-md mx-auto lg:max-w-none"
+				>
+					<!-- Elegant structural background shape -->
+					<div
+						class="absolute -top-6 -left-6 w-full h-full border border-border-medium rounded-t-full rounded-b-3xl"
+					>
+					</div>
+					<div
+						class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-bg-muted rounded-full blur-3xl opacity-50"
+					>
+					</div>
+
+					<div
+						class="relative w-full h-full overflow-hidden rounded-t-full rounded-b-3xl shadow-card"
+					>
+						<img
+							src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+							alt="María Ángeles Mata - Consulta de psicología"
+							class="w-full h-full object-cover grayscale-[15%] transition-transform duration-1000 hover:scale-105"
+						/>
+					</div>
 				</div>
 			</div>
-			
-			<div>
+
+			<div class="lg:col-span-6 lg:col-start-7">
 				<div class="flex items-center gap-4 mb-6">
-					<span class="eyebrow">Sobre mí</span>
-					<div class="line-long"></div>
+					<div class="w-12 h-[1px] bg-accent-primary"></div>
+					<span
+						class="eyebrow !mb-0 text-text-secondary tracking-[0.2em]"
+						>Sobre mí</span
+					>
 				</div>
-				
-				<h2 class="font-serif text-4xl lg:text-5xl text-charcoal mb-6">
-					Acompañamiento <span class="text-sage italic">profesional</span> y humano
+
+				<h2
+					class="font-serif text-3xl lg:text-4xl text-text-primary mb-8 leading-tight"
+				>
+					Acompañamiento <span
+						class="text-accent-primary italic font-light"
+						>profesional</span
+					> y compasivo
 				</h2>
-				
-				<div class="space-y-4 text-warm-gray leading-relaxed mb-10">
+
+				<div
+					class="space-y-5 text-[15px] lg:text-[16px] text-text-secondary leading-relaxed mb-12 font-sans"
+				>
 					<p>
-						Soy María Ángeles Mata, psicóloga colegiada en Córdoba con más de 15 años de experiencia ayudando a personas a superar sus dificultades emocionales.
+						Soy María Ángeles Mata, psicóloga colegiada en Córdoba
+						con más de 15 años de experiencia ayudando a personas a
+						superar sus dificultades emocionales y recuperar la
+						dirección de sus vidas.
 					</p>
 					<p>
-						Mi enfoque combina la rigurosidad científica con un trato cercano y empático. Creo firmemente que cada persona tiene la capacidad de cambiar y crecer cuando encuentra el acompañamiento adecuado.
-					</p>
-					<p>
-						En mi consulta ofrezco un espacio seguro y confidencial donde podrás expresarte libremente y trabajar en tus objetivos de bienestar.
+						Mi enfoque combina la rigurosidad científica de la
+						psicología clínica con un trato profundamente humano y
+						empático. Creo que la terapia es un espacio colaborativo
+						donde, juntos, exploramos qué te bloquea y construimos
+						herramientas sólidas para el bienestar a largo plazo.
 					</p>
 				</div>
-				
-				<div class="space-y-6">
-					{credentials.map((cred) => (
-						<div class="flex gap-4">
-							<div class="w-2 h-2 rounded-full bg-sage mt-2 shrink-0"></div>
-							<div>
-								<h4 class="font-serif text-lg text-charcoal mb-1">{cred.title}</h4>
-								<p class="text-xs font-mono text-sage uppercase tracking-wide mb-1">{cred.subtitle}</p>
-								<p class="text-sm text-warm-gray font-light">{cred.description}</p>
+
+				<div class="space-y-8">
+					{
+						credentials.map((cred) => (
+							<div class="flex gap-5 group">
+								<div class="pt-1.5 flex flex-col items-center gap-2">
+									<div class="w-2.5 h-2.5 rounded-full border-2 border-accent-primary bg-bg-base transition-colors duration-300 group-hover:bg-accent-primary" />
+									<div class="w-[1px] h-full bg-border-light border-dashed" />
+								</div>
+								<div class="pb-2">
+									<h4 class="font-serif text-[19px] text-text-primary mb-1">
+										{cred.title}
+									</h4>
+									<p class="text-[11px] font-sans font-medium text-accent-primary uppercase tracking-widest mb-2">
+										{cred.subtitle}
+									</p>
+									<p class="text-[14.5px] text-text-secondary font-light leading-relaxed max-w-sm">
+										{cred.description}
+									</p>
+								</div>
 							</div>
-						</div>
-					))}
+						))
+					}
+				</div>
+
+				<div class="mt-8 pt-6">
+					<img
+						src="/signature-placeholder.svg"
+						alt="Firma María Ángeles"
+						class="h-10 opacity-40 hover:opacity-70 transition-opacity"
+						onerror="this.style.display='none'"
+					/>
 				</div>
 			</div>
 		</div>

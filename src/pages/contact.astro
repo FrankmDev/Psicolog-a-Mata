@@ -2,158 +2,171 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactCard from '../components/ContactCard.astro';
+
+const title = "Contacto | María Ángeles Mata - Psicóloga en Córdoba";
+const description = "Contacta con María Ángeles Mata, psicóloga en Córdoba. Reserva tu primera consulta por teléfono, email o formulario. Respuesta en menos de 24 horas.";
 ---
 
-<Layout title="Contacto — María Ángeles Mata">
-	<Header activePage="Contacto" />
-	
-	<main>
-		<section class="relative min-h-screen bg-charcoal overflow-hidden">
-			<div class="absolute inset-0 bg-grain"></div>
-			<div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-sage/5 to-transparent"></div>
-			
-			<div class="relative min-h-screen flex items-center">
-				<div class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-24 lg:py-0">
-					<div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
-						
-						<div>
-							<div class="flex items-center gap-4 mb-6">
-								<span class="eyebrow text-sage-muted">Contacto</span>
-								<div class="line-elegant"></div>
-							</div>
-							
-							<h1 class="font-serif text-4xl lg:text-6xl text-ivory mb-6 leading-tight">
-								Hablemos de <span class="text-sage italic">ti</span>
-							</h1>
-							
-							<p class="text-lg text-warm-gray/60 leading-relaxed mb-10 max-w-md font-light">
-								Estoy aquí para escucharte. El primer paso hacia el bienestar comienza con una conversación.
-							</p>
-							
-							<div class="space-y-4 mb-10">
-								<a href="tel:+34661471971" class="group flex items-center gap-4 p-5 bg-white/[0.03] border border-white/10 hover:bg-white/[0.05] hover:border-sage/30 transition-all duration-500 rounded-sm">
-									<div class="w-12 h-12 bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors rounded-sm">
-										<svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-										</svg>
-									</div>
-									<div>
-										<p class="text-[10px] font-mono text-warm-gray/40 uppercase tracking-[0.15em] mb-1">Teléfono</p>
-										<p class="text-xl text-ivory font-serif group-hover:text-sage transition-colors">661 471 971</p>
-									</div>
-								</a>
-								
-								<a href="mailto:mangelesmatacala@hotmail.com" class="group flex items-center gap-4 p-5 bg-white/[0.03] border border-white/10 hover:bg-white/[0.05] hover:border-sage/30 transition-all duration-500 rounded-sm">
-									<div class="w-12 h-12 bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors rounded-sm">
-										<svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-										</svg>
-									</div>
-									<div>
-										<p class="text-[10px] font-mono text-warm-gray/40 uppercase tracking-[0.15em] mb-1">Email</p>
-										<p class="text-ivory group-hover:text-sage transition-colors">Respuesta en 24h</p>
-									</div>
-								</a>
-								
-								<div class="flex items-center gap-4 p-5 bg-white/[0.03] border border-white/10 rounded-sm">
-									<div class="w-12 h-12 bg-sage/10 flex items-center justify-center shrink-0 rounded-sm">
-										<svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-										</svg>
-									</div>
-									<div>
-										<p class="text-[10px] font-mono text-warm-gray/40 uppercase tracking-[0.15em] mb-1">Ubicación</p>
-										<p class="text-ivory">C/ Rodríguez Sánchez, 14003 Córdoba</p>
-									</div>
-								</div>
-							</div>
-							
-							<div class="flex items-center gap-3 text-sm text-warm-gray/40">
-								<div class="w-2 h-2 rounded-full bg-sage animate-pulse"></div>
-								<span>Presencial · Online · A domicilio</span>
-							</div>
-						</div>
-						
-						<div class="relative">
-							<div class="absolute -inset-3 border border-sage/20 rounded-sm"></div>
-							<div class="relative bg-warm-white p-8 lg:p-10 rounded-sm">
-								<div class="mb-6">
-									<h2 class="font-serif text-2xl text-charcoal mb-2">Envíame un mensaje</h2>
-									<p class="text-sm text-warm-gray/60">Te responderé en menos de 24 horas</p>
-								</div>
-								
-								<form class="space-y-4">
-									<div class="grid sm:grid-cols-2 gap-4">
-										<div>
-											<label class="block text-[10px] font-mono uppercase tracking-[0.12em] text-warm-gray/50 mb-2">Nombre</label>
-											<input 
-												type="text" 
-												placeholder="Tu nombre"
-												class="w-full px-4 py-3.5 bg-ivory border border-charcoal/10 rounded-sm text-charcoal placeholder:text-taupe focus:outline-none focus:border-sage/40 text-sm transition-all"
-												required
-											/>
-										</div>
-										<div>
-											<label class="block text-[10px] font-mono uppercase tracking-[0.12em] text-warm-gray/50 mb-2">Teléfono</label>
-											<input 
-												type="tel" 
-												placeholder="+34..."
-												class="w-full px-4 py-3.5 bg-ivory border border-charcoal/10 rounded-sm text-charcoal placeholder:text-taupe focus:outline-none focus:border-sage/40 text-sm transition-all"
-											/>
-										</div>
-									</div>
-									
-									<div>
-										<label class="block text-[10px] font-mono uppercase tracking-[0.12em] text-warm-gray/50 mb-2">Email</label>
-										<input 
-											type="email" 
-											placeholder="tu@email.com"
-											class="w-full px-4 py-3.5 bg-ivory border border-charcoal/10 rounded-sm text-charcoal placeholder:text-taupe focus:outline-none focus:border-sage/40 text-sm transition-all"
-											required
-										/>
-									</div>
-									
-									<div>
-										<label class="block text-[10px] font-mono uppercase tracking-[0.12em] text-warm-gray/50 mb-2">Servicio</label>
-										<select class="w-full px-4 py-3.5 bg-ivory border border-charcoal/10 rounded-sm text-charcoal focus:outline-none focus:border-sage/40 text-sm appearance-none cursor-pointer transition-all">
-											<option value="">Selecciona un servicio</option>
-											<option>Terapia individual</option>
-											<option>Terapia de pareja</option>
-											<option>Terapia familiar</option>
-											<option>Evaluación neuropsicológica</option>
-											<option>Estimulación cognitiva</option>
-											<option>Otra consulta</option>
-										</select>
-									</div>
-									
-									<div>
-										<label class="block text-[10px] font-mono uppercase tracking-[0.12em] text-warm-gray/50 mb-2">Mensaje</label>
-										<textarea 
-											placeholder="Cuéntame cómo puedo ayudarte..."
-											rows="4"
-											class="w-full px-4 py-3.5 bg-ivory border border-charcoal/10 rounded-sm text-charcoal placeholder:text-taupe focus:outline-none focus:border-sage/40 text-sm resize-none transition-all"
-											required
-										></textarea>
-									</div>
-									
-									<button 
-										type="submit" 
-										class="w-full group flex items-center justify-center gap-3 btn btn-primary"
-									>
-										<span>Enviar mensaje</span>
-										<svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
-										</svg>
-									</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
-	
-	<Footer />
+<Layout 
+  title={title}
+  description={description}
+  type="website"
+>
+  <Header activePage="Contacto" />
+  
+  <main id="main-content" role="main">
+    <section class="section-padding bg-ivory relative overflow-hidden" aria-labelledby="contact-heading">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sage/[0.03] rounded-full blur-[150px]" aria-hidden="true"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-secondary/[0.03] rounded-full blur-[100px]" aria-hidden="true"></div>
+      
+      <div class="container-elegant relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-20">
+          
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-[1px] bg-sage/50" aria-hidden="true"></div>
+              <span class="text-[11px] font-sans tracking-[0.3em] uppercase text-sage/70">Contacto</span>
+            </div>
+            
+            <h1 id="contact-heading" class="font-serif text-4xl lg:text-5xl xl:text-6xl text-charcoal mb-6 leading-[1.1]">
+              Hablemos de <span class="text-sage italic">ti</span>
+            </h1>
+            
+            <p class="text-lg text-stone/60 leading-relaxed mb-12 max-w-md font-light">
+              Estoy aquí para escucharte. El primer paso hacia el bienestar comienza con una conversación.
+            </p>
+            
+            <div class="space-y-4 mb-10" role="list" aria-label="Información de contacto">
+              <div role="listitem">
+                <ContactCard 
+                  href="tel:+34661471971"
+                  label="Teléfono"
+                  value="661 471 971"
+                  icon="phone"
+                />
+              </div>
+              
+              <div role="listitem">
+                <ContactCard 
+                  href="mailto:mangelesmatacala@hotmail.com"
+                  label="Email"
+                  value="Respuesta en 24h"
+                  icon="email"
+                />
+              </div>
+              
+              <div role="listitem">
+                <ContactCard 
+                  label="Ubicación"
+                  value="C/ Rodríguez Sánchez, 14003 Córdoba"
+                  icon="location"
+                />
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3 text-sm text-stone/50">
+              <div class="w-2 h-2 rounded-full bg-sage animate-pulse" aria-hidden="true"></div>
+              <span>Presencial · Online · A domicilio</span>
+            </div>
+          </div>
+          
+          <div class="bg-bg-surface border border-border-light rounded-2xl p-8 lg:p-10 shadow-card">
+            <div class="mb-8">
+              <h2 class="font-serif text-2xl text-charcoal mb-2">Envíame un mensaje</h2>
+              <p class="text-sm text-stone/50">Te responderé en menos de 24 horas</p>
+            </div>
+            
+            <form class="space-y-5" action="#" method="POST" aria-label="Formulario de contacto">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="nombre" class="block text-[10px] font-sans uppercase tracking-[0.12em] text-stone/40 mb-2">Nombre</label>
+                  <input 
+                    type="text" 
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    class="w-full px-4 py-3.5 bg-bg-base border border-border-light text-charcoal placeholder:text-stone/30 focus:outline-none focus:border-sage/40 text-sm transition-all rounded-lg"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div>
+                  <label for="telefono" class="block text-[10px] font-sans uppercase tracking-[0.12em] text-stone/40 mb-2">Teléfono</label>
+                  <input 
+                    type="tel" 
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+34..."
+                    class="w-full px-4 py-3.5 bg-bg-base border border-border-light text-charcoal placeholder:text-stone/30 focus:outline-none focus:border-sage/40 text-sm transition-all rounded-lg"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-[10px] font-sans uppercase tracking-[0.12em] text-stone/40 mb-2">Email</label>
+                <input 
+                  type="email" 
+                  id="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  class="w-full px-4 py-3.5 bg-bg-base border border-border-light text-charcoal placeholder:text-stone/30 focus:outline-none focus:border-sage/40 text-sm transition-all rounded-lg"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              
+              <div>
+                <label for="servicio" class="block text-[10px] font-sans uppercase tracking-[0.12em] text-stone/40 mb-2">Servicio</label>
+                <select 
+                  id="servicio"
+                  name="servicio"
+                  class="w-full px-4 py-3.5 bg-bg-base border border-border-light text-charcoal focus:outline-none focus:border-sage/40 text-sm appearance-none cursor-pointer transition-all rounded-lg"
+                  style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%278B9088%27%3E%3Cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px;"
+                >
+                  <option value="">Selecciona un servicio</option>
+                  <option>Terapia individual</option>
+                  <option>Terapia de pareja</option>
+                  <option>Terapia familiar</option>
+                  <option>Evaluación neuropsicológica</option>
+                  <option>Estimulación cognitiva</option>
+                  <option>Otra consulta</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="mensaje" class="block text-[10px] font-sans uppercase tracking-[0.12em] text-stone/40 mb-2">Mensaje</label>
+                <textarea 
+                  id="mensaje"
+                  name="mensaje"
+                  placeholder="Cuéntame cómo puedo ayudarte..."
+                  rows="4"
+                  class="w-full px-4 py-3.5 bg-bg-base border border-border-light text-charcoal placeholder:text-stone/30 focus:outline-none focus:border-sage/40 text-sm resize-none transition-all rounded-lg"
+                  required
+                ></textarea>
+              </div>
+              
+              <button 
+                type="submit" 
+                class="w-full group flex items-center justify-center gap-3 btn btn-primary"
+                aria-label="Enviar mensaje de contacto"
+              >
+                <span>Enviar mensaje</span>
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+                </svg>
+              </button>
+              
+              <p class="text-xs text-stone/40 text-center">
+                Al enviar este formulario, aceptas nuestra política de privacidad.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
 </Layout>

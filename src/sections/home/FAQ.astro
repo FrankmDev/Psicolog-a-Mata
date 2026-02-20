@@ -1,72 +1,46 @@
 ---
-const faqs = [
-	{
-		question: "¿Cuánto dura una sesión de terapia?",
-		answer: "Una sesión de terapia individual o de pareja dura 50 minutos. Es el tiempo estándar que permite profundizar en los temas importantes manteniendo la concentración y el ritmo adecuado."
-	},
-	{
-		question: "¿Con qué frecuencia debo acudir a terapia?",
-		answer: "Generalmente recomiendo sesiones semanales, especialmente al principio del proceso. Esta frecuencia permite mantener la continuidad y avanzar de manera consistente. Según vayamos progresando, podemos espaciar las sesiones."
-	},
-	{
-		question: "¿Cuánto tiempo dura el proceso terapéutico?",
-		answer: "La duración depende de tus objetivos y de lo que queramos trabajar. Algunas personas logran sus metas en pocas sesiones, mientras que otras prefieren un acompañamiento más prolongado. Lo determinaremos juntos en función de tu evolución."
-	},
-	{
-		question: "¿Es todo lo que digo confidencial?",
-		answer: "Absolutamente. La confidencialidad es un pilar fundamental de la terapia. Todo lo que compartas está protegido por el secreto profesional. Solo existen excepciones legales en casos de riesgo grave para ti o para terceros."
-	},
-	{
-		question: "¿Ofreces sesiones online?",
-		answer: "Sí, ofrezco sesiones de terapia online para quienes prefieren esta modalidad o no pueden desplazarse a la consulta. Las sesiones online son igual de efectivas y mantienen la misma calidad que las presenciales."
-	},
-	{
-		question: "¿Qué debo hacer si necesito cancelar una cita?",
-		answer: "Si necesitas cancelar o cambiar tu cita, te pido que me avises con al menos 24 horas de antelación. De esta manera puedo ofrecer esa hora a otra persona que pueda necesitarla."
-	}
-];
+import FAQItem from '../../components/FAQItem.astro';
+import { faqs } from '../../data/faqs';
 ---
 
-<section class="section-xl bg-ivory" id="faqs">
-	<div class="max-w-4xl mx-auto px-6 lg:px-8">
-		<div class="text-center mb-16">
-			<div class="flex items-center justify-center gap-4 mb-6">
-				<div class="line-elegant"></div>
-				<span class="eyebrow">Preguntas frecuentes</span>
-				<div class="line-elegant"></div>
-			</div>
-			
-			<h2 class="font-serif text-4xl lg:text-5xl text-charcoal">
-				Resolvemos tus <span class="text-sage italic">dudas</span>
-			</h2>
-		</div>
-		
-		<div class="space-y-4">
-			{faqs.map((faq, index) => (
-				<details class="group bg-warm-white border border-charcoal/5 rounded-sm overflow-hidden">
-					<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-stone-light/30 transition-colors duration-300">
-						<h3 class="font-serif text-lg text-charcoal pr-8">{faq.question}</h3>
-						<div class="w-8 h-8 flex items-center justify-center shrink-0">
-							<svg class="w-5 h-5 text-sage transition-transform duration-300 group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" />
-							</svg>
-						</div>
-					</summary>
-					<div class="px-6 pb-6">
-						<p class="text-warm-gray leading-relaxed font-light">{faq.answer}</p>
-					</div>
-				</details>
-			))}
-		</div>
-		
-		<div class="mt-12 text-center">
-			<p class="text-warm-gray mb-4">¿Tienes otra pregunta?</p>
-			<a 
-				href="/contact" 
-				class="btn btn-outline"
-			>
-				<span>Contacta conmigo</span>
-			</a>
-		</div>
-	</div>
+<section class="section-padding bg-cream relative overflow-hidden" id="faqs">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sage/[0.02] rounded-full blur-[150px]"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-secondary/[0.03] rounded-full blur-[100px]"></div>
+  
+  <div class="container-elegant relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <div class="w-12 h-[1px] bg-sage/50"></div>
+          <span class="eyebrow !mb-0">Preguntas frecuentes</span>
+          <div class="w-12 h-[1px] bg-sage/50"></div>
+        </div>
+        
+        <h2 class="font-serif text-4xl lg:text-5xl text-charcoal leading-tight">
+          Resolvemos tus <span class="text-sage italic">dudas</span>
+        </h2>
+      </div>
+      
+      <div class="space-y-3">
+        {faqs.map((faq, index) => (
+          <FAQItem question={faq.question} index={index}>
+            {faq.answer}
+          </FAQItem>
+        ))}
+      </div>
+      
+      <div class="mt-16 text-center">
+        <p class="text-text-secondary mb-6">¿Tienes otra pregunta?</p>
+        <a 
+          href="/contact" 
+          class="btn btn-outline inline-flex items-center gap-3"
+        >
+          <span>Contacta conmigo</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>

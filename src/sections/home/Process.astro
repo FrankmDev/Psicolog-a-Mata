@@ -1,70 +1,104 @@
 ---
 const steps = [
-	{ 
-		number: "01", 
-		title: "Primera consulta", 
-		description: "Nos conocemos. Escucho tu historia y comprendo qué te ha traído hasta aquí. Definimos juntos tus objetivos." 
+	{
+		number: "01",
+		title: "Toma de contacto",
+		description:
+			"Nos conocemos. Escucho detenidamente tu historia y el motivo que te trae a consulta para establecer un vínculo de confianza inicial.",
 	},
-	{ 
-		number: "02", 
-		title: "Evaluación", 
-		description: "Realizamos una valoración profunda para entender tu situación y diseñar el mejor plan de intervención." 
+	{
+		number: "02",
+		title: "Evaluación clínica",
+		description:
+			"Realizamos una valoración integral para comprender en profundidad el origen de tu situación y diseñar los objetivos terapéuticos.",
 	},
-	{ 
-		number: "03", 
-		title: "Intervención", 
-		description: "Trabajamos sesión a sesión con técnicas basadas en evidencia, adaptadas a tus necesidades específicas." 
+	{
+		number: "03",
+		title: "Intervención y terapia",
+		description:
+			"Fase de trabajo central. Empleamos técnicas avaladas por la ciencia para dotarte de herramientas y estrategias de afrontamiento.",
 	},
-	{ 
-		number: "04", 
-		title: "Seguimiento", 
-		description: "Evaluamos tu progreso y ajustamos el enfoque. Celebramos tus avances y consolidamos los cambios." 
-	}
+	{
+		number: "04",
+		title: "Consolidación",
+		description:
+			"Evaluamos sistemáticamente tu progreso. Cuando los objetivos se han alcanzado, espaciamos las sesiones para afianzar tu autonomía.",
+	},
 ];
 ---
 
-<section class="section-xl bg-ivory" id="proceso">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="mb-16 lg:mb-20">
-			<div class="flex items-center gap-4 mb-6">
-				<span class="eyebrow">Proceso</span>
-				<div class="line-long"></div>
-			</div>
-			
-			<h2 class="font-serif text-4xl lg:text-5xl text-charcoal max-w-xl">
-				Cómo <span class="text-sage italic">trabajamos</span>
-			</h2>
-		</div>
-		
-		<div class="grid lg:grid-cols-4 gap-px bg-charcoal/10">
-			{steps.map((step, index) => (
-				<div class="group relative bg-ivory p-8 lg:p-10 hover:bg-warm-white transition-colors duration-500">
-					<div class="mb-8">
-						<span class="font-mono text-sm text-sage/50 tracking-wider">{step.number}</span>
-					</div>
-					
-					<h3 class="font-serif text-xl lg:text-2xl text-charcoal mb-4">
-						{step.title}
-					</h3>
-					
-					<p class="text-warm-gray leading-relaxed font-light text-sm">
-						{step.description}
-					</p>
-					
-					<div class="absolute bottom-0 left-0 w-0 h-px bg-sage group-hover:w-full transition-all duration-700"></div>
+<section
+	class="section-padding bg-bg-surface border-y border-border-light relative overflow-hidden"
+	id="proceso"
+>
+	<!-- Decorative soft blobs -->
+	<div
+		class="absolute top-0 right-0 w-[500px] h-[500px] bg-bg-muted rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"
+	>
+	</div>
+
+	<div class="container-elegant relative z-10">
+		<div class="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-16 lg:mb-20">
+			<div class="lg:w-1/3">
+				<div class="flex items-center gap-4 mb-6">
+					<span
+						class="eyebrow !mb-0 text-text-secondary tracking-[0.2em]"
+						>Metodología</span
+					>
+					<div class="w-12 h-[1px] bg-accent-primary"></div>
 				</div>
-			))}
+
+				<h2
+					class="font-serif text-3xl lg:text-4xl text-text-primary mb-6 leading-tight"
+				>
+					Cómo trabajamos en <span
+						class="text-accent-primary italic font-light"
+						>consulta</span
+					>
+				</h2>
+
+				<p
+					class="text-[15px] text-text-secondary leading-relaxed font-sans"
+				>
+					Un proceso terapéutico estructurado, transparente riguroso,
+					pero adaptado a tu ritmo y necesidades individuales.
+				</p>
+			</div>
+
+			<div class="lg:w-2/3">
+				<div class="grid md:grid-cols-2 gap-8">
+					{
+						steps.map((step, index) => (
+							<div class="group p-8 rounded-2xl bg-bg-base border border-border-light hover:border-accent-primary/30 hover:shadow-card transition-all duration-500">
+								<div class="flex items-center justify-between mb-6">
+									<span class="font-serif text-[28px] text-text-tertiary group-hover:text-accent-primary transition-colors duration-300 italic">
+										{step.number}
+									</span>
+									<div class="w-8 h-[1px] bg-border-medium group-hover:w-12 group-hover:bg-accent-primary transition-all duration-500" />
+								</div>
+
+								<h3 class="font-serif text-[22px] text-text-primary mb-3">
+									{step.title}
+								</h3>
+
+								<p class="text-[14.5px] text-text-secondary leading-relaxed font-light">
+									{step.description}
+								</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
 		</div>
-		
-		<div class="mt-16 text-center">
-			<a 
-				href="/contact" 
-				class="btn btn-primary"
+
+		<div
+			class="mt-12 pt-12 border-t border-border-light text-center flex flex-col sm:flex-row items-center justify-center gap-6"
+		>
+			<span class="font-serif text-lg text-text-secondary italic"
+				>¿Preparado/a para dar el primer paso?</span
 			>
-				<span>Empezar tu proceso</span>
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
-				</svg>
+			<a href="/contact" class="btn btn-primary py-3">
+				<span>Solicitar cita previa</span>
 			</a>
 		</div>
 	</div>

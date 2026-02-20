@@ -1,58 +1,334 @@
 ---
-import '../styles/global.css';
-import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
-	title: string;
-	description?: string;
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  noindex?: boolean;
 }
 
-const { title, description = "María Ángeles Mata — Psicóloga General Sanitaria en Córdoba. Terapia individual, de pareja y familiar." } = Astro.props;
+const {
+  title,
+  description = "María Ángeles Mata — Psicóloga General Sanitaria en Córdoba. Terapia individual, de pareja y familiar. 15+ años de experiencia.",
+  image = "/og-image.jpg",
+  type = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://psicologamata.es");
+const siteName = "María Ángeles Mata - Psicóloga en Córdoba";
+
+// Schema.org LocalBusiness
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://psicologamata.es/#business",
+  name: "María Ángeles Mata - Psicóloga Clínica",
+  description: "Psicóloga General Sanitaria en Córdoba. Terapia individual, de pareja y familiar.",
+  url: "https://psicologamata.es",
+  telephone: "+34661471971",
+  email: "mangelesmatacala@hotmail.com",
+  priceRange: "€€",
+  image: "https://psicologamata.es/og-image.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "C/ Rodríguez Sánchez",
+    addressLocality: "Córdoba",
+    postalCode: "14003",
+    addressCountry: "ES"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 37.8882,
+    longitude: -4.7794
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "20:00"
+    }
+  ],
+  serviceType: ["Terapia Individual", "Terapia de Pareja", "Terapia Familiar", "Evaluación Neuropsicológica"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de Psicología",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Terapia Individual",
+          description: "Tratamiento de ansiedad, estrés, autoestima y crecimiento personal"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Terapia de Pareja",
+          description: "Mejora de comunicación y resolución de conflictos"
+        }
+      }
+    ]
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/maria-angeles-mata"
+  ]
+};
+
+// Schema.org WebSite
+const schemaWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://psicologamata.es/#website",
+  url: "https://psicologamata.es",
+  name: siteName,
+  description: description,
+  publisher: {
+    "@id": "https://psicologamata.es/#business"
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://psicologamata.es/blog?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// BreadcrumbList si no es la home
+const breadcrumbs = Astro.url.pathname !== "/" ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: "https://psicologamata.es"
+    },
+    ...Astro.url.pathname.split("/").filter(Boolean).map((segment, index, arr) => ({
+      "@type": "ListItem",
+      position: index + 2,
+      name: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " "),
+      item: `https://psicologamata.es/${arr.slice(0, index + 1).join("/")}`
+    }))
+  ]
+} : null;
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<meta name="theme-color" content="#1C1C1A" />
-		<title>{title}</title>
-		
-		<ClientRouter />
-		
-		<!-- Preconnect -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		
-		<!-- Fonts: Cormorant Garamond (elegant serif) + Source Sans 3 (clean sans) -->
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-		
-		<style is:global>
-			/* Smooth page transitions */
-			::view-transition-old(root) {
-				animation: fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-			}
-			
-			::view-transition-new(root) {
-				animation: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-			}
-			
-			@keyframes fade-out {
-				from { opacity: 1; transform: translateY(0); }
-				to { opacity: 0; transform: translateY(-6px); }
-			}
-			
-			@keyframes fade-in {
-				from { opacity: 0; transform: translateY(6px); }
-				to { opacity: 1; transform: translateY(0); }
-			}
-		</style>
-	</head>
-	<body class="bg-ivory text-charcoal antialiased">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="María Ángeles Mata" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#FAFAF9" />
+    <meta name="msapplication-TileColor" content="#869D8A" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site || "https://psicologamata.es")} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${title} - ${siteName}`} />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site || "https://psicologamata.es")} />
+    <meta property="twitter:image:alt" content={`${title} - ${siteName}`} />
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/lora/v35/0QIvMX1D_JOuAwv5ou5qlXCj-NqJKwBqwPVv\_p7yBpv0E-7K-w.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaWebSite)} />
+    {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
+    
+    <ClientRouter />
+    
+    <!-- Page Transitions -->
+    <style is:global>
+      ::view-transition-old(root) {
+        animation: fade-out 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      ::view-transition-new(root) {
+        animation: fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fade-out {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(0.98); }
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0; transform: scale(1.02); }
+        to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+    
+    <!-- Critical CSS for above-the-fold -->
+    <style is:inline>
+      /* Prevent FOUC */
+      html { visibility: visible; opacity: 1; }
+      
+      /* Smooth scroll polyfill for Safari */
+      @supports not (scroll-behavior: smooth) {
+        html { scroll-behavior: smooth; }
+      }
+      
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  
+  <body class="bg-bg-base text-text-primary antialiased selection:bg-accent-primary/20 selection:text-text-primary">
+    <!-- Skip to main content for accessibility -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-text-primary focus:text-bg-base focus:rounded-lg focus:text-sm focus:font-medium"
+    >
+      Saltar al contenido principal
+    </a>
+    
+    <slot />
+    
+    <!-- Custom Cursor (desktop only) -->
+    <script is:inline>
+      // Only on non-touch devices
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.style.cssText = `
+          position: fixed;
+          width: 20px;
+          height: 20px;
+          border: 1px solid var(--color-accent-primary, #869D8A);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 9999;
+          transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+          mix-blend-mode: difference;
+        `;
+        document.body.appendChild(cursor);
+        
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'custom-cursor-dot';
+        cursorDot.style.cssText = `
+          position: fixed;
+          width: 4px;
+          height: 4px;
+          background: var(--color-accent-primary, #869D8A);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 9999;
+          transition: transform 0.05s ease-out;
+        `;
+        document.body.appendChild(cursorDot);
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px)`;
+        }, { passive: true });
+        
+        function animateCursor() {
+          cursorX += (mouseX - cursorX) * 0.1;
+          cursorY += (mouseY - cursorY) * 0.1;
+          cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+          requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Hover effects
+        document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px) scale(1.5)`;
+            cursor.style.opacity = '0.5';
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px) scale(1)`;
+            cursor.style.opacity = '1';
+          });
+        });
+        
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+          cursor.style.opacity = '0';
+          cursorDot.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+          cursor.style.opacity = '1';
+          cursorDot.style.opacity = '1';
+        });
+      }
+    </script>
+    
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-sage z-[60] origin-left scale-x-0 transition-transform duration-100"></div>
+    
+    <script is:inline>
+      // Scroll progress
+      const scrollProgress = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollTop / docHeight;
+        scrollProgress.style.transform = `scaleX(${progress})`;
+      }, { passive: true });
+    </script>
+  </body>
 </html>

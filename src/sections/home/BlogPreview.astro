@@ -1,0 +1,63 @@
+---
+import { blogPostsList } from '../../data/blog';
+
+const previewPosts = blogPostsList.slice(0, 3);
+---
+
+<section class="section-padding bg-bg-muted relative overflow-hidden" id="blog">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sage/[0.02] rounded-full blur-[150px]"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-secondary/[0.03] rounded-full blur-[100px]"></div>
+  
+  <div class="container-elegant relative z-10">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
+      <div>
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-[1px] bg-sage/50"></div>
+          <span class="eyebrow !mb-0">Blog</span>
+        </div>
+        <h2 class="font-serif text-3xl lg:text-4xl text-text-primary">
+          Reflexiones sobre <span class="text-sage italic font-light">bienestar</span>
+        </h2>
+      </div>
+      
+      <a href="/blog" class="btn btn-outline text-sm py-2.5 px-6">
+        <span>Ver todos los artículos</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+        </svg>
+      </a>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {previewPosts.map((post) => (
+        <a 
+          href={`/blog/${post.slug}`}
+          class="group bg-bg-surface border border-border-light rounded-xl p-6 lg:p-8 hover:border-sage/30 hover:shadow-card transition-all duration-500"
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-[10px] font-sans tracking-[0.15em] uppercase text-sage/70">
+              {post.category}
+            </span>
+            <span class="w-1 h-1 rounded-full bg-stone/30"></span>
+            <span class="text-[11px] text-stone/40">{post.dateShort}</span>
+          </div>
+          
+          <h3 class="font-serif text-xl text-text-primary mb-3 group-hover:text-sage transition-colors duration-300 leading-tight">
+            {post.title}
+          </h3>
+          
+          <p class="text-[14px] text-text-secondary leading-relaxed font-light mb-4">
+            {post.excerpt}
+          </p>
+          
+          <div class="flex items-center gap-2 text-sm text-sage opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>Leer artículo</span>
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

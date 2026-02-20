@@ -1,84 +1,47 @@
 ---
-const services = [
-	{
-		number: "01",
-		title: "Terapia Individual",
-		description: "Un espacio privado para trabajar la ansiedad, el estrés, la autoestima o cualquier dificultad que esté limitando tu bienestar.",
-		features: ["Ansiedad", "Estrés", "Autoestima", "Depresión"],
-		href: "/services"
-	},
-	{
-		number: "02",
-		title: "Terapia de Pareja",
-		description: "Recupera la conexión con tu pareja. Mejoramos la comunicación y resolvemos conflictos para construir una relación más sana.",
-		features: ["Comunicación", "Conflictos", "Confianza", "Intimidad"],
-		href: "/services"
-	},
-	{
-		number: "03",
-		title: "Terapia Familiar",
-		description: "Cuando la dinámica familiar se complica. Intervención sistémica para mejorar las relaciones y la comunicación.",
-		features: ["Dinámica familiar", "Comunicación", "Conflictos", "Límites"],
-		href: "/services"
-	}
-];
+import { mainServices } from '../../data/services';
 ---
 
-<section class="section-xl bg-ivory" id="servicios">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="mb-16 lg:mb-20">
-			<div class="flex items-center gap-4 mb-6">
-				<span class="eyebrow">Servicios</span>
-				<div class="line-long"></div>
-			</div>
-			
-			<h2 class="font-serif text-4xl lg:text-5xl text-charcoal max-w-2xl">
-				¿En qué puedo <span class="text-sage italic">ayudarte</span>?
-			</h2>
-		</div>
-		
-		<div class="space-y-0">
-			{services.map((service, index) => (
-				<a 
-					href={service.href}
-					class="group block py-10 lg:py-12 border-t border-charcoal/10 hover:bg-warm-white transition-all duration-500"
-				>
-					<div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-						<div class="lg:col-span-1">
-							<span class="font-mono text-3xl lg:text-4xl text-sage/30 group-hover:text-sage/50 transition-colors duration-500">
-								{service.number}
-							</span>
-						</div>
-						
-						<div class="lg:col-span-6">
-							<h3 class="font-serif text-2xl lg:text-3xl text-charcoal mb-4 group-hover:text-sage transition-colors duration-300">
-								{service.title}
-							</h3>
-							<p class="text-warm-gray leading-relaxed font-light">
-								{service.description}
-							</p>
-						</div>
-						
-						<div class="lg:col-span-4">
-							<div class="flex flex-wrap gap-2">
-								{service.features.map((feature) => (
-									<span class="px-3 py-1.5 bg-sage/5 text-sage text-xs font-mono tracking-wide uppercase rounded-sm">
-										{feature}
-									</span>
-								))}
-							</div>
-						</div>
-						
-						<div class="lg:col-span-1 flex justify-end">
-							<div class="w-12 h-12 flex items-center justify-center border border-charcoal/10 group-hover:border-sage/30 group-hover:bg-sage/5 transition-all duration-500">
-								<svg class="w-5 h-5 text-charcoal/30 group-hover:text-sage transition-all duration-500 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			))}
-		</div>
-	</div>
+<section class="section-padding bg-bg-muted relative overflow-hidden" id="servicios">
+  <div class="container-elegant relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+      <span class="eyebrow mb-4">Áreas de Especialidad</span>
+      
+      <h2 class="font-serif text-3xl lg:text-4xl text-text-primary mb-6">
+        Acompañamiento <span class="italic font-light text-accent-primary">especializado</span> para cada etapa de tu vida
+      </h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      {mainServices.map((service) => (
+        <a 
+          href="/services"
+          class="card-elegant group relative block overflow-hidden bg-bg-surface"
+        >
+          <!-- Hover subtle gradient -->
+          <div class="absolute top-0 right-0 p-12 bg-accent-primary/5 rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-bg-muted flex items-center justify-center text-accent-primary mb-8 group-hover:bg-accent-primary group-hover:text-bg-surface transition-colors duration-500" set:html={service.icon}>
+            </div>
+            
+            <h3 class="font-serif text-2xl text-text-primary mb-4">
+              {service.title}
+            </h3>
+            
+            <p class="text-[15px] text-text-secondary leading-relaxed mb-8">
+              {service.shortDescription}
+            </p>
+            
+            <div class="inline-flex items-center gap-2 text-[13px] font-medium text-text-primary group-hover:text-accent-primary transition-colors duration-300">
+              <span class="uppercase tracking-widest">Saber más</span>
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
 </section>

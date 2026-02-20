@@ -7,22 +7,31 @@ import Services from '../sections/home/Services.astro';
 import About from '../sections/home/About.astro';
 import Process from '../sections/home/Process.astro';
 import Values from '../sections/home/Values.astro';
+import BlogPreview from '../sections/home/BlogPreview.astro';
 import BannerCTA from '../sections/home/BannerCTA.astro';
 import FAQ from '../sections/home/FAQ.astro';
+
+const title = "María Ángeles Mata — Psicóloga en Córdoba | Terapia Individual y de Pareja";
+const description = "Psicóloga General Sanitaria en Córdoba con 15+ años de experiencia. Especialista en terapia individual, de pareja y familiar. Primera consulta sin compromiso.";
 ---
 
-<Layout title="María Ángeles Mata — Psicóloga en Córdoba">
-	<Header activePage="Inicio" />
-	
-	<main>
-		<Hero />
-		<Services />
-		<About />
-		<Process />
-		<Values />
-		<BannerCTA />
-		<FAQ />
-	</main>
-	
-	<Footer />
+<Layout 
+  title={title}
+  description={description}
+  type="website"
+>
+  <Header activePage="Inicio" />
+  
+  <main id="main-content" role="main">
+    <Hero />
+    <Services />
+    <About />
+    <Process />
+    <Values />
+    <BlogPreview />
+    <BannerCTA />
+    <FAQ />
+  </main>
+  
+  <Footer />
 </Layout>
