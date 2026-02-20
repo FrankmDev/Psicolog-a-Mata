@@ -1,0 +1,90 @@
+---
+interface Props {
+	steps?: Array<{
+		step: string;
+		title: string;
+		description: string;
+	}>;
+}
+
+const { 
+	steps = [
+		{ 
+			step: "01", 
+			title: "Primera consulta", 
+			description: "Escuchamos tu historia. Definimos objetivos juntos." 
+		},
+		{ 
+			step: "02", 
+			title: "Plan personalizado", 
+			description: "Diseñamos una estrategia adaptada a ti." 
+		},
+		{ 
+			step: "03", 
+			title: "Sesiones regulares", 
+			description: "Trabajamos semana a semana en tu progreso." 
+		},
+		{ 
+			step: "04", 
+			title: "Evaluación continua", 
+			description: "Ajustamos el enfoque según tus resultados." 
+		}
+	]
+} = Astro.props;
+---
+
+<section class="relative py-32 lg:py-48 bg-cream overflow-hidden" id="metodologia">
+	<div class="absolute inset-0 bg-grain opacity-[0.01]"></div>
+	
+	<div class="absolute top-0 left-0 w-full h-px bg-charcoal/[0.06]"></div>
+	<div class="absolute bottom-0 left-0 w-full h-px bg-charcoal/[0.06]"></div>
+	
+	<div class="absolute top-0 right-0 w-[700px] h-[700px] bg-sage/[0.03] rounded-full blur-[150px]"></div>
+	<div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sage/[0.02] rounded-full blur-[120px]"></div>
+	
+	<div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+		<div class="mb-20 lg:mb-28">
+			<div class="flex items-center gap-4 mb-6">
+				<span class="text-[11px] font-mono tracking-[0.3em] uppercase text-stone/40">Proceso</span>
+				<div class="w-20 h-px bg-charcoal/[0.1]"></div>
+			</div>
+			
+			<h2 class="font-display text-5xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-[-0.03em] text-charcoal">
+				Cómo <span class="text-sage italic">trabajamos</span>
+			</h2>
+		</div>
+		
+		<div class="grid lg:grid-cols-4 gap-1">
+			{steps.map((item, index) => (
+				<div class="group relative p-8 lg:p-12 hover:bg-white transition-all duration-500">
+					<div class="absolute top-0 left-0 w-full h-px bg-charcoal/[0.06]"></div>
+					<div class="absolute bottom-0 left-0 w-0 h-px bg-sage group-hover:w-full transition-all duration-700"></div>
+					
+					<div class="mb-8">
+						<span class="font-mono text-sm text-sage/40 tracking-wider">{item.step}</span>
+					</div>
+					
+					<h3 class="font-display text-2xl lg:text-3xl text-charcoal mb-4 tracking-tight">
+						{item.title}
+					</h3>
+					
+					<p class="text-base text-stone/50 leading-relaxed font-light">
+						{item.description}
+					</p>
+				</div>
+			))}
+		</div>
+		
+		<div class="mt-20 lg:mt-24 text-center">
+			<a 
+				href="/contact" 
+				class="group inline-flex items-center gap-4 bg-charcoal text-ivory px-10 py-5 text-base font-medium transition-all duration-500 hover:bg-sage"
+			>
+				<span>Empezar tu proceso</span>
+				<svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>

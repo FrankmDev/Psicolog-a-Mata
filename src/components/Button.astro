@@ -1,0 +1,52 @@
+---
+interface Props {
+	variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+	size?: 'sm' | 'md' | 'lg';
+	href?: string;
+	type?: 'button' | 'submit';
+	icon?: string;
+	iconPosition?: 'left' | 'right';
+	class?: string;
+}
+
+const { 
+	variant = 'primary', 
+	size = 'md', 
+	href, 
+	type = 'button',
+	icon,
+	iconPosition = 'right',
+	class: className = ''
+} = Astro.props;
+
+const baseClasses = "inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-lg";
+
+const variantClasses = {
+	primary: "bg-primary hover:bg-primary-dark text-white shadow-sm hover:shadow-md",
+	secondary: "bg-text-main hover:bg-primary text-white",
+	outline: "bg-white border border-gray-200 hover:border-primary text-text-main",
+	ghost: "bg-transparent hover:bg-primary/10 text-primary"
+};
+
+const sizeClasses = {
+	sm: "text-sm py-2 px-4",
+	md: "text-sm py-2.5 px-6",
+	lg: "text-base py-3 px-8"
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+---
+
+{href ? (
+	<a href={href} class={classes}>
+		{icon && iconPosition === 'left' && <span class="material-symbols-outlined !text-lg">{icon}</span>}
+		<slot />
+		{icon && iconPosition === 'right' && <span class="material-symbols-outlined !text-lg">{icon}</span>}
+	</a>
+) : (
+	<button type={type} class={classes}>
+		{icon && iconPosition === 'left' && <span class="material-symbols-outlined !text-lg">{icon}</span>}
+		<slot />
+		{icon && iconPosition === 'right' && <span class="material-symbols-outlined !text-lg">{icon}</span>}
+	</button>
+)}

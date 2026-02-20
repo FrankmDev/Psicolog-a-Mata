@@ -1,0 +1,141 @@
+---
+interface Props {
+	activePage?: string;
+}
+
+const { activePage = "" } = Astro.props;
+
+const navLinks = [
+	{ href: "/", label: "Inicio" },
+	{ href: "/services", label: "Servicios" },
+	{ href: "/contact", label: "Contacto" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="header">
+	<div class="absolute inset-0 bg-ivory/90 backdrop-blur-md opacity-0 transition-opacity duration-500 border-b border-charcoal/[0.03]" id="header-bg"></div>
+	
+	<div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="flex items-center justify-between h-20 lg:h-24">
+			
+			<!-- Logo -->
+			<a href="/" class="flex items-center gap-3 group">
+				<div class="w-10 h-10 lg:w-11 lg:h-11 bg-sage flex items-center justify-center transition-all duration-500 rounded-sm group-hover:rounded-md">
+					<span class="font-serif text-lg lg:text-xl text-ivory italic">M</span>
+				</div>
+				<div class="hidden sm:flex flex-col">
+					<span class="font-serif text-base lg:text-lg text-charcoal tracking-tight">María Ángeles Mata</span>
+					<span class="text-[10px] font-mono tracking-[0.15em] uppercase text-warm-gray">Psicóloga · Córdoba</span>
+				</div>
+			</a>
+			
+			<!-- Desktop Navigation -->
+			<nav class="hidden lg:flex items-center gap-10">
+				{navLinks.map((link) => (
+					<a 
+						class={`nav-link ${activePage === link.label ? 'active text-charcoal' : ''}`}
+						href={link.href}
+					>
+						{link.label}
+					</a>
+				))}
+			</nav>
+			
+			<!-- CTA Button -->
+			<div class="hidden lg:block">
+				<a 
+					href="/contact" 
+					class="btn btn-secondary text-sm"
+				>
+					<span>Reservar cita</span>
+				</a>
+			</div>
+			
+			<!-- Mobile Menu Toggle -->
+			<button class="lg:hidden p-2 text-charcoal hover:text-sage transition-colors" aria-label="Menú" id="menu-toggle">
+				<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu -->
+	<div class="lg:hidden fixed inset-0 bg-ivory/98 backdrop-blur-xl z-40 translate-x-full transition-transform duration-500 ease-out" id="mobile-menu">
+		<div class="flex flex-col h-full pt-24 pb-8 px-6">
+			<nav class="flex flex-col gap-2">
+				{navLinks.map((link) => (
+					<a 
+						class={`py-4 font-serif text-3xl border-b border-charcoal/5 transition-colors ${
+							activePage === link.label ? 'text-sage' : 'text-charcoal'
+						}`}
+						href={link.href}
+					>
+						{link.label}
+					</a>
+				))}
+			</nav>
+			
+			<div class="mt-auto pt-8">
+				<a 
+					href="/contact" 
+					class="btn btn-secondary w-full justify-center"
+				>
+					<span>Reservar cita</span>
+				</a>
+				<div class="mt-6 text-center">
+					<a href="tel:+34661471971" class="text-warm-gray hover:text-charcoal transition-colors">
+						<span class="font-serif text-lg">661 471 971</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="h-20 lg:h-24"></div>
+
+<script>
+	const headerBg = document.getElementById('header-bg');
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	let menuOpen = false;
+	
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 50) {
+			headerBg?.classList.remove('opacity-0');
+			headerBg?.classList.add('opacity-100');
+		} else {
+			headerBg?.classList.remove('opacity-100');
+			headerBg?.classList.add('opacity-0');
+		}
+	});
+	
+	menuToggle?.addEventListener('click', () => {
+		menuOpen = !menuOpen;
+		if (menuOpen) {
+			mobileMenu?.classList.remove('translate-x-full');
+			document.body.style.overflow = 'hidden';
+			if (menuToggle) {
+				menuToggle.innerHTML = '<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>';
+			}
+		} else {
+			mobileMenu?.classList.add('translate-x-full');
+			document.body.style.overflow = '';
+			if (menuToggle) {
+				menuToggle.innerHTML = '<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>';
+			}
+		}
+	});
+	
+	mobileMenu?.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', () => {
+			menuOpen = false;
+			mobileMenu.classList.add('translate-x-full');
+			document.body.style.overflow = '';
+			if (menuToggle) {
+				menuToggle.innerHTML = '<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>';
+			}
+		});
+	});
+</script>

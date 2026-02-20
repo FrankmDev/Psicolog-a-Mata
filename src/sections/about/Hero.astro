@@ -1,0 +1,89 @@
+---
+import StatBadge from '../../components/StatBadge.astro';
+
+interface Props {
+	label?: string;
+	title?: string;
+	description?: string;
+	descriptionExtended?: string;
+	stats?: Array<{ value: string; label: string }>;
+	image?: string;
+	imageAlt?: string;
+	certificationTitle?: string;
+	certificationText?: string;
+}
+
+const { 
+	label = "Mi Filosofía",
+	title = "Restaurando el equilibrio a través de la <i>conexión</i> y la <i>ciencia</i>.",
+	description = "Creo firmemente que cada individuo posee la capacidad para un cambio profundo. Mi práctica no se trata solo de aliviar síntomas, sino de comprender la narrativa intrincada de su vida.",
+	descriptionExtended = "Con más de 15 años de experiencia clínica, fusiono metodologías basadas en evidencia con un enfoque profundamente humanista. No solo hablamos; construimos un conjunto de herramientas para su resiliencia, fundamentadas en la última investigación neurobiológica y adaptadas a su historia personal única.",
+	stats = [
+		{ value: "15+", label: "Años de Experiencia" },
+		{ value: "PhD", label: "Psicología Clínica" },
+		{ value: "500+", label: "Vidas Impactadas" }
+	],
+	image = "https://lh3.googleusercontent.com/aida-public/AB6AXuAIFQD1di-X7MEQ7NwHci1Ctd7P-1zjFbfoeBUzSnu9mlIGhfWtpLyZSsZOySydUO8qudwzTTOEcz5Gx1ptTXbrnQLz7IVQ1dIKp9IkTmPDlz3BmIDkoLJmg1gjMT-FKRadef616bJ_hq-riftGhWRCiY7E5vmLNHXGGJuaoXbNBfllgfUVTjy2FHpZYZRZWfqptn9KjRNg6wZYnOF37SrVMevN8TNskcBMLhH4HeYyUCTfP4rGCKK0v5euMKLVWmvkNhsYMeYj8yW_",
+	imageAlt = "Retrato profesional de la Dra. Sarah Jenkins",
+	certificationTitle = "Certificación Oficial",
+	certificationText = "Verificado por la Junta Estadounidense de Psicología Profesional"
+} = Astro.props;
+---
+
+<section class="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
+	<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-light/50 to-transparent dark:from-primary/10 pointer-events-none"></div>
+	
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+			<div class="lg:col-span-7 flex flex-col gap-8 pt-4">
+				<div class="inline-flex items-center gap-3">
+					<span class="h-px w-8 bg-primary"></span>
+					<span class="text-sm font-semibold uppercase tracking-widest text-primary">{label}</span>
+				</div>
+				
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-text-main dark:text-white leading-[1.1]" set:html={title} />
+				
+				<div class="prose prose-lg text-text-muted dark:text-gray-300 leading-relaxed max-w-2xl space-y-6">
+					<p>{description}</p>
+				<slot name="description-extended">
+					<p>{descriptionExtended}</p>
+				</slot>
+				</div>
+				
+				<div class="flex flex-wrap gap-8 pt-4 border-t border-gray-200 dark:border-gray-800 mt-4">
+					{stats.map((stat) => (
+						<StatBadge value={stat.value} label={stat.label} />
+					))}
+				</div>
+			</div>
+			
+			<div class="lg:col-span-5 relative group mt-8 lg:mt-0">
+				<div class="absolute inset-0 bg-primary rounded-[2rem] rotate-3 translate-x-2 translate-y-2 lg:translate-x-4 lg:translate-y-4 opacity-20 group-hover:rotate-2 transition-transform duration-500"></div>
+				<div class="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl bg-gray-100">
+					<slot name="image">
+						<img 
+							alt={imageAlt} 
+							class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" 
+							src={image}
+						/>
+					</slot>
+					<div class="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+						<p class="text-white font-serif italic text-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 delay-100">"Aquí para escuchar, aquí para ayudar."</p>
+					</div>
+				</div>
+				
+				<div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 max-w-xs hidden md:block">
+					<div class="flex items-start gap-4">
+						<div class="size-10 rounded-full bg-primary-light flex items-center justify-center text-primary shrink-0">
+							<span class="material-symbols-outlined">verified_user</span>
+						</div>
+						<div>
+							<p class="font-bold text-text-main dark:text-white text-sm">{certificationTitle}</p>
+							<p class="text-xs text-text-muted dark:text-gray-400 mt-1">{certificationText}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

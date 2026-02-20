@@ -1,0 +1,73 @@
+---
+const credentials = [
+	{
+		title: "Psicóloga General Sanitaria",
+		subtitle: "Colegio Oficial de Psicólogos",
+		description: "Colegiada nº AN-01452 con habilitación para ejercer la psicología clínica en el ámbito sanitario."
+	},
+	{
+		title: "Máster en Psicología Clínica",
+		subtitle: "Universidad de Málaga",
+		description: "Especialización en intervención psicológica basada en evidencia científica."
+	},
+	{
+		title: "Formación Continua",
+		subtitle: "Especializaciones",
+		description: "Terapia Cognitivo-Conductual, Terapia de Pareja EFT, y Terapia Sistémica Familiar."
+	}
+];
+---
+
+<section class="section-lg bg-linen" id="sobre-mi">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+			
+			<div class="relative">
+				<div class="absolute -inset-4 border border-sage/20 rounded-sm"></div>
+				<div class="relative aspect-[3/4] overflow-hidden rounded-sm">
+					<img 
+						src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
+						alt="María Ángeles Mata - Consulta de psicología" 
+						class="w-full h-full object-cover"
+					/>
+				</div>
+			</div>
+			
+			<div>
+				<div class="flex items-center gap-4 mb-6">
+					<span class="eyebrow">Sobre mí</span>
+					<div class="line-long"></div>
+				</div>
+				
+				<h2 class="font-serif text-4xl lg:text-5xl text-charcoal mb-6">
+					Acompañamiento <span class="text-sage italic">profesional</span> y humano
+				</h2>
+				
+				<div class="space-y-4 text-warm-gray leading-relaxed mb-10">
+					<p>
+						Soy María Ángeles Mata, psicóloga colegiada en Córdoba con más de 15 años de experiencia ayudando a personas a superar sus dificultades emocionales.
+					</p>
+					<p>
+						Mi enfoque combina la rigurosidad científica con un trato cercano y empático. Creo firmemente que cada persona tiene la capacidad de cambiar y crecer cuando encuentra el acompañamiento adecuado.
+					</p>
+					<p>
+						En mi consulta ofrezco un espacio seguro y confidencial donde podrás expresarte libremente y trabajar en tus objetivos de bienestar.
+					</p>
+				</div>
+				
+				<div class="space-y-6">
+					{credentials.map((cred) => (
+						<div class="flex gap-4">
+							<div class="w-2 h-2 rounded-full bg-sage mt-2 shrink-0"></div>
+							<div>
+								<h4 class="font-serif text-lg text-charcoal mb-1">{cred.title}</h4>
+								<p class="text-xs font-mono text-sage uppercase tracking-wide mb-1">{cred.subtitle}</p>
+								<p class="text-sm text-warm-gray font-light">{cred.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto y Citas - Mindful Therapy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#50817E",
+                        "primary-dark": "#3d6360",
+                        "primary-light": "#7fa5a3",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#12181b",
+                        "text-main": "#1a202c",
+                        "text-muted": "#64748b",
+                        "accent-bg": "#f0f4f4",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px" },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(80, 129, 126, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.5s;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col selection:bg-primary/20 selection:text-primary-dark">
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md transition-colors duration-300">
+<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-text-main dark:text-white">Mindful Therapy</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-white" href="#">Inicio</a>
+<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-white" href="#">Sobre Nosotros</a>
+<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-white" href="#">Servicios</a>
+<a class="text-sm font-medium text-primary dark:text-white border-b-2 border-primary" href="#">Contacto</a>
+</nav>
+<button class="hidden md:flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark shadow-soft hover:shadow-lg active:scale-95">
+            Reservar Consulta
+        </button>
+<button class="md:hidden flex items-center p-2 text-text-main dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<section class="relative overflow-hidden bg-white dark:bg-[#151b1e] pt-16 pb-12 lg:pt-28 lg:pb-24 border-b border-gray-100 dark:border-gray-800">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 size-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 size-[400px] rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<h1 class="text-4xl font-black tracking-tight text-text-main dark:text-white sm:text-5xl lg:text-7xl mb-6">
+                Comienza Tu Viaje
+            </h1>
+<p class="mx-auto max-w-2xl text-lg text-text-muted dark:text-gray-300 leading-relaxed font-light">
+                Brindamos un espacio seguro y confidencial para explorar tus pensamientos. Ya sea que tengas preguntas o estés listo para comenzar, estamos aquí para escucharte.
+            </p>
+</div>
+</section>
+<section class="py-12 lg:py-24 bg-background-light dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+<div class="lg:col-span-7 flex flex-col gap-10">
+<div class="rounded-3xl bg-white dark:bg-[#1a2024] p-8 sm:p-12 shadow-soft border border-gray-100 dark:border-gray-800 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="mb-10">
+<h2 class="text-3xl font-bold text-text-main dark:text-white mb-3">Envíanos un Mensaje</h2>
+<p class="text-text-muted dark:text-gray-400">Nuestro coordinador de admisión generalmente responde dentro de las 24 horas.</p>
+</div>
+<form class="space-y-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="relative group/input">
+<input class="peer w-full border-b-2 border-gray-200 bg-transparent px-0 py-3 text-text-main placeholder-transparent focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-white transition-colors" id="name" placeholder="Nombre Completo" required="" type="text"/>
+<label class="absolute left-0 -top-3.5 text-sm text-text-muted transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary dark:text-gray-400 dark:peer-focus:text-primary-light" for="name">Nombre Completo</label>
+</div>
+<div class="relative group/input">
+<input class="peer w-full border-b-2 border-gray-200 bg-transparent px-0 py-3 text-text-main placeholder-transparent focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-white transition-colors" id="email" placeholder="Correo Electrónico" required="" type="email"/>
+<label class="absolute left-0 -top-3.5 text-sm text-text-muted transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary dark:text-gray-400 dark:peer-focus:text-primary-light" for="email">Correo Electrónico</label>
+</div>
+</div>
+<div class="relative group/input">
+<select class="peer w-full appearance-none border-b-2 border-gray-200 bg-transparent px-0 py-3 text-text-main focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-white transition-colors cursor-pointer">
+<option disabled="" hidden="" selected="" value=""></option>
+<option>Consulta General</option>
+<option>Consulta de Nuevo Paciente</option>
+<option>Pregunta sobre Seguros</option>
+<option>Otro</option>
+</select>
+<label class="absolute left-0 -top-3.5 text-sm text-text-muted transition-all peer-focus:text-primary dark:text-gray-400 dark:peer-focus:text-primary-light">Asunto</label>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center text-text-muted">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</div>
+<div class="relative group/input">
+<textarea class="peer w-full resize-none border-b-2 border-gray-200 bg-transparent px-0 py-3 text-text-main placeholder-transparent focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-white transition-colors" id="message" placeholder="Mensaje" required="" rows="4"></textarea>
+<label class="absolute left-0 -top-3.5 text-sm text-text-muted transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary dark:text-gray-400 dark:peer-focus:text-primary-light" for="message">¿Cómo podemos ayudarte?</label>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
+<p class="text-xs text-text-muted dark:text-gray-500 flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800/50 px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-sm text-primary">lock</span>
+                                    Seguro y compatible con HIPAA
+                                </p>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-primary px-10 py-4 text-sm font-bold text-white hover:bg-primary-dark focus:ring-4 focus:ring-primary/20 transition-all shadow-glow hover:shadow-lg" type="button">
+                                    Enviar Mensaje
+                                </button>
+</div>
+</form>
+</div>
+<div class="rounded-3xl bg-white dark:bg-[#1a2024] p-8 sm:p-12 shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10 w-full">
+<div class="flex items-center justify-center gap-2 mb-2">
+<div class="h-px w-8 bg-primary/30"></div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">Reserva en Línea</span>
+<div class="h-px w-8 bg-primary/30"></div>
+</div>
+<h3 class="text-2xl font-bold text-text-main dark:text-white mb-3">Agenda una Consulta Gratuita</h3>
+<p class="text-text-muted dark:text-gray-400 mb-8 max-w-lg mx-auto">Selecciona una hora que te convenga. Sin llamadas interminables.</p>
+<div class="w-full max-w-md mx-auto rounded-2xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-[#15191c] overflow-hidden">
+<div class="bg-gray-50 dark:bg-gray-800/50 px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 border border-primary/20 overflow-hidden p-0.5">
+<img alt="Perfil del Terapeuta" class="object-cover size-full rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFq49acpyyy_No62zGjKb7PlIB_Aa4qGrMO-bUGMALi-Wpf9rXRQNRh_Pt2301YLPXLiOUtKl1UHYBPQv5am2Z9qxyp5K9oDXb4FYBuZw4CHv7Eah7hKiMhIy-LXm6JKeeEQ2Zb_SvlO1szPTuNm9mGHgreKw3Z4hXaldbXSWPzp3hrYD9Dt3n6DG46cl54vsEthgDJeSR3-Jke8t1_SK15bSHILvJOVRP5o4AaL491nDI-ve13-UJtpjpLuTbWJMfZvSygQu0Bwke"/>
+</div>
+<div class="text-left">
+<div class="text-sm font-bold text-text-main dark:text-white">Dra. Emily Chen</div>
+<div class="text-xs text-text-muted">Llamada Intro 15 Min</div>
+</div>
+</div>
+<div class="flex gap-1">
+<div class="size-2 rounded-full bg-red-400"></div>
+<div class="size-2 rounded-full bg-yellow-400"></div>
+<div class="size-2 rounded-full bg-green-400"></div>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-6">
+<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<span class="font-medium text-text-main dark:text-white">Octubre 2023</span>
+<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-[10px] font-medium text-text-muted uppercase mb-4 tracking-wide">
+<span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+</div>
+<div class="grid grid-cols-7 gap-2 mb-6">
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm text-text-muted opacity-30 cursor-not-allowed">29</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm text-text-muted opacity-30 cursor-not-allowed">30</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">1</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">2</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">3</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm bg-primary text-white font-bold shadow-md shadow-primary/30">4</button>
+<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-primary/10 text-primary font-medium transition-colors">5</button>
+</div>
+<div class="space-y-2">
+<div class="text-xs font-medium text-text-muted mb-2">Horarios disponibles para el 4 de Oct</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="rounded-lg border border-primary text-primary bg-primary/5 py-1.5 text-xs font-semibold hover:bg-primary hover:text-white transition-all">9:00am</button>
+<button class="rounded-lg border border-gray-200 dark:border-gray-700 text-text-muted py-1.5 text-xs hover:border-primary hover:text-primary transition-all">11:30am</button>
+<button class="rounded-lg border border-gray-200 dark:border-gray-700 text-text-muted py-1.5 text-xs hover:border-primary hover:text-primary transition-all">2:00pm</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div class="rounded-3xl bg-accent-bg dark:bg-[#1a2024] p-8 lg:p-10 border border-transparent dark:border-gray-800">
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-8 uppercase tracking-wider text-primary">Información de Contacto</h3>
+<div class="space-y-8">
+<div class="flex items-start gap-5 group">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm dark:bg-[#252a30] group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Nuestra Oficina</h4>
+<p class="text-text-muted dark:text-gray-400 mt-2 leading-relaxed">
+                                        123 Wellness Blvd, Oficina 400<br/>
+                                        San Francisco, CA 94110
+                                    </p>
+<a class="inline-block mt-2 text-sm font-semibold text-primary hover:text-primary-dark hover:underline underline-offset-4" href="#">Cómo llegar</a>
+</div>
+</div>
+<div class="flex items-start gap-5 group">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm dark:bg-[#252a30] group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Teléfono y Fax</h4>
+<p class="text-text-muted dark:text-gray-400 mt-2">
+<a class="hover:text-primary transition-colors font-medium text-text-main dark:text-gray-200" href="tel:+15551234567">(555) 123-4567</a>
+</p>
+<p class="text-sm text-text-muted dark:text-gray-500 mt-1">Fax: (555) 123-4568</p>
+</div>
+</div>
+<div class="flex items-start gap-5 group">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm dark:bg-[#252a30] group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Correo Electrónico</h4>
+<p class="text-text-muted dark:text-gray-400 mt-2">
+<a class="hover:text-primary transition-colors break-all" href="mailto:hola@mindfultherapy.com">hola@mindfultherapy.com</a>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+<h4 class="font-bold text-text-main dark:text-white mb-4 flex items-center gap-2 text-sm uppercase tracking-wide">
+<span class="material-symbols-outlined text-primary text-lg">schedule</span>
+                                Horario de Atención
+                            </h4>
+<ul class="space-y-3 text-sm text-text-muted dark:text-gray-400">
+<li class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700/50"><span>Lun - Jue</span> <span class="font-semibold text-text-main dark:text-gray-200 bg-white dark:bg-gray-800 px-2 py-1 rounded">9:00 AM - 6:00 PM</span></li>
+<li class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700/50"><span>Viernes</span> <span class="font-semibold text-text-main dark:text-gray-200 bg-white dark:bg-gray-800 px-2 py-1 rounded">9:00 AM - 3:00 PM</span></li>
+<li class="flex justify-between items-center"><span>Sáb - Dom</span> <span class="font-semibold text-text-muted/70 italic">Cerrado</span></li>
+</ul>
+</div>
+</div>
+<div class="h-64 lg:h-72 w-full overflow-hidden rounded-3xl shadow-soft border border-gray-100 dark:border-gray-800 relative group">
+<div class="absolute inset-0 bg-cover bg-center grayscale contrast-[.9] group-hover:grayscale-0 transition-all duration-700 ease-in-out transform group-hover:scale-105" data-alt="Vista de mapa aéreo de las calles de San Francisco" data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxaAGPvwBaQAZgdge4WzabPIfsd8dy-5mnZAcmvMk6oK6UUG4HUu9GEVeuFBQEk5Jsv_eX3ZMhpZXBWY02SEz0B_bd1kKbsb_7zv_ek3AVhIhjTWAcqAkFaQGvpgg-nM_qgxO_7CdYSykHlZn3FTZ_Xi1KDhZ7L5lvjR-Sfdjk5GoU7M84wMizmyof0i4darofXvCdJAVX5RCSScmBvOGHjEGyO9DMe74mwfTC8fcv8XnCY9FcLZ2mTSQbFyn2YAB0XssgaBHysjYp');">
+</div>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary p-3 rounded-full shadow-lg text-white animate-bounce ring-4 ring-white/30 backdrop-blur-sm">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+</div>
+</div>
+<div class="space-y-4 pt-4">
+<h3 class="text-lg font-bold text-text-main dark:text-white px-2">Preguntas Frecuentes</h3>
+<details class="group rounded-2xl bg-white dark:bg-[#1a2024] border border-gray-100 dark:border-gray-800 p-5 [&amp;_summary::-webkit-details-marker]:hidden shadow-sm">
+<summary class="flex cursor-pointer items-center justify-between gap-1.5 text-text-main dark:text-gray-200 font-semibold marker:content-none hover:text-primary transition-colors">
+<span>¿Aceptan seguro médico?</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:-rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="grid grid-rows-[0fr] transition-all duration-300 group-open:grid-rows-[1fr]">
+<div class="overflow-hidden">
+<p class="mt-4 leading-relaxed text-sm text-text-muted dark:text-gray-400">
+                                        Operamos como proveedor fuera de la red para garantizar la más alta calidad de atención personalizada sin limitaciones de seguro. Proporcionamos una factura mensual (Superbill) para que la presentes para reembolso.
+                                    </p>
+</div>
+</div>
+</details>
+<details class="group rounded-2xl bg-white dark:bg-[#1a2024] border border-gray-100 dark:border-gray-800 p-5 [&amp;_summary::-webkit-details-marker]:hidden shadow-sm">
+<summary class="flex cursor-pointer items-center justify-between gap-1.5 text-text-main dark:text-gray-200 font-semibold marker:content-none hover:text-primary transition-colors">
+<span>Política de cancelación</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:-rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="grid grid-rows-[0fr] transition-all duration-300 group-open:grid-rows-[1fr]">
+<div class="overflow-hidden">
+<p class="mt-4 leading-relaxed text-sm text-text-muted dark:text-gray-400">
+                                        Requerimos un aviso de 48 horas para cancelaciones. Esta política asegura que podamos ofrecer los horarios disponibles a otros clientes que puedan necesitar apoyo.
+                                    </p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-[#151b1e] py-16">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="rounded-3xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-start gap-6">
+<div class="hidden sm:flex size-14 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
+<span class="material-symbols-outlined text-3xl">emergency_home</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-text-main dark:text-white">¿Necesitas asistencia inmediata?</h2>
+<p class="text-text-muted dark:text-gray-400 mt-2 max-w-xl">Si tú o alguien que conoces está en crisis o peligro inmediato, por favor no uses este formulario. Hay ayuda disponible las 24/7.</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<a class="inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-8 py-3.5 text-sm font-bold text-white hover:bg-red-700 shadow-md transition-all active:scale-95 whitespace-nowrap" href="tel:988">
+<span class="material-symbols-outlined">call</span>
+                        Llama al 988
+                    </a>
+<a class="inline-flex items-center justify-center rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-8 py-3.5 text-sm font-bold text-text-main dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors whitespace-nowrap" href="#">
+                        Recursos de Emergencia
+                    </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-light dark:bg-background-dark py-10 border-t border-gray-200 dark:border-gray-800">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<span class="text-sm font-semibold text-text-main dark:text-white">Mindful Therapy Practice</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-500">© 2024. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="text-sm text-text-muted hover:text-primary dark:text-gray-500 transition-colors" href="#">Política de Privacidad</a>
+<a class="text-sm text-text-muted hover:text-primary dark:text-gray-500 transition-colors" href="#">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+
+</body></html>

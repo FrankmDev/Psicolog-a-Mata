@@ -1,0 +1,75 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	class?: string;
+}
+
+const { 
+	title = "Comienza tu camino hacia el bienestar",
+	description = "El primer paso es el más importante. Agenda una consulta gratuita de 20 minutos para explorar cómo podemos ayudarte.",
+	class: className = ''
+} = Astro.props;
+---
+
+<section class={`section-y-lg relative overflow-hidden bg-charcoal ${className}`}>
+	<div class="absolute inset-0 bg-grain opacity-[0.03] pointer-events-none"></div>
+	<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+	
+	<div class="absolute -top-60 -right-60 w-[500px] h-[500px] bg-gradient-to-bl from-sage/15 to-transparent rounded-full blur-3xl opacity-60"></div>
+	<div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-sage/10 to-transparent rounded-full blur-3xl opacity-50"></div>
+	
+	<div class="relative max-w-6xl mx-auto px-6 lg:px-12">
+		<div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+			<div class="inline-flex items-center gap-3 mb-6">
+				<div class="w-8 h-px bg-sage"></div>
+				<span class="font-mono text-xs tracking-wider uppercase text-sage">Próximo paso</span>
+				<div class="w-8 h-px bg-sage"></div>
+			</div>
+			
+			<h2 class="text-ivory text-balance mb-5 leading-tight">
+				{title}
+			</h2>
+			
+			<p class="text-mist text-lg leading-relaxed">
+				{description}
+			</p>
+		</div>
+		
+		<div class="grid md:grid-cols-3 gap-4 lg:gap-6 mb-12 lg:mb-16">
+			<div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[var(--radius-lg)] p-6 lg:p-8 text-center hover:bg-white/8 hover:border-sage/20 transition-all duration-500 group">
+				<div class="w-14 h-14 bg-sage/20 rounded-[var(--radius-md)] flex items-center justify-center mx-auto mb-5 group-hover:bg-sage/30 transition-colors duration-300">
+					<span class="material-symbols-outlined text-2xl text-sage">schedule</span>
+				</div>
+				<h4 class="font-display text-lg text-ivory mb-2">Horario flexible</h4>
+				<p class="text-sm text-mist">Adaptamos las sesiones a tu disponibilidad horaria</p>
+			</div>
+			
+			<div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[var(--radius-lg)] p-6 lg:p-8 text-center hover:bg-white/8 hover:border-sage/20 transition-all duration-500 group">
+				<div class="w-14 h-14 bg-sage/20 rounded-[var(--radius-md)] flex items-center justify-center mx-auto mb-5 group-hover:bg-sage/30 transition-colors duration-300">
+					<span class="material-symbols-outlined text-2xl text-sage">devices</span>
+				</div>
+				<h4 class="font-display text-lg text-ivory mb-2">Online y presencial</h4>
+				<p class="text-sm text-mist">Elige la modalidad que mejor se adapte a ti</p>
+			</div>
+			
+			<div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[var(--radius-lg)] p-6 lg:p-8 text-center hover:bg-white/8 hover:border-sage/20 transition-all duration-500 group">
+				<div class="w-14 h-14 bg-sage/20 rounded-[var(--radius-md)] flex items-center justify-center mx-auto mb-5 group-hover:bg-sage/30 transition-colors duration-300">
+					<span class="material-symbols-outlined text-2xl text-sage">lock</span>
+				</div>
+				<h4 class="font-display text-lg text-ivory mb-2">100% confidencial</h4>
+				<p class="text-sm text-mist">Cumplimos estrictamente con el secreto profesional</p>
+			</div>
+		</div>
+		
+		<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+			<a href="/contact" class="btn btn-secondary group">
+				<span>Programar consulta gratuita</span>
+				<span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-300">calendar_today</span>
+			</a>
+			<a href="/services" class="inline-flex items-center justify-center gap-2.5 font-body font-medium text-sm tracking-wide py-[0.9375rem] px-[1.875rem] bg-transparent text-ivory border border-white/20 rounded-[var(--radius-md)] hover:bg-white/10 hover:border-white/30 transition-all duration-400">
+				<span>Explorar servicios</span>
+			</a>
+		</div>
+	</div>
+</section>

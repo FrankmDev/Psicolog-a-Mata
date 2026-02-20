@@ -1,0 +1,71 @@
+---
+const steps = [
+	{ 
+		number: "01", 
+		title: "Primera consulta", 
+		description: "Nos conocemos. Escucho tu historia y comprendo qué te ha traído hasta aquí. Definimos juntos tus objetivos." 
+	},
+	{ 
+		number: "02", 
+		title: "Evaluación", 
+		description: "Realizamos una valoración profunda para entender tu situación y diseñar el mejor plan de intervención." 
+	},
+	{ 
+		number: "03", 
+		title: "Intervención", 
+		description: "Trabajamos sesión a sesión con técnicas basadas en evidencia, adaptadas a tus necesidades específicas." 
+	},
+	{ 
+		number: "04", 
+		title: "Seguimiento", 
+		description: "Evaluamos tu progreso y ajustamos el enfoque. Celebramos tus avances y consolidamos los cambios." 
+	}
+];
+---
+
+<section class="section-xl bg-ivory" id="proceso">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="mb-16 lg:mb-20">
+			<div class="flex items-center gap-4 mb-6">
+				<span class="eyebrow">Proceso</span>
+				<div class="line-long"></div>
+			</div>
+			
+			<h2 class="font-serif text-4xl lg:text-5xl text-charcoal max-w-xl">
+				Cómo <span class="text-sage italic">trabajamos</span>
+			</h2>
+		</div>
+		
+		<div class="grid lg:grid-cols-4 gap-px bg-charcoal/10">
+			{steps.map((step, index) => (
+				<div class="group relative bg-ivory p-8 lg:p-10 hover:bg-warm-white transition-colors duration-500">
+					<div class="mb-8">
+						<span class="font-mono text-sm text-sage/50 tracking-wider">{step.number}</span>
+					</div>
+					
+					<h3 class="font-serif text-xl lg:text-2xl text-charcoal mb-4">
+						{step.title}
+					</h3>
+					
+					<p class="text-warm-gray leading-relaxed font-light text-sm">
+						{step.description}
+					</p>
+					
+					<div class="absolute bottom-0 left-0 w-0 h-px bg-sage group-hover:w-full transition-all duration-700"></div>
+				</div>
+			))}
+		</div>
+		
+		<div class="mt-16 text-center">
+			<a 
+				href="/contact" 
+				class="btn btn-primary"
+			>
+				<span>Empezar tu proceso</span>
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>

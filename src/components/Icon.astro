@@ -1,0 +1,21 @@
+---
+interface Props {
+	name: string;
+	size?: 'sm' | 'md' | 'lg' | 'xl';
+	filled?: boolean;
+	class?: string;
+}
+
+const { name, size = 'md', filled = false, class: className = '' } = Astro.props;
+
+const sizeClasses = {
+	sm: '!text-lg',
+	md: '!text-xl',
+	lg: '!text-3xl',
+	xl: '!text-4xl'
+};
+
+const fillClass = filled ? "font-variation-settings: 'FILL' 1" : "";
+---
+
+<span class={`material-symbols-outlined ${sizeClasses[size]} ${fillClass} ${className}`}>{name}</span>

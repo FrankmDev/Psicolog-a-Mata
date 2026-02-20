@@ -1,0 +1,29 @@
+---
+interface Props {
+	quote: string;
+	author: string;
+	role?: string;
+	image?: string;
+	class?: string;
+}
+
+const { quote, author, role, image, class: className = '' } = Astro.props;
+---
+
+<div class={`bg-background-light p-8 rounded-2xl relative ${className}`}>
+	<span class="material-symbols-outlined text-primary/20 !text-6xl absolute top-6 left-6">format_quote</span>
+	<p class="text-text-muted relative z-10 pt-6 mb-6 italic">
+		"{quote}"
+	</p>
+	<div class="flex items-center justify-center gap-3">
+		{image && (
+			<div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+				<img alt={author} class="w-full h-full object-cover" src={image} />
+			</div>
+		)}
+		<div class="text-left">
+			<p class="font-bold text-sm">{author}</p>
+			{role && <p class="text-xs text-text-muted">{role}</p>}
+		</div>
+	</div>
+</div>

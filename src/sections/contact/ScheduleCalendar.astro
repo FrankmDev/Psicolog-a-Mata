@@ -1,0 +1,78 @@
+---
+interface Props {
+	badge?: string;
+	title?: string;
+	description?: string;
+	therapistName?: string;
+	therapistRole?: string;
+	therapistImage?: string;
+}
+
+const { 
+	badge = "Reserva en Línea",
+	title = "Agenda una Consulta Gratuita",
+	description = "Selecciona una hora que te convenga. Sin llamadas interminables.",
+	therapistName = "Dra. Emily Chen",
+	therapistRole = "Llamada Intro 15 Min",
+	therapistImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuBFq49acpyyy_No62zGjKb7PlIB_Aa4qGrMO-bUGMALi-Wpf9rXRQNRh_Pt2301YLPXLiOUtKl1UHYBPQv5am2Z9qxyp5K9oDXb4FYBuZw4CHv7Eah7hKiMhIy-LXm6JKeeEQ2Zb_SvlO1szPTuNm9mGHgreKw3Z4hXaldbXSWPzp3hrYD9Dt3n6DG46cl54vsEthgDJeSR3-Jke8t1_SK15bSHILvJOVRP5o4AaL491nDI-ve13-UJtpjpLuTbWJMfZvSygQu0Bwke"
+} = Astro.props;
+---
+
+<div class="rounded-3xl bg-white dark:bg-[#1a2024] p-8 sm:p-12 shadow-soft border border-gray-100 dark:border-gray-800 flex flex-col items-center text-center relative overflow-hidden">
+	<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+	<div class="relative z-10 w-full">
+		<div class="flex items-center justify-center gap-2 mb-2">
+			<div class="h-px w-8 bg-primary/30"></div>
+			<span class="text-xs font-bold uppercase tracking-wider text-primary">{badge}</span>
+			<div class="h-px w-8 bg-primary/30"></div>
+		</div>
+		<h3 class="text-2xl font-bold text-text-main dark:text-white mb-3">{title}</h3>
+		<p class="text-text-muted dark:text-gray-400 mb-8 max-w-lg mx-auto">{description}</p>
+		
+		<div class="w-full max-w-md mx-auto rounded-2xl border border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-[#15191c] overflow-hidden">
+			<div class="bg-gray-50 dark:bg-gray-800/50 px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+				<div class="flex items-center gap-3">
+					<div class="size-10 rounded-full bg-primary/10 border border-primary/20 overflow-hidden p-0.5">
+						<img alt="Perfil del Terapeuta" class="object-cover size-full rounded-full" src={therapistImage}/>
+					</div>
+					<div class="text-left">
+						<div class="text-sm font-bold text-text-main dark:text-white">{therapistName}</div>
+						<div class="text-xs text-text-muted">{therapistRole}</div>
+					</div>
+				</div>
+				<div class="flex gap-1">
+					<div class="size-2 rounded-full bg-red-400"></div>
+					<div class="size-2 rounded-full bg-yellow-400"></div>
+					<div class="size-2 rounded-full bg-green-400"></div>
+				</div>
+			</div>
+			<div class="p-6">
+				<div class="flex items-center justify-between mb-6">
+					<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+					<span class="font-medium text-text-main dark:text-white">Octubre 2024</span>
+					<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+				</div>
+				<div class="grid grid-cols-7 gap-1 text-center text-[10px] font-medium text-text-muted uppercase mb-4 tracking-wide">
+					<span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+				</div>
+				<div class="grid grid-cols-7 gap-2 mb-6">
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm text-text-muted opacity-30 cursor-not-allowed">29</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm text-text-muted opacity-30 cursor-not-allowed">30</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">1</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">2</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-text-muted transition-colors">3</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm bg-primary text-white font-bold shadow-md shadow-primary/30">4</button>
+					<button class="aspect-square rounded-lg flex items-center justify-center text-sm hover:bg-primary/10 text-primary font-medium transition-colors">5</button>
+				</div>
+				<div class="space-y-2">
+					<div class="text-xs font-medium text-text-muted mb-2">Horarios disponibles para el 4 de Oct</div>
+					<div class="grid grid-cols-3 gap-2">
+						<button class="rounded-lg border border-primary text-primary bg-primary/5 py-1.5 text-xs font-semibold hover:bg-primary hover:text-white transition-all">9:00am</button>
+						<button class="rounded-lg border border-gray-200 dark:border-gray-700 text-text-muted py-1.5 text-xs hover:border-primary hover:text-primary transition-all">11:30am</button>
+						<button class="rounded-lg border border-gray-200 dark:border-gray-700 text-text-muted py-1.5 text-xs hover:border-primary hover:text-primary transition-all">2:00pm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

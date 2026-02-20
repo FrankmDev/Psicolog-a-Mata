@@ -1,0 +1,87 @@
+---
+const stats = [
+	{ value: "15+", label: "Años de experiencia" },
+	{ value: "Córdoba", label: "Presencial y online" },
+	{ value: "100%", label: "Confidencial" }
+];
+---
+
+<section class="relative min-h-[90vh] flex items-center overflow-hidden bg-charcoal">
+	<div class="absolute inset-0 bg-grain"></div>
+	
+	<!-- Subtle gradient overlays -->
+	<div class="absolute inset-0">
+		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sage/5 to-transparent"></div>
+		<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-charcoal to-transparent"></div>
+	</div>
+	
+	<div class="relative w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-0">
+		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+			
+			<div class="order-2 lg:order-1">
+				<div class="max-w-xl">
+					<div class="flex items-center gap-4 mb-8">
+						<div class="line-elegant"></div>
+						<span class="eyebrow text-sage-muted">Psicóloga en Córdoba</span>
+					</div>
+					
+					<h1 class="font-serif text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] tracking-[-0.03em] text-ivory mb-8">
+						Tu espacio de <span class="text-sage italic">bienestar</span> emocional
+					</h1>
+					
+					<p class="text-lg lg:text-xl text-warm-gray leading-relaxed mb-10 max-w-md font-light">
+						Terapia individual, de pareja y familiar. Un espacio seguro donde encontrar respuestas y reconstruir tu equilibrio.
+					</p>
+					
+					<div class="flex flex-wrap gap-4 mb-12">
+						<a 
+							href="/contact" 
+							class="btn btn-secondary"
+						>
+							<span>Reservar cita</span>
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+							</svg>
+						</a>
+						<a 
+							href="#servicios" 
+							class="btn btn-outline text-ivory border-ivory/30 hover:bg-ivory hover:text-charcoal"
+						>
+							<span>Ver servicios</span>
+						</a>
+					</div>
+					
+					<div class="flex flex-wrap gap-10">
+						{stats.map((stat) => (
+							<div>
+								<span class="font-serif text-2xl lg:text-3xl text-ivory block">{stat.value}</span>
+								<span class="text-[10px] text-warm-gray font-mono tracking-[0.15em] uppercase">{stat.label}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+			
+			<div class="order-1 lg:order-2">
+				<div class="relative">
+					<div class="absolute -inset-4 border border-sage/20 rounded-sm"></div>
+					<div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+						<img 
+							src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80" 
+							alt="María Ángeles Mata - Psicóloga en Córdoba" 
+							class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent"></div>
+					</div>
+					
+					<div class="absolute -bottom-6 -right-6 bg-sage text-ivory px-6 py-4">
+						<div class="flex items-center gap-3">
+							<div class="w-2 h-2 rounded-full bg-ivory animate-pulse"></div>
+							<span class="text-sm font-medium">Disponible</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

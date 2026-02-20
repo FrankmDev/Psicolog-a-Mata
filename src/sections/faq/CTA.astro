@@ -1,0 +1,33 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "¿Aún tienes preguntas?",
+	description = "Estamos aquí para ayudar a aclarar tu camino. Contacta directamente con nuestro equipo de admisión."
+} = Astro.props;
+---
+
+<section class="w-full bg-primary-light border-t border-primary/10 mt-12 relative overflow-hidden">
+	<div class="absolute right-0 top-0 w-64 h-64 bg-white/40 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+	<div class="max-w-[800px] mx-auto px-4 py-20 md:px-10 flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
+		<div class="flex flex-col gap-3 text-center md:text-left">
+			<h2 class="text-text-main text-2xl font-bold tracking-tight">{title}</h2>
+			<p class="text-text-muted text-base max-w-sm">
+				{description}
+			</p>
+		</div>
+		<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+			<a class="flex flex-1 md:flex-none items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-text-main border border-gray-200 hover:border-primary/50 hover:text-primary hover:shadow-md transition-all font-semibold text-sm" href="/contact">
+				<span class="material-symbols-outlined text-[20px]">mail</span>
+				<span>Escríbenos</span>
+			</a>
+			<a class="flex flex-1 md:flex-none items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-dark transition-all font-semibold shadow-sm hover:shadow-lg hover:-translate-y-0.5 text-sm" href="tel:+34912345678">
+				<span class="material-symbols-outlined text-[20px]">call</span>
+				<span>Soporte</span>
+			</a>
+		</div>
+	</div>
+</section>

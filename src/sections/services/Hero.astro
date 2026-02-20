@@ -1,0 +1,51 @@
+---
+interface Props {
+	badge?: string;
+	title?: string;
+	description?: string;
+	imageUrl?: string;
+}
+
+const { 
+	badge = "Bienestar Mental",
+	title = "Atención Compasiva para <span class='text-primary italic'>Tu Camino</span>",
+	description = "Servicios de psicología basados en evidencia adaptados a tus necesidades únicas. Te ayudamos a encontrar equilibrio, claridad y fortaleza en un entorno seguro y confidencial.",
+	imageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuCLxVvTE-Sg8Juhg9pqTgy0BPQ3p0G4db7h4wZVfBSEp-cpM4Nak6Lu2SBzSeDnzNiZWWwvEVUJCKt9NVVIYN0gF21rAZPcgxwCn3Ai7upHC6-SdDfA15e0qPvk5jQ5R8X-1qxc8NY7iemtd7HFifQgChy-lgJKA0uF_6xK6x74omaQd6QUlw1Jt7xqj8nQ1q-TumFTP7xw4wOQe6FIoxodCvc3m41keu86JR6jF_QEpYXogC6L8HrsIfUgt5bO3sOxaJ-kaQbCITKn"
+} = Astro.props;
+---
+
+<section class="relative px-6 py-16 lg:px-10 lg:py-24 overflow-hidden">
+	<div class="absolute right-0 top-0 -z-10 h-[600px] w-1/2 bg-gradient-to-bl from-primary/10 to-transparent blur-3xl rounded-bl-full"></div>
+	
+	<div class="max-w-7xl mx-auto">
+		<div class="flex flex-col gap-12 lg:flex-row lg:items-center">
+			<div class="flex flex-1 flex-col gap-8">
+				<div class="flex flex-col gap-5">
+					<span class="w-fit rounded-full bg-primary-light border border-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
+						{badge}
+					</span>
+					<h1 class="text-text-main text-5xl font-medium leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl font-serif" set:html={title} />
+					<p class="text-text-muted max-w-xl text-lg font-light leading-relaxed">
+						{description}
+					</p>
+				</div>
+				<div class="flex flex-wrap gap-4 pt-2">
+					<a href="#servicios" class="rounded-full bg-text-main px-8 py-4 text-sm font-medium text-white transition-all hover:bg-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5">
+						Explorar Servicios
+					</a>
+					<a href="/contact" class="group flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-4 text-sm font-medium text-text-main transition-all hover:border-primary/30 hover:shadow-md">
+						<span class="material-symbols-outlined text-primary transition-transform group-hover:scale-110">play_circle</span>
+						Cómo funciona
+					</a>
+				</div>
+			</div>
+			
+			<div class="relative flex-1">
+				<div class="absolute -right-6 -bottom-6 h-full w-full rounded-[2rem] border-2 border-primary/20 bg-transparent"></div>
+				<div class="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-primary/10 lg:aspect-square lg:max-w-md ml-auto">
+					<div class="h-full w-full bg-cover bg-center transition-transform duration-1000 hover:scale-105" style={`background-image: url('${imageUrl}');`}></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

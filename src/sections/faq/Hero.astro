@@ -1,0 +1,51 @@
+---
+interface Props {
+	badge?: string;
+	title?: string;
+	description?: string;
+}
+
+const { 
+	badge = "Centro de Ayuda",
+	title = "¿Cómo podemos ayudarte?",
+	description = "Respuestas claras a tus dudas sobre terapia, seguros y nuestro enfoque hacia el bienestar mental."
+} = Astro.props;
+---
+
+<section class="w-full bg-white relative overflow-hidden">
+	<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+	<div class="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+	<div class="absolute top-20 -left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+	
+	<div class="max-w-[800px] mx-auto px-4 py-20 md:py-28 flex flex-col items-center text-center gap-8 relative z-10">
+		<div class="flex flex-col gap-5">
+			<span class="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mx-auto">
+				<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+				{badge}
+			</span>
+			<h1 class="text-text-main text-5xl font-bold leading-tight tracking-tight md:text-6xl">
+				{title}
+			</h1>
+			<p class="text-text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
+				{description}
+			</p>
+		</div>
+		
+		<div class="w-full max-w-xl relative group mt-4">
+			<div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none transition-colors group-focus-within:text-primary text-text-muted">
+				<span class="material-symbols-outlined">search</span>
+			</div>
+			<input 
+				aria-label="Buscar preguntas frecuentes" 
+				class="block w-full pl-14 pr-16 py-5 bg-white border border-gray-200 rounded-2xl text-text-main placeholder-text-muted/50 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all text-lg shadow-sm hover:shadow-md" 
+				placeholder="Buscar respuestas..." 
+				type="search"
+			/>
+			<div class="absolute inset-y-0 right-2.5 flex items-center">
+				<button aria-label="Enviar búsqueda" class="bg-primary-light hover:bg-primary/20 text-primary p-2.5 rounded-xl transition-colors">
+					<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>

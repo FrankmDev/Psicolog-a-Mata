@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+	{
+		number: "01",
+		title: "Terapia Individual",
+		description: "Un espacio confidencial para explorar tus dificultades emocionales. Trabajo con ansiedad, estrés, problemas de autoestima y procesos de cambio personal.",
+		approaches: ["Cognitivo-Conductual", "Tercera Generación", "Mindfulness"],
+		duration: "50 minutos",
+		id: "individual"
+	},
+	{
+		number: "02",
+		title: "Terapia de Pareja",
+		description: "Mejora la comunicación, resuelve conflictos y reconstruye la confianza. Un espacio neutral donde ambos podáis expresaros y encontrar soluciones.",
+		approaches: ["Comunicación efectiva", "Resolución de conflictos", "Reconstrucción"],
+		duration: "60 minutos",
+		id: "pareja"
+	},
+	{
+		number: "03",
+		title: "Terapia Familiar",
+		description: "Intervención para mejorar la dinámica familiar y la comunicación entre miembros. Orientación a familias en transiciones o situaciones de crisis.",
+		approaches: ["Sistémica", "Comunicación", "Límites"],
+		duration: "75 minutos",
+		id: "familiar"
+	},
+	{
+		number: "04",
+		title: "Evaluación Neuropsicológica",
+		description: "Diagnóstico mediante entrevistas y pruebas psicométricas. Fundamental para entender dificultades cognitivas, atencionales o de memoria.",
+		approaches: ["Entrevista clínica", "Pruebas estandarizadas", "Informe completo"],
+		duration: "90-120 minutos",
+		id: "evaluacion"
+	},
+	{
+		number: "05",
+		title: "Estimulación Cognitiva",
+		description: "Intervención a domicilio para personas mayeres. Mantenimiento y mejora de funciones cognitivas como memoria, atención y orientación.",
+		approaches: ["A domicilio", "Materiales personalizados", "Seguimiento"],
+		duration: "45-60 minutos",
+		id: "cognitiva"
+	},
+	{
+		number: "06",
+		title: "Terapia Online",
+		description: "Atención psicológica por videoconferencia con la misma calidad que la presencial. Ideal si prefieres la comodidad de tu hogar.",
+		approaches: ["Plataforma segura", "Horarios flexibles", "Igual efectividad"],
+		duration: "50 minutos",
+		id: "online"
+	}
+];
+---
+
+<Layout title="Servicios de Psicología — María Ángeles Mata">
+	<Header activePage="Servicios" />
+	
+	<main>
+		<section class="relative py-24 lg:py-32 bg-charcoal overflow-hidden">
+			<div class="absolute inset-0 bg-grain"></div>
+			<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sage/5 to-transparent"></div>
+			
+			<div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+				<div class="flex items-center gap-4 mb-6">
+					<span class="eyebrow text-sage-muted">Servicios</span>
+					<div class="line-elegant"></div>
+				</div>
+				
+				<h1 class="font-serif text-4xl lg:text-6xl text-ivory mb-6 max-w-2xl">
+					Servicios de <span class="text-sage italic">psicología</span>
+				</h1>
+				
+				<p class="text-lg text-warm-gray/60 max-w-xl font-light">
+					Terapia individual, de pareja y familiar en Córdoba. Atención presencial, online y a domicilio.
+				</p>
+			</div>
+		</section>
+
+		<section class="bg-ivory">
+			<div class="max-w-6xl mx-auto px-6 lg:px-8">
+				{services.map((service, index) => (
+					<div 
+						id={service.id}
+						class="group py-12 lg:py-16 border-b border-charcoal/10 hover:bg-warm-white transition-all duration-500"
+					>
+						<div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+							<div class="lg:col-span-1">
+								<span class="font-mono text-3xl text-sage/30 group-hover:text-sage/50 transition-colors duration-500">
+									{service.number}
+								</span>
+							</div>
+							
+							<div class="lg:col-span-7">
+								<h2 class="font-serif text-2xl lg:text-3xl text-charcoal mb-3 group-hover:text-sage transition-colors duration-300">
+									{service.title}
+								</h2>
+								
+								<div class="flex items-center gap-2 mb-4">
+									<svg class="w-4 h-4 text-sage/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+									<span class="text-sm text-warm-gray/50">{service.duration}</span>
+								</div>
+								
+								<p class="text-warm-gray leading-relaxed mb-5 max-w-xl font-light">
+									{service.description}
+								</p>
+								
+								<div class="flex flex-wrap gap-2">
+									{service.approaches.map((approach) => (
+										<span class="px-3 py-1.5 bg-sage/5 text-sage text-xs font-mono tracking-wide uppercase rounded-sm">
+											{approach}
+										</span>
+									))}
+								</div>
+							</div>
+							
+							<div class="lg:col-span-4 lg:text-right">
+								<a 
+									href="/contact" 
+									class="btn btn-outline inline-flex"
+								>
+									<span>Contactar</span>
+									<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="section-lg bg-sage relative overflow-hidden">
+			<div class="absolute inset-0 bg-grain opacity-30"></div>
+			
+			<div class="relative max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<div class="mb-6">
+					<div class="inline-flex items-center gap-3 px-5 py-2.5 border border-ivory/20">
+						<div class="w-1.5 h-1.5 rounded-full bg-ivory animate-pulse"></div>
+						<span class="text-[10px] font-mono tracking-[0.15em] uppercase text-ivory/70">Sin compromiso</span>
+					</div>
+				</div>
+				
+				<h2 class="font-serif text-3xl lg:text-4xl text-ivory mb-4">
+					¿No sabes qué servicio necesitas?
+				</h2>
+				<p class="text-ivory/70 max-w-md mx-auto leading-relaxed mb-8 font-light">
+					En la primera consulta valoramos tu situación y te recomiendo el enfoque más adecuado.
+				</p>
+				<a 
+					href="/contact" 
+					class="inline-flex items-center justify-center gap-3 bg-ivory text-charcoal px-8 py-4 text-sm font-medium hover:bg-warm-white transition-all duration-300"
+				>
+					<span>Pedir consulta</span>
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+					</svg>
+				</a>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+</Layout>
