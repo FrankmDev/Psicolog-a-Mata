@@ -1,149 +1,105 @@
 ---
-import ScrollReveal from '../../components/ScrollReveal.astro';
-
-const stats = [
-  { value: "15+", label: "Años de experiencia" },
-  { value: "Córdoba", label: "Presencial y online" },
-  { value: "100%", label: "Confidencial" },
-];
 ---
 
-<section
-  class="relative min-h-[90vh] flex items-center overflow-hidden bg-bg-base pt-20 lg:pt-0"
-  aria-label="Introducción"
->
-  <!-- Soft gradient background element -->
-  <div
-    class="absolute top-0 right-0 w-[80vw] h-[80vw] lg:w-[40vw] lg:h-[40vw] bg-accent-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 animate-fade-in"
-    aria-hidden="true"
-  >
-  </div>
-  <div
-    class="absolute bottom-0 left-0 w-[60vw] h-[60vw] lg:w-[30vw] lg:h-[30vw] bg-accent-secondary/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 animate-fade-in delay-200"
-    aria-hidden="true"
-  >
-  </div>
+<section class="relative min-h-auto flex items-center overflow-hidden bg-bg-base pt-28 pb-16 lg:pt-32 lg:pb-24" aria-label="Introducción">
+  <!-- Background Elements -->
+  <div class="absolute top-0 right-0 w-[50vw] h-[50vw] lg:w-[25vw] lg:h-[25vw] bg-accent-primary/5 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-[35vw] h-[35vw] lg:w-[18vw] lg:h-[18vw] bg-accent-secondary/10 rounded-full blur-[80px] translate-y-1/4 -translate-x-1/4" aria-hidden="true"></div>
 
-  <div class="relative container-elegant z-10 py-12 lg:py-0">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-      <div
-        class="lg:col-span-6 xl:col-span-5 order-2 lg:order-1 pt-8 lg:pt-0"
-      >
-        <div class="max-w-xl">
-          <ScrollReveal animation="fade-left" delay={0}>
-            <div class="flex items-center gap-4 mb-8">
-              <div class="w-12 h-[1px] bg-accent-primary" aria-hidden="true"></div>
-              <span class="eyebrow !mb-0 tracking-[0.2em]">Psicóloga Clínica en Córdoba</span>
-            </div>
-          </ScrollReveal>
+  <div class="container-elegant relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Content -->
+      <div class="order-2 lg:order-1 max-w-xl lg:max-w-none">
+        <div class="flex items-center gap-3 mb-5 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+          <div class="w-8 h-px bg-sage"></div>
+          <span class="eyebrow !mb-0">Psicóloga Clínica en Córdoba</span>
+        </div>
 
-          <ScrollReveal animation="fade-up" delay={100}>
-            <h1
-              class="font-serif text-[clamp(2.75rem,5vw,4.5rem)] leading-[1.1] tracking-tight text-text-primary mb-6"
-            >
-              Tu espacio de <span class="italic text-accent-primary font-light">bienestar</span> emocional.
-            </h1>
-          </ScrollReveal>
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.12] text-text-primary mb-5 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+          Encuentra tu <span class="italic text-accent-primary">equilibrio</span> emocional
+        </h1>
 
-          <ScrollReveal animation="fade-up" delay={200}>
-            <p
-              class="text-lg lg:text-[19px] text-text-secondary leading-relaxed mb-10 font-sans max-w-md"
-            >
-              Acompañamiento profesional desde una perspectiva cercana
-              y rigurosa. Encontremos juntos el equilibrio que buscas.
-            </p>
-          </ScrollReveal>
+        <p class="text-base lg:text-[17px] text-text-secondary leading-relaxed max-w-md mb-7 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+          Un espacio seguro donde trabajar tu bienestar con acompañamiento profesional, cercano y basado en evidencia científica.
+        </p>
 
-          <ScrollReveal animation="fade-up" delay={300}>
-            <div class="flex flex-col sm:flex-row gap-5 mb-14">
-              <a href="/contact" class="btn btn-primary magnetic" aria-label="Solicitar consulta de psicología">
-                <span>Solicitar consulta</span>
-              </a>
-              <a href="#servicios" class="btn btn-outline" aria-label="Ver servicios de psicología">
-                <span>Conocer servicios</span>
-              </a>
-            </div>
-          </ScrollReveal>
+        <div class="flex flex-col sm:flex-row gap-3 mb-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+          <a href="/contact" class="btn btn-primary">
+            <span>Reservar consulta</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+            </svg>
+          </a>
+          <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+        </div>
 
-          <ScrollReveal animation="fade-up" delay={400}>
-            <div
-              class="grid grid-cols-3 gap-6 pt-8 border-t border-border-light"
-              role="list"
-              aria-label="Estadísticas de experiencia"
-            >
-              {stats.map((stat) => (
-                <div role="listitem">
-                  <span class="font-serif text-3xl lg:text-4xl text-text-primary block mb-1">
-                    {stat.value}
-                  </span>
-                  <span class="text-[11px] text-text-tertiary font-sans font-medium tracking-wide uppercase leading-tight block">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+        <!-- Info Pills -->
+        <div class="flex flex-wrap gap-2 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-bg-surface border border-border-light rounded-full text-sm text-text-secondary">
+            <svg class="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Colegiada nº AN-01452
+          </span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-bg-surface border border-border-light rounded-full text-sm text-text-secondary">
+            <svg class="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            Centro de Córdoba
+          </span>
         </div>
       </div>
 
-      <div
-        class="lg:col-span-6 xl:col-span-6 xl:col-start-7 order-1 lg:order-2"
-      >
-        <ScrollReveal animation="scale" delay={200}>
-          <div class="relative max-w-md mx-auto lg:max-w-none">
-            <!-- Elegant decorative frame -->
-            <div
-              class="absolute -inset-4 lg:-inset-6 border border-border-light rounded-t-full rounded-b-[2rem] hidden md:block"
-              aria-hidden="true"
-            >
-            </div>
+      <!-- Image - Forma original pero menos alta -->
+      <div class="order-1 lg:order-2 relative opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+        <div class="absolute -inset-3 lg:-inset-4 border border-border-light/50 rounded-t-full rounded-b-[2rem] hidden md:block"></div>
+        
+        <!-- Aspect ratio reducido de 4/5 a 3/4 para menos altura -->
+        <div class="relative aspect-[3/4] max-w-xs mx-auto lg:max-w-sm overflow-hidden rounded-t-full rounded-b-[2rem] shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80"
+            alt="María Ángeles Mata - Psicóloga en Córdoba"
+            class="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+            width="450"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
 
-            <div
-              class="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[2rem] shadow-card bg-bg-muted img-reveal revealed"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80"
-                alt="María Ángeles Mata - Psicóloga en Córdoba, consulta de psicología"
-                class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
-                width="600"
-                height="750"
-                loading="eager"
-                fetchpriority="high"
-              />
+        <!-- Floating Card - reposicionado -->
+        <div class="absolute -bottom-3 -left-3 lg:-left-5 bg-bg-surface px-4 py-3 rounded-xl shadow-lg border border-border-light opacity-0 animate-fade-in-up" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-
-            <!-- Floating badge -->
-            <div
-              class="absolute bottom-8 -left-6 md:-left-12 bg-bg-surface px-6 py-4 rounded-2xl shadow-card border border-border-light flex items-center gap-4 animate-fade-in delay-700"
-              role="complementary"
-              aria-label="Disponibilidad"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0"
-                aria-hidden="true"
-              >
-                <svg
-                  class="w-6 h-6 text-accent-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.315 48.315 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span class="block text-sm font-semibold text-text-primary mb-0.5">Consulta Presencial</span>
-                <span class="block text-xs text-text-tertiary">Centro de Córdoba</span>
-              </div>
+            <div>
+              <span class="font-serif text-xl text-text-primary leading-none">15+</span>
+              <p class="text-xs text-text-secondary">Años de experiencia</p>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

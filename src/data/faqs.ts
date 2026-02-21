@@ -21,10 +21,6 @@ export const faqs: FAQ[] = [
     answer: "Absolutamente. La confidencialidad es un pilar fundamental de la terapia. Todo lo que compartas está protegido por el secreto profesional. Solo existen excepciones legales en casos de riesgo grave para ti o para terceros."
   },
   {
-    question: "¿Ofreces sesiones online?",
-    answer: "Sí, ofrezco sesiones de terapia online para quienes prefieren esta modalidad o no pueden desplazarse a la consulta. Las sesiones online son igual de efectivas y mantienen la misma calidad que las presenciales."
-  },
-  {
     question: "¿Qué debo hacer si necesito cancelar una cita?",
     answer: "Si necesitas cancelar o cambiar tu cita, te pido que me avises con al menos 24 horas de antelación. De esta manera puedo ofrecer esa hora a otra persona que pueda necesitarla."
   }

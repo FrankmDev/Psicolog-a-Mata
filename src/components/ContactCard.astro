@@ -4,10 +4,9 @@ interface Props {
   label: string;
   value: string;
   icon: 'phone' | 'email' | 'location';
-  isExternal?: boolean;
 }
 
-const { href, label, value, icon, isExternal = false } = Astro.props;
+const { href, label, value, icon } = Astro.props;
 
 const icons = {
   phone: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />`,
@@ -16,20 +15,18 @@ const icons = {
 };
 
 const Tag = href ? 'a' : 'div';
-const linkProps = href && isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
 <Tag 
   href={href}
-  {...linkProps}
-  class={`group flex items-center gap-4 p-5 bg-bg-surface border border-border-light rounded-xl ${href ? 'hover:border-sage/30 hover:shadow-card transition-all duration-500' : ''}`}
+  class={`card-hover flex items-center gap-4 p-5 ${href ? 'cursor-pointer' : ''}`}
 >
-  <div class={`w-12 h-12 bg-sage/10 flex items-center justify-center shrink-0 rounded-lg ${href ? 'group-hover:bg-sage/20 transition-colors' : ''}`}>
+  <div class={`w-12 h-12 bg-sage/10 rounded-lg flex items-center justify-center shrink-0 ${href ? 'group-hover:bg-sage/20' : ''} transition-colors`}>
     <svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={icons[icon]} />
   </div>
   <div>
-    <p class="text-[10px] font-sans text-stone/40 uppercase tracking-[0.15em] mb-1">{label}</p>
-    <p class={`text-charcoal ${href ? 'group-hover:text-sage transition-colors' : ''} ${icon === 'phone' ? 'text-xl font-serif' : ''}`}>
+    <p class="text-caption text-stone/40 mb-1">{label}</p>
+    <p class={`text-label ${href ? 'group-hover:text-sage' : ''} transition-colors`}>
       {value}
     </p>
   </div>

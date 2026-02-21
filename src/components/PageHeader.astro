@@ -9,22 +9,21 @@ interface Props {
 const { label, title, highlight, description } = Astro.props;
 ---
 
-<header class="relative py-24 lg:py-32 bg-charcoal overflow-hidden">
-  <div class="absolute inset-0 bg-grain opacity-[0.02]"></div>
+<header class="section-sm bg-text-primary relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
   <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sage/5 to-transparent"></div>
-  <div class="absolute top-1/4 left-0 w-[400px] h-[400px] bg-sage/5 rounded-full blur-[120px]"></div>
   
-  <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
-    <div class="flex items-center gap-4 mb-6">
-      <span class="text-[11px] font-sans tracking-[0.3em] uppercase text-sage/60">{label}</span>
-      <div class="w-16 h-[1px] bg-gradient-to-l from-transparent to-sage/30"></div>
+  <div class="container-elegant relative z-10">
+    <div class="inline-flex items-center gap-3 mb-5 px-4 py-1.5 bg-white/5 rounded-full border border-white/10">
+      <div class="w-4 h-px bg-sage/50"></div>
+      <span class="text-xs text-sage/80 font-medium tracking-wider uppercase">{label}</span>
     </div>
     
-    <h1 class="font-serif text-4xl lg:text-6xl text-ivory mb-6 max-w-2xl leading-tight" set:html={`${title} <span class="text-sage italic">${highlight}</span>`}>
+    <h1 class="font-serif text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4 max-w-3xl">
+      {title} <span class="italic text-sage">{highlight}</span>
     </h1>
     
-    <p class="text-lg text-mist/50 max-w-xl font-light leading-relaxed">
-      {description}
-    </p>
+    <p class="text-white/50 text-lg leading-relaxed max-w-xl">{description}</p>
   </div>
 </header>

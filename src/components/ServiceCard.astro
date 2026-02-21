@@ -1,63 +1,79 @@
 ---
 interface Props {
-	number: string;
-	title: string;
-	description: string;
-	approaches: string[];
-	duration: string;
-	id: string;
-	href?: string;
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  approaches: string[];
+  duration: string;
+  icon?: string;
+  href?: string;
+  index?: number;
 }
 
-const { number, title, description, approaches, duration, id, href = "/contact" } = Astro.props;
+const { id, number, title, description, approaches, duration, icon, href = "/contact", index = 0 } = Astro.props;
 ---
 
 <div 
-	id={id}
-	class="group py-12 lg:py-14 border-b border-charcoal/10 hover:bg-warm-white transition-all duration-500 -mx-6 lg:-mx-8 px-6 lg:px-8"
+  id={id} 
+  class="group relative bg-bg-surface rounded-2xl border border-border-light transition-all duration-500 ease-out hover:shadow-card-hover hover:-translate-y-1 hover:border-sage/20 overflow-hidden opacity-0 animate-reveal"
+  style={`animation-delay: ${index * 0.1}s; animation-fill-mode: forwards;`}
 >
-	<div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-		<div class="lg:col-span-1">
-			<span class="font-serif text-3xl lg:text-4xl text-sage/30 group-hover:text-sage/50 transition-colors duration-500">
-				{number}
-			</span>
-		</div>
-		
-		<div class="lg:col-span-7">
-			<h2 class="font-serif text-2xl lg:text-3xl text-charcoal mb-3 group-hover:text-sage transition-colors duration-300">
-				{title}
-			</h2>
-			
-			<div class="flex items-center gap-2 mb-4">
-				<svg class="w-4 h-4 text-sage/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-				</svg>
-				<span class="text-sm text-stone/50">{duration}</span>
-			</div>
-			
-			<p class="text-stone/60 leading-relaxed mb-5 max-w-xl font-light">
-				{description}
-			</p>
-			
-			<div class="flex flex-wrap gap-2">
-				{approaches.map((approach) => (
-					<span class="px-3 py-1.5 bg-sage/5 text-sage text-xs font-sans tracking-wide uppercase">
-						{approach}
-					</span>
-				))}
-			</div>
-		</div>
-		
-		<div class="lg:col-span-4 lg:text-right">
-			<a 
-				href={href} 
-				class="btn btn-outline inline-flex"
-			>
-				<span>Contactar</span>
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
-				</svg>
-			</a>
-		</div>
-	</div>
+  <!-- Top accent line -->
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sage/0 via-sage/30 to-sage/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+  
+  <div class="p-6 lg:p-8">
+    <!-- Header: Icon + Title + Number in one row -->
+    <div class="flex items-start gap-4 mb-5">
+      <div class="w-12 h-12 rounded-xl bg-sage/10 flex items-center justify-center text-sage flex-shrink-0 transition-all duration-300 group-hover:bg-sage group-hover:text-white group-hover:scale-105">
+        {icon && <Fragment set:html={icon} />}
+      </div>
+      
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between gap-3">
+          <h3 class="font-serif text-xl lg:text-2xl text-text-primary group-hover:text-sage transition-colors duration-300">
+            {title}
+          </h3>
+          <span class="font-serif text-2xl text-sage/15 group-hover:text-sage/30 transition-colors flex-shrink-0">{number}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Description -->
+    <p class="text-text-secondary leading-relaxed mb-5">
+      {description}
+    </p>
+    
+    <!-- Footer: Tags + Duration + CTA -->
+    <div class="flex flex-col lg:flex-row lg:items-center gap-4 pt-5 border-t border-border-light">
+      <!-- Approaches Tags -->
+      <div class="flex flex-wrap gap-2 flex-1">
+        {approaches.map((approach) => (
+          <span class="px-3 py-1 bg-bg-muted text-text-secondary text-xs rounded-full border border-border-light group-hover:border-sage/15 group-hover:bg-sage/5 transition-colors">
+            {approach}
+          </span>
+        ))}
+      </div>
+      
+      <!-- Right side: Duration & CTA -->
+      <div class="flex items-center gap-4 lg:border-l lg:border-border-light lg:pl-5">
+        <div class="flex items-center gap-1.5 text-sm text-text-secondary">
+          <svg class="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>{duration}</span>
+        </div>
+        
+        <a 
+          href={href} 
+          class="inline-flex items-center gap-1.5 px-4 py-2 bg-text-primary text-bg-base text-sm font-medium rounded-full transition-all duration-300 hover:bg-sage"
+        >
+          <span>Reservar</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

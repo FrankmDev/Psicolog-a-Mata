@@ -2,46 +2,81 @@
 import { mainServices } from '../../data/services';
 ---
 
-<section class="section-padding bg-bg-muted relative overflow-hidden" id="servicios">
+<section class="section bg-bg-muted relative overflow-hidden" id="servicios">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border-medium to-transparent"></div>
+  
   <div class="container-elegant relative z-10">
-    <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-      <span class="eyebrow mb-4">Áreas de Especialidad</span>
+    <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16 opacity-0 animate-reveal" data-animate>
+      <div class="inline-flex items-center gap-3 mb-4 px-4 py-1.5 bg-bg-surface rounded-full border border-border-light">
+        <div class="w-5 h-px bg-sage"></div>
+        <span class="eyebrow !mb-0 text-xs">Áreas de Especialidad</span>
+        <div class="w-5 h-px bg-sage"></div>
+      </div>
       
-      <h2 class="font-serif text-3xl lg:text-4xl text-text-primary mb-6">
-        Acompañamiento <span class="italic font-light text-accent-primary">especializado</span> para cada etapa de tu vida
+      <h2 class="font-serif text-3xl lg:text-4xl text-text-primary leading-tight">
+        Acompañamiento <span class="italic text-sage font-light">especializado</span>
       </h2>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8">
-      {mainServices.map((service) => (
+    <div class="grid md:grid-cols-3 gap-6">
+      {mainServices.map((service, index) => (
         <a 
-          href="/services"
-          class="card-elegant group relative block overflow-hidden bg-bg-surface"
+          href="/services" 
+          class="group bg-bg-surface rounded-2xl p-7 border border-border-light transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1.5 hover:border-sage/15 opacity-0 animate-reveal"
+          data-animate
+          style={`animation-delay: ${(index + 1) * 0.1}s`}
         >
-          <!-- Hover subtle gradient -->
-          <div class="absolute top-0 right-0 p-12 bg-accent-primary/5 rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-sage/10 flex items-center justify-center text-sage mb-5 transition-all duration-300 group-hover:bg-sage group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-sage/20">
+            <Fragment set:html={service.icon} />
+          </div>
           
-          <div class="relative z-10">
-            <div class="w-14 h-14 rounded-full bg-bg-muted flex items-center justify-center text-accent-primary mb-8 group-hover:bg-accent-primary group-hover:text-bg-surface transition-colors duration-500" set:html={service.icon}>
-            </div>
-            
-            <h3 class="font-serif text-2xl text-text-primary mb-4">
-              {service.title}
-            </h3>
-            
-            <p class="text-[15px] text-text-secondary leading-relaxed mb-8">
-              {service.shortDescription}
-            </p>
-            
-            <div class="inline-flex items-center gap-2 text-[13px] font-medium text-text-primary group-hover:text-accent-primary transition-colors duration-300">
-              <span class="uppercase tracking-widest">Saber más</span>
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
-              </svg>
-            </div>
+          <h3 class="font-serif text-xl text-text-primary mb-2 group-hover:text-sage transition-colors duration-300">
+            {service.title}
+          </h3>
+          
+          <p class="text-text-secondary text-sm leading-relaxed mb-5 line-clamp-3">
+            {service.shortDescription}
+          </p>
+          
+          <div class="flex items-center gap-2 text-sm font-medium text-text-primary group-hover:text-sage transition-colors pt-4 border-t border-border-light">
+            <span>Explorar servicio</span>
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+            </svg>
           </div>
         </a>
       ))}
     </div>
+    
+    <div class="mt-12 text-center opacity-0 animate-reveal" data-animate style="animation-delay: 0.4s">
+      <a href="/services" class="btn btn-outline">
+        <span>Ver todos los servicios</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-reveal');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+      observer.observe(el);
+    });
+  }
+</script>
