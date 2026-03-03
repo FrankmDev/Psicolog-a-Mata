@@ -19,7 +19,7 @@ interface Props {
   sizes?: string;
   quality?: ImageQuality;
   fit?: 'crop' | 'clip' | 'max' | 'scale' | 'fill';
-  format?: 'auto' | 'webp' | 'jpeg' | 'jpg' | 'png' | 'avif';
+  format?: 'auto' | 'webp' | 'jpeg' | 'jpg' | 'png' | 'avif' | 'jxl';
   priority?: boolean;
   caption?: string;
 }
@@ -67,9 +67,12 @@ function getOptimizedUnsplashUrl(url: string, w: number, q: number, f: string, f
 function generateSrcset(originalUrl: string): string {
   if (!isUnsplash) return originalUrl;
   
-  const widths = [400, 600, 800, 1200, 1600, 2000];
+  // Usar AVIF para mejor compresión, fallback a WebP
+  const optimizedFormat = format === 'auto' ? 'avif' : format;
+  const widths = [400, 600, 800, 1200];
+  
   return widths
-    .map(w => `${getOptimizedUnsplashUrl(originalUrl, w, quality, format, fit)} ${w}w`)
+    .map(w => `${getOptimizedUnsplashUrl(originalUrl, w, quality, optimizedFormat, fit)} ${w}w`)
     .join(', ');
 }
 
