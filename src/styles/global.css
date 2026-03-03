@@ -38,6 +38,9 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Optimización para rendimiento de scroll */
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
   }
 
   body {
@@ -48,6 +51,8 @@
     font-size: 16px;
     font-weight: 300;
     overflow-x: hidden;
+    /* Contain para aislamiento de layout */
+    contain: layout style;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -584,3 +589,111 @@
 .text-taupe-light { color: var(--color-taupe-light); }
 .text-olive { color: var(--color-olive); }
 .text-alabaster { color: var(--color-alabaster); }
+
+/* ============================================
+   OPTIMIZACIONES DE RENDIMIENTO
+   ============================================ */
+
+/* Containment para secciones grandes - mejora render performance */
+.section,
+.section-sm {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+  contain: layout style paint;
+}
+
+/* Optimización para imágenes LCP */
+.img-lcp {
+  content-visibility: visible !important;
+  will-change: transform;
+  contain: layout style;
+}
+
+/* Reducir motion para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .bg-aurora::before,
+  .bg-aurora::after {
+    animation: none !important;
+  }
+}
+
+/* Optimización para dispositivos de baja potencia */
+@media (prefers-reduced-data: reduce) {
+  .bg-aurora,
+  .noise-overlay {
+    display: none !important;
+  }
+}
+
+/* GPU acceleration para elementos animados */
+[data-reveal],
+.btn,
+.card,
+.card-hover {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimización de will-change - solo cuando es necesario */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Contain para cards y componentes interactivos */
+.card,
+.card-hover,
+.btn {
+  contain: layout style;
+}
+
+/* Optimización de imágenes */
+img {
+  /* Prevent layout shifts */
+  height: auto;
+  max-width: 100%;
+  /* Performance hints */
+  content-visibility: auto;
+}
+
+/* Lazy loading hint */
+img[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
+
+/* Optimización para el hero (LCP) */
+section:first-of-type {
+  content-visibility: visible !important;
+}
+
+/* Font display optimization */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-display: swap;
+  src: local('Cormorant Garamond');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-display: swap;
+  src: local('Manrope');
+}

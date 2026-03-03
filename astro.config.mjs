@@ -22,6 +22,14 @@ export default defineConfig({
     build: {
       // Enable CSS minification
       cssMinify: true,
+      // Minify JS for production
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      },
       // Rollup options for better chunking
       rollupOptions: {
         output: {
@@ -35,7 +43,9 @@ export default defineConfig({
     // Optimize deps for faster dev
     optimizeDeps: {
       include: []
-    }
+    },
+    // Enable source maps for debugging (disable in production if needed)
+    sourcemap: false
   },
   
   // Image optimization configuration
@@ -46,8 +56,8 @@ export default defineConfig({
       config: {
         // Limit concurrent image processing
         limitInputPixels: 268402689,
-        // Default quality for images
-        quality: 80
+        // Default quality for images (lower for better performance)
+        quality: 75
       }
     },
     // Remote image patterns for external images

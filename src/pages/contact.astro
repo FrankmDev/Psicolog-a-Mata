@@ -5,13 +5,27 @@ import Footer from '../components/Footer.astro';
 import PageHeader from '../components/PageHeader.astro';
 import ContactInfoCard from '../components/ContactInfoCard.astro';
 import CTASection from '../components/CTASection.astro';
+import Schema from '../components/Schema.astro';
 import Icon from '../components/Icon.astro';
 
 const title = "Contacto | María Ángeles Mata - Psicóloga en Córdoba";
 const description = "Contacta con María Ángeles Mata, psicóloga en Córdoba. Reserva tu primera consulta por teléfono, email o formulario.";
+
+const breadcrumbData = [
+  { name: "Inicio", url: "https://psicologia-mata.es/" },
+  { name: "Contacto", url: "https://psicologia-mata.es/contact" }
+];
+
+const contactPageData = {
+  name: title,
+  description,
+  url: "https://psicologia-mata.es/contact"
+};
 ---
 
 <Layout {title} {description}>
+  <Schema slot="schema" type="breadcrumbs" data={breadcrumbData} />
+  <Schema slot="schema" type="webpage" data={contactPageData} />
   <Header activePage="Contacto" />
   
   <main id="main-content">

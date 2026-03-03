@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://psicologamata.es/sitemap-index.xml
+Sitemap: https://psicologia-mata.es/sitemap-index.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

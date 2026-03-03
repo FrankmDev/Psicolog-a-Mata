@@ -10,22 +10,26 @@
   (function initRevealAnimations() {
     'use strict';
     
-    // Configuración
+    // Configuración optimizada para rendimiento
     const CONFIG = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px',
-      once: true // Solo animar una vez
+      threshold: 0.1,
+      rootMargin: '50px 0px 0px 0px', // Margen positivo para precargar antes de entrar en viewport
+      once: true
     };
     
-    let observer: IntersectionObserver | null = null;
+    let observer = null;
     let isInitialized = false;
+    let rafId = null;
     
-    // Debounce utility
-    function debounce<T extends (...args: unknown[]) => void>(fn: T, delay: number) {
-      let timeoutId: ReturnType<typeof setTimeout>;
-      return (...args: Parameters<T>) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => fn(...args), delay);
+    // Throttle utility - mejor que debounce para scroll
+    function throttle(fn, limit) {
+      let inThrottle;
+      return function(...args) {
+        if (!inThrottle) {
+          fn.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
       };
     }
     
@@ -36,33 +40,45 @@
       const elements = document.querySelectorAll('[data-reveal], .img-reveal-wrapper');
       if (elements.length === 0) return;
       
+      // Cancelar cualquier RAF pendiente
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
       // Limpiar observer anterior si existe
       if (observer) {
         observer.disconnect();
       }
       
-      // Crear nuevo observer
+      // Crear nuevo observer con callback optimizado
       observer = new IntersectionObserver((entries) => {
+        // Procesar todas las entradas en un solo batch
+        const toReveal = [];
+        
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const delayStr = entry.target.getAttribute('data-reveal-delay');
             const delay = delayStr ? parseInt(delayStr, 10) : 0;
+            toReveal.push({ target: entry.target, delay });
             
-            // Usar requestAnimationFrame para sincronizar con el render
-            requestAnimationFrame(() => {
-              setTimeout(() => {
-                entry.target.classList.add('is-visible');
-              }, delay);
-            });
-            
-            // Dejar de observar si solo animamos una vez
             if (CONFIG.once) {
-              observer?.unobserve(entry.target);
+              observer.unobserve(entry.target);
             }
-          } else if (!CONFIG.once) {
-            entry.target.classList.remove('is-visible');
           }
         });
+        
+        // Aplicar cambios en RAF para sincronizar con render
+        if (toReveal.length > 0) {
+          rafId = requestAnimationFrame(() => {
+            toReveal.forEach(({ target, delay }) => {
+              if (delay === 0) {
+                target.classList.add('is-visible');
+              } else {
+                setTimeout(() => target.classList.add('is-visible'), delay);
+              }
+            });
+          });
+        }
       }, {
         threshold: CONFIG.threshold,
         rootMargin: CONFIG.rootMargin
@@ -71,7 +87,7 @@
       // Observar elementos
       elements.forEach((el) => {
         el.classList.remove('is-visible');
-        observer?.observe(el);
+        observer.observe(el);
       });
       
       isInitialized = true;
@@ -79,6 +95,10 @@
     
     // Cleanup eficiente
     function cleanup() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
       if (observer) {
         observer.disconnect();
         observer = null;
@@ -86,30 +106,38 @@
       isInitialized = false;
     }
     
-    // Inicializar
+    // Inicializar cuando el DOM esté listo
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
     } else {
-      init();
+      // Delay para no bloquear el LCP
+      setTimeout(init, 0);
     }
     
-    // Reinicializar en transiciones de página (View Transitions)
+    // Reinicializar en transiciones de página
     document.addEventListener('astro:page-load', () => {
       cleanup();
-      // Pequeño delay para asegurar que el DOM está listo
       requestAnimationFrame(init);
     });
     
-    // Cleanup antes de cambiar de página
     document.addEventListener('astro:before-swap', cleanup);
     
-    // Reinicializar si cambia el tamaño de ventana (para elementos nuevos)
-    const debouncedInit = debounce(() => {
+    // Throttled resize handler
+    const throttledInit = throttle(() => {
       cleanup();
       init();
-    }, 250);
+    }, 200);
     
-    window.addEventListener('resize', debouncedInit);
+    window.addEventListener('resize', throttledInit, { passive: true });
+    
+    // Cleanup en visibilitychange para ahorrar recursos
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cleanup();
+      } else {
+        init();
+      }
+    });
     
   })();
 </script>

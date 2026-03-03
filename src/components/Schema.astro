@@ -3,6 +3,11 @@
 // Usage: <Schema type="localbusiness" data={businessData} />
 // Supports: localbusiness, article, webpage, breadcrumbs, faqpage
 
+interface GeoCoordinates {
+  latitude: number;
+  longitude: number;
+}
+
 interface LocalBusinessData {
   name: string;
   description: string;
@@ -15,9 +20,12 @@ interface LocalBusinessData {
     postalCode: string;
     addressCountry: string;
   };
+  geo?: GeoCoordinates;
   image?: string;
   priceRange?: string;
   openingHours?: string[];
+  serviceArea?: string;
+  specialties?: string[];
 }
 
 interface ArticleData {
@@ -64,7 +72,7 @@ const { type, data } = Astro.props;
 const siteUrl = 'https://psicologia-mata.es';
 
 function generateLocalBusinessSchema(data: LocalBusinessData) {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${data.url}#business`,
@@ -82,8 +90,34 @@ function generateLocalBusinessSchema(data: LocalBusinessData) {
     openingHours: data.openingHours || ['Mo-Fr 09:00-20:00'],
     sameAs: [
       // Add social profiles here when available
-    ]
+    ],
+    hasMap: `https://maps.google.com/?q=${encodeURIComponent(
+      `${data.address.streetAddress}, ${data.address.postalCode} ${data.address.addressLocality}, ${data.address.addressCountry}`
+    )}`,
+    isAccessibleForFree: false,
+    paymentAccepted: ['Cash', 'Credit Card', 'Bank Transfer'],
+    currenciesAccepted: 'EUR',
+    areaServed: data.serviceArea || 'Córdoba, España'
   };
+
+  // Add geo coordinates if provided
+  if (data.geo) {
+    schema.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: data.geo.latitude,
+      longitude: data.geo.longitude
+    };
+  }
+
+  // Add medical specialty for better healthcare SEO
+  if (data.specialties) {
+    schema.medicalSpecialty = data.specialties.map(specialty => ({
+      '@type': 'MedicalSpecialty',
+      name: specialty
+    }));
+  }
+
+  return schema;
 }
 
 function generateArticleSchema(data: ArticleData) {
