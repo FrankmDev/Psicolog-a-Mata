@@ -27,19 +27,19 @@ const navLinks = [
   </div>
 
   <div class="container-editorial relative">
-    <div class="flex items-center justify-between h-20 lg:h-28">
+    <div class="flex items-center justify-between h-16 lg:h-24">
       
       <!-- Logo -->
       <a href="/" class="flex items-center gap-4 group relative z-50 transition-transform duration-300 hover:scale-[1.02]">
         <Image 
           src={horizontalLogo} 
           alt="María Ángeles Mata - Psicología Clínica" 
-          width={170}
-          densities={[1.5, 2]}
-          format="avif"
-          quality="max"
+          width={400}
+          densities={[1, 2, 3]}
+          format="webp"
+          quality={100}
           loading="eager"
-          class="w-[160px] sm:w-[140px] lg:w-[170px] h-auto object-contain"
+          class="w-[150px] sm:w-[140px] lg:w-[170px] h-auto object-contain"
         />
       </a>
 
@@ -69,7 +69,7 @@ const navLinks = [
           <span class="w-1.5 h-1.5 rounded-full bg-olive/50 group-hover:bg-olive group-hover:scale-125 transition-all duration-500"></span>
           <span class="text-label tracking-[0.1em]">661 471 971</span>
         </a>
-        <a href="/contact" class="btn btn-sage py-3.5 px-8 !text-[0.6875rem] shadow-lg shadow-olive/0 hover:shadow-olive/20 transition-shadow duration-500">
+        <a href="/contact" class="btn btn-sage py-3.5 px-8 shadow-lg shadow-olive/0 hover:shadow-olive/20 transition-shadow duration-500">
           Reservar Sesión
         </a>
       </div>
@@ -100,7 +100,7 @@ const navLinks = [
         {navLinks.map((link, index) => (
           <a
             href={link.href}
-            class="mobile-link opacity-0 translate-y-4 font-serif text-5xl text-ink hover:text-olive transition-all duration-500 italic font-light"
+            class="mobile-link opacity-0 translate-y-4 font-serif text-3xl sm:text-4xl md:text-5xl text-ink hover:text-olive transition-all duration-500 italic font-light"
             style={`transition-delay: ${index * 100}ms`}
           >
             {link.label}
@@ -112,7 +112,7 @@ const navLinks = [
         <p class="text-label-sm text-charcoal mb-4">
           Contacto Directo
         </p>
-        <a href="tel:+34661471971" class="block font-serif text-3xl text-ink mb-8">
+        <a href="tel:+34661471971" class="block font-serif text-2xl sm:text-3xl text-ink mb-8">
           661 471 971
         </a>
         <a href="/contact" class="btn btn-sage w-full justify-center py-4">
@@ -123,7 +123,7 @@ const navLinks = [
   </div>
 </header>
 
-<div class="h-20 lg:h-28"></div>
+<div class="h-16 lg:h-24"></div>
 
 <script>
   function initHeader() {

@@ -6,21 +6,30 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // Site configuration
   site: 'https://psicologia-mata.es',
-  
+
   // Build output directory
   outDir: './dist',
-  
+
   // Prefetch configuration
   prefetch: false,
 
   // Server configuration
   server: {
     port: 4321,
+    host: true,
   },
-  
+
   // Vite configuration
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      // No forzar puerto específico para evitar conflictos
+      strictPort: false,
+      // Desactivar overlay de errores HMR que puede causar problemas
+      hmr: {
+        overlay: false,
+      },
+    },
     build: {
       cssMinify: true,
       minify: 'terser',
@@ -33,28 +42,10 @@ export default defineConfig({
       sourcemap: false,
     },
   },
-  
-  // Image optimization configuration
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp',
-      config: {
-        limitInputPixels: 268402689,
-        quality: 75
-      }
-    },
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**'
-      }
-    ]
-  },
-  
+
   // Compress HTML output
   compressHTML: true,
-  
+
   // Experimental features
   experimental: {
     clientPrerender: false

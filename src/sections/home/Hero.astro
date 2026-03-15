@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import psicologia from '../../assets/psicologia.avif';
+import psicologia from '../../assets/terapia-individual-vertical.avif';
 ---
 
 <section
@@ -20,7 +20,7 @@ import psicologia from '../../assets/psicologia.avif';
         <div class="absolute -left-8 lg:-left-24 top-0 w-[1px] h-full bg-border-delicate hidden md:block"></div>
 
         <div class="mb-6 sm:mb-10" data-reveal>
-          <span class="label-section text-[0.625rem] sm:text-label-sm">Psicología Clínica en Córdoba</span>
+          <span class="label-section">Psicología Clínica en Córdoba</span>
         </div>
 
         <h1
@@ -45,18 +45,18 @@ import psicologia from '../../assets/psicologia.avif';
           data-reveal
           data-reveal-delay="500"
         >
-          <a href="/contact" class="btn btn-sage text-[0.6875rem] sm:text-xs py-3 px-6 sm:py-4 sm:px-8">
+          <a href="/contact" class="btn btn-sage py-3 px-6 sm:py-4 sm:px-8">
             <span>Quiero hablar contigo</span>
           </a>
 
           <div class="flex flex-col gap-1.5 sm:gap-2">
             <div class="flex items-center gap-2 sm:gap-3">
               <span class="w-1 h-1 rounded-full bg-olive shrink-0"></span>
-              <span class="text-label-xs text-charcoal text-[0.625rem] sm:text-xs">Terapia Individual</span>
+              <span class="text-label-xs text-charcoal">Terapia Individual</span>
             </div>
             <div class="flex items-center gap-2 sm:gap-3">
               <span class="w-1 h-1 rounded-full bg-olive shrink-0"></span>
-              <span class="text-label-xs text-charcoal text-[0.625rem] sm:text-xs">Terapia de Pareja</span>
+              <span class="text-label-xs text-charcoal">Terapia de Pareja</span>
             </div>
           </div>
         </div>
@@ -77,22 +77,21 @@ import psicologia from '../../assets/psicologia.avif';
         <div class="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] mx-auto lg:ml-auto lg:mr-0" data-reveal="right" data-reveal-delay="100">
 
           <!-- Capa trasera decorativa -->
-          <div class="absolute -inset-y-6 sm:-inset-y-8 -inset-x-3 sm:-inset-x-4 bg-stone/20 rounded-t-full hidden sm:block backdrop-blur-sm z-0 group-hover:bg-stone/30 transition-colors duration-700"></div>
+          <div class="absolute -inset-y-6 sm:-inset-y-8 -inset-x-3 sm:-inset-x-4 bg-stone/20 rounded-t-full hidden sm:block backdrop-blur-sm z-0"></div>
 
           <!-- Contenedor de la imagen con Reveal Mask -->
-          <div class="img-reveal-wrapper rounded-t-full rounded-b-[60px] sm:rounded-b-[100px] overflow-hidden aspect-[3/4] z-10 relative shadow-2xl shadow-ink/5 group">
+          <div class="img-reveal-wrapper rounded-t-full rounded-b-[60px] sm:rounded-b-[100px] overflow-hidden aspect-[3/4] z-10 relative shadow-2xl shadow-ink/5">
             <Image
               src={psicologia}
               alt="María Ángeles Mata - Psicóloga Sanitaria"
-              class="absolute inset-0 w-full h-full object-cover scale-105 transition-all duration-[1.5s] group-hover:scale-100 group-hover:opacity-100 mix-blend-multiply opacity-90"
-              width={600}
-              densities={[1.5, 2]}
-              format="avif"
-              quality="max"
+              class="absolute inset-0 w-full h-full object-cover"
+              width={1200}
+              densities={[1, 2, 3]}
+              quality={100}
               loading="eager"
             />
             <!-- Overlay de color para integrar con el tema -->
-            <div class="absolute inset-0 bg-olive/10 mix-blend-color pointer-events-none group-hover:bg-olive/5 transition-colors duration-500"></div>
+            <div class="absolute inset-0 bg-olive/10 mix-blend-color pointer-events-none"></div>
           </div>
 
           <!-- Etiqueta Flotante Minimalista -->
@@ -106,7 +105,7 @@ import psicologia from '../../assets/psicologia.avif';
             </div>
             <div class="h-8 sm:h-10 w-[1px] bg-border-strong shrink-0"></div>
             <div>
-              <p class="text-label-xs text-charcoal leading-relaxed text-[0.625rem] sm:text-xs">
+              <p class="text-label-xs text-charcoal leading-relaxed">
                 Años acompañando<br />a personas como tú
               </p>
             </div>

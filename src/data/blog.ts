@@ -5,6 +5,7 @@ import autoestima from '../assets/autoestima.avif';
 import terapiaPareja2 from '../assets/terapia-pareja-2.avif';
 import estres from '../assets/estres.avif';
 import apunte from '../assets/apunte.avif';
+import terapiaFamilia from '../assets/terapia-familia.avif';
 import psicologia from '../assets/psicologia.avif';
 
 export interface BlogPost {
@@ -28,7 +29,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateShort: "15 Ene",
     readTime: "5 min",
     category: "Bienestar",
-    image: autoestima,
+    image: terapiaFamilia,
     content: `
       <p class="text-xl leading-relaxed text-charcoal mb-8">La gente suele pensar que ir a terapia es para cuando "estás mal". Pero la verdad es que la terapia es para cualquiera que quiera entenderse mejor, sentirse mejor, o simplemente tener un espacio donde no tener que cuidar lo que dice.</p>
       
@@ -190,7 +191,7 @@ export const blogPosts: Record<string, BlogPost> = {
     dateShort: "28 Dic",
     readTime: "6 min",
     category: "Crecimiento Personal",
-    image: apunte,
+    image: autoestima,
     content: `
       <p class="text-xl leading-relaxed text-charcoal mb-8">La autoestima no es sentirse el mejor del mundo. Es simplemente aceptarte como eres: con tus fallos, con tus aciertos, con tu historia. Es dejar de ser tu peor crítico.</p>
       

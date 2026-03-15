@@ -39,7 +39,7 @@ const previewPosts = blogPostsList.slice(0, 3);
               {/* Número / Categoría */}
               <div class="w-full lg:w-24 shrink-0 flex items-center gap-4 lg:gap-0">
                 <span class="text-label text-olive w-8">0{index + 1}</span>
-                <span class="lg:hidden text-label-xs text-charcoal uppercase tracking-wider">{post.category}</span>
+                <span class="lg:hidden text-label-xs text-charcoal">{post.category}</span>
               </div>
 
               {/* Contenido */}
@@ -50,7 +50,7 @@ const previewPosts = blogPostsList.slice(0, 3);
                   <span class="text-label-xs text-charcoal/70">{post.date}</span>
                 </div>
 
-                <h3 class="font-serif text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-500 leading-tight mb-3">
+                <h3 class="font-serif text-lg sm:text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-500 leading-tight mb-3">
                   {post.title}
                 </h3>
 

@@ -10,7 +10,7 @@ import { allServices } from '../data/services';
 import { Image } from 'astro:assets';
 import terapiaIndividual from '../assets/terapia-individual.avif';
 import terapiaPareja from '../assets/terapia-pareja.avif';
-import terapiaFamilia from '../assets/terapia-familia.avif';
+import terapiaFamilia from '../assets/terapia-familiar.avif';
 import evaluacion from '../assets/evaluacion.avif';
 import cognitiva from '../assets/estimulacion-cognitiva.avif';
 
@@ -154,8 +154,8 @@ const faqSchemaData = faqs.map(faq => ({
                       class="absolute inset-0 w-full h-full object-cover filter grayscale-[20%] sepia-[5%] group-hover:grayscale-0 group-hover:sepia-0 transition-all duration-700 group-hover:scale-105"
                       width={600}
                       densities={[1.5, 2]}
-                      format="avif"
-                      quality="max"
+                      format="webp"
+                      quality={100}
                       loading={index === 0 ? 'eager' : 'lazy'}
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-ink/30 via-ink/5 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
@@ -243,7 +243,7 @@ const faqSchemaData = faqs.map(faq => ({
                     <span class="text-label text-olive font-semibold w-8 md:w-12 shrink-0">
                       0{index + 1}
                     </span>
-                    <h3 class="font-serif text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-300 pr-4 leading-[1.2]">
+                    <h3 class="font-serif text-lg sm:text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-300 pr-4 leading-[1.2]">
                       {faq.question}
                     </h3>
                   </div>
@@ -255,7 +255,7 @@ const faqSchemaData = faqs.map(faq => ({
                   </div>
                 </summary>
                 
-                <div class="pb-10 pl-[4.5rem] md:pl-24 text-body text-charcoal max-w-3xl">
+                <div class="pb-10 pl-[4.5rem] md:pl-24 text-body-sm sm:text-body text-charcoal max-w-3xl">
                   {faq.answer}
                 </div>
               </details>
@@ -266,7 +266,7 @@ const faqSchemaData = faqs.map(faq => ({
         <div class="mt-24 pt-12 border-t border-border-delicate flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left" data-reveal data-reveal-delay="300">
           <div>
             <p class="text-label-sm text-charcoal mb-2">¿Te queda alguna duda?</p>
-            <p class="font-serif text-xl text-ink">Escríbeme directamente</p>
+            <p class="font-serif text-lg sm:text-xl text-ink">Escríbeme directamente</p>
           </div>
           <a href="/contact" class="btn btn-outline">
             Contactar

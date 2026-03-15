@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "clean": "rm -rf .astro dist node_modules/.vite node_modules/.astro",
+    "kill": "./kill-astro.sh",
+    "fresh": "./kill-astro.sh && rm -rf node_modules && npm install && astro dev"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
