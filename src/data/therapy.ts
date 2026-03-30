@@ -43,7 +43,7 @@ export const therapyProcessSteps: ProcessStep[] = [
 
 export const therapyHighlights: ProcessHighlight[] = [
   { value: '50 min', label: 'Duración por sesión' },
-  { value: 'Presencial', label: 'Consulta en Córdoba' },
+  { value: 'Presencial y Online', label: 'Modalidad' },
   { value: 'Personalizado', label: 'Adaptado a ti' }
 ];
 
@@ -82,5 +82,5 @@ export const contactInfo: ContactInfo[] = [
 export const availabilityInfo = [
   { label: "Respuesta", value: "24 horas" },
   { label: "Confidencialidad", value: "Total" },
-  { label: "Modalidad", value: "Presencial" }
+  { label: "Modalidad", value: "Presencial y Online" }
 ];

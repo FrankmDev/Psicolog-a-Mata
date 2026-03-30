@@ -15,14 +15,14 @@ import { mainServices } from '../data/services';
 import { faqs } from '../data/faqs';
 import { blogPostsList } from '../data/blog';
 
-const title = "María Ángeles Mata — Psicóloga en Córdoba | Terapia Individual y de Pareja";
+const title = "Psicóloga en Córdoba | María Ángeles Mata - Terapia Individual y de Pareja";
 const description = "Psicóloga General Sanitaria en Córdoba con 15+ años de experiencia. Especialista en terapia individual, de pareja y familiar. Primera consulta sin compromiso.";
 
 const previewPosts = blogPostsList.slice(0, 3);
 
 const localBusinessData = {
   name: "María Ángeles Mata - Psicóloga Sanitaria",
-  description: "Psicóloga General Sanitaria en Córdoba especializada en terapia individual, de pareja y familiar con más de 15 años de experiencia.",
+  description: "Psicóloga General Sanitaria en Córdoba especializada en terapia individual, de pareja y familiar con más de 15 años de experiencia. Consulta presencial en Córdoba y online.",
   url: "https://psicologia-mata.es",
   telephone: "+34 661 471 971",
   email: "mangelesmatacala@hotmail.com",
@@ -32,7 +32,6 @@ const localBusinessData = {
     postalCode: "14003",
     addressCountry: "ES"
   },
-  // Approximate coordinates for Córdoba center - update with exact coordinates
   geo: {
     latitude: 37.8882,
     longitude: -4.7794
@@ -40,13 +39,24 @@ const localBusinessData = {
   image: "https://psicologia-mata.es/favicon.avif",
   priceRange: "€€",
   openingHours: ["Mo-Fr 09:00-20:00"],
-  serviceArea: "Córdoba y provincia",
+  serviceArea: "Córdoba, provincia y online",
   specialties: [
     "Psicología Clínica",
-    "Terapia Individual",
-    "Terapia de Pareja",
+    "Terapia Individual Online",
+    "Terapia de Pareja Online",
     "Terapia Familiar",
     "Evaluación Neuropsicológica"
+  ],
+  services: [
+    "Terapia Individual (Presencial y Online)",
+    "Terapia de Pareja (Presencial y Online)",
+    "Terapia Familiar",
+    "Evaluación Neuropsicológica",
+    "Estimulación Cognitiva (Online y Domicilio)"
+  ],
+  socialProfiles: [
+    "https://www.instagram.com/psicologamata",
+    "https://www.facebook.com/psicologamata"
   ]
 };
 
@@ -67,6 +77,8 @@ const credentials = [
   { year: "2025", title: "Máster en Psicología General Sanitaria", institution: "Univ. Católica de Ávila" },
   { year: "2023", title: "Grado en Psicología – Mención en Psicología de la Salud", institution: "Univ. Católica de Ávila" },
   { year: "2021", title: "Máster en Neuropsicología", institution: "Escuela de Postgrado de Psicología y Psiquiatría. Reconocido por Univ. Católica de Cuyo (Argentina) y Univ. CLEA (México)" },
+  { year: "2021", title: "Máster en Deterioros Cognitivos", institution: "Escuela De Postgrado de Psicología y Psiquiatría" },
+  { year: "2020", title: "Máster en Gerontología: Intervención Psicológica y Pedagógica en la Tercera Edad", institution: "Universidad San Jorge" },
 ];
 
 // Valores
@@ -151,6 +163,10 @@ const values = [
                 <div class="flex items-center gap-3">
                   <span class="w-1 h-1 rounded-full bg-olive"></span>
                   <span class="text-label-xs text-charcoal">Terapia de Pareja</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-1 h-1 rounded-full bg-olive"></span>
+                  <span class="text-label-xs text-charcoal">Online y Presencial</span>
                 </div>
               </div>
             </div>
@@ -264,7 +280,7 @@ const values = [
 
               <div class="mb-12">
                 <div class="flex items-center gap-4 mb-6">
-                  <span class="text-label-sm text-charcoal">Formación</span>
+                  <span class="text-label-sm text-charcoal">Formación Reciente</span>
                   <span class="h-[1px] flex-1 bg-border-delicate"></span>
                 </div>
 
@@ -272,7 +288,7 @@ const values = [
                   {credentials.map((cred) => (
                     <div class="flex items-baseline gap-4">
                       <span class="text-label-xs text-olive w-10 shrink-0">{cred.year}</span>
-                      <span class="text-body-sm text-ink">
+                      <span class="text-xs sm:text-sm text-ink leading-relaxed">
                         {cred.title}
                         <span class="text-charcoal"> — {cred.institution}</span>
                       </span>

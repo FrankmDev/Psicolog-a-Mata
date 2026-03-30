@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const title = "Aviso Legal | María Ángeles Mata - Psicóloga en Córdoba";
+const description = "Aviso legal de María Ángeles Mata, psicóloga en Córdoba. Información sobre servicios profesionales y normativa aplicable.";
+
+const breadcrumbData = [
+  { name: "Inicio", url: "https://psicologia-mata.es/" },
+  { name: "Aviso Legal", url: "https://psicologia-mata.es/aviso-legal" }
+];
+---
+
+<Layout {title} {description}>
+  <Header activePage="" />
+  
+  <main id="main-content">
+    
+    <section class="section bg-alabaster relative overflow-hidden" aria-labelledby="legal-heading">
+      <div class="bg-aurora"></div>
+      
+      <div class="container-editorial relative z-10">
+        <PageHeader
+          label="Legal"
+          title="Aviso"
+          highlight="Legal"
+          description="Información legal sobre los servicios de psicología."
+        />
+      </div>
+    </section>
+
+    <section class="section bg-cream relative">
+      <div class="container-editorial">
+        <div class="max-w-3xl mx-auto prose prose-lg">
+          
+          <p class="text-body text-charcoal"><strong>Última actualización:</strong> Enero 2025</p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">1. Datos del Responsable</h2>
+          <p class="text-body text-charcoal mb-4">
+            <strong>Nombre:</strong> María Ángeles Mata Cala<br />
+            <strong>Profesión:</strong> Psicóloga General Sanitaria<br />
+            <strong>Colegiación:</strong> Colegiada nº AN 12177 por el Colegio Oficial de Psicólogos de Andalucía<br />
+            <strong>Dirección:</strong> C/ Rodríguez Sánchez, 22, 14003 Córdoba<br />
+            <strong>Teléfono:</strong> +34 661 471 971<br />
+            <strong>Email:</strong> mangelesmatacala@hotmail.com
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">2. Actividad Profesional</h2>
+          <p class="text-body text-charcoal mb-4">
+            María Ángeles Mata Cala ejerce como Psicóloga General Sanitaria en Córdoba, ofreciendo servicios de:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li>Terapia individual</li>
+            <li>Terapia de pareja</li>
+            <li>Terapia familiar</li>
+            <li>Evaluación neuropsicológica</li>
+            <li>Estimulación cognitiva</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">3. Titulación y Habilitación</h2>
+          <p class="text-body text-charcoal mb-4">
+            La prestación de servicios psicológicos se realiza en cumplimiento de:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li>Ley 33/2011, de 4 de octubre, General de Salud Pública</li>
+            <li>Ley 44/2003, de 21 de noviembre, de Ordenación de las Profesiones Sanitarias</li>
+            <li>Estatutos del Colegio Oficial de Psicólogos de Andalucía</li>
+            <li>Código Deontológico del Psicólogo</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">4. Natureleza de los Servicios</h2>
+          <p class="text-body text-charcoal mb-4">
+            Los servicios ofrecidos son de <strong>carácter profesional sanitario</strong>. La terapia psicológica es un proceso colaborativo que requiere la participación activa del paciente. No se garantizan resultados específicos, ya que estos dependen de múltiples factores individuales.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">5. Propiedad Intelectual</h2>
+          <p class="text-body text-charcoal mb-4">
+            Todo el contenido del sitio web (textos, fotografías, gráficos, imágenes, diseño) está protegido por derechos de propiedad intelectual belong to María Ángeles Mata. Queda prohibida su reproducción sin autorización expresa.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">6. Enlaces a Terceros</h2>
+          <p class="text-body text-charcoal mb-4">
+            Este sitio web puede incluir enlaces a sitios de terceros. María Ángeles Mata no se responsabiliza del contenido, políticas de privacidad o prácticas de estos sitios.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">7. Limitación de Responsabilidad</h2>
+          <p class="text-body text-charcoal mb-4">
+            María Ángeles Mata no se hace responsable de:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li>Resultados derivados del uso de la información contenida en este sitio web</li>
+            <li>Errores u omisiones en el contenido</li>
+            <li>Problemas técnicos o interrupciones del servicio</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">8. Legislación Aplicable</h2>
+          <p class="text-body text-charcoal mb-4">
+            Este aviso legal se rige por la legislación española. Para cualquier controversia, serán competentes los Juzgados y Tribunales de Córdoba.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">9. Derecho de Información</h2>
+          <p class="text-body text-charcoal mb-4">
+            El usuario reconoce haber sido informado de las condiciones contenidas en este aviso legal.
+          </p>
+
+          <div class="mt-16 pt-8 border-t border-border-delicate">
+            <a href="/contact" class="btn btn-outline">Contactar</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <Footer />
+</Layout>

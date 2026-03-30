@@ -1,7 +1,7 @@
 ---
 // Schema.astro - JSON-LD Structured Data component
 // Usage: <Schema type="localbusiness" data={businessData} />
-// Supports: localbusiness, article, webpage, breadcrumbs, faqpage
+// Supports: localbusiness, article, webpage, breadcrumbs, faqpage, professionalservice
 
 interface GeoCoordinates {
   latitude: number;
@@ -26,6 +26,8 @@ interface LocalBusinessData {
   openingHours?: string[];
   serviceArea?: string;
   specialties?: string[];
+  services?: string[];
+  socialProfiles?: string[];
 }
 
 interface ArticleData {
@@ -63,7 +65,7 @@ interface FAQItem {
 }
 
 interface Props {
-  type: 'localbusiness' | 'article' | 'webpage' | 'breadcrumbs' | 'faqpage';
+  type: 'localbusiness' | 'article' | 'webpage' | 'breadcrumbs' | 'faqpage' | 'professionalservice';
   data: LocalBusinessData | ArticleData | WebPageData | BreadcrumbItem[] | FAQItem[];
 }
 
@@ -74,7 +76,7 @@ const siteUrl = 'https://psicologia-mata.es';
 function generateLocalBusinessSchema(data: LocalBusinessData) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'MedicalBusiness', 'HealthAndBeautyBusiness'],
     '@id': `${data.url}#business`,
     name: data.name,
     description: data.description,
@@ -88,9 +90,7 @@ function generateLocalBusinessSchema(data: LocalBusinessData) {
     image: data.image,
     priceRange: data.priceRange || '€€',
     openingHours: data.openingHours || ['Mo-Fr 09:00-20:00'],
-    sameAs: [
-      // Add social profiles here when available
-    ],
+    sameAs: data.socialProfiles || [],
     hasMap: `https://maps.google.com/?q=${encodeURIComponent(
       `${data.address.streetAddress}, ${data.address.postalCode} ${data.address.addressLocality}, ${data.address.addressCountry}`
     )}`,
@@ -115,6 +115,22 @@ function generateLocalBusinessSchema(data: LocalBusinessData) {
       '@type': 'MedicalSpecialty',
       name: specialty
     }));
+  }
+
+  // Add services if provided
+  if (data.services) {
+    schema.hasOfferCatalog = {
+      '@type': 'OfferCatalog',
+      name: 'Servicios de Psicología',
+      itemListElement: data.services.map((service, index) => ({
+        '@type': 'Offer',
+        position: index + 1,
+        itemOffered: {
+          '@type': 'Service',
+          name: service
+        }
+      }))
+    };
   }
 
   return schema;

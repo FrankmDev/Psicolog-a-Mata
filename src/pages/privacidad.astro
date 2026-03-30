@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const title = "Política de Privacidad | María Ángeles Mata - Psicóloga en Córdoba";
+const description = "Política de privacidad de María Ángeles Mata, psicóloga en Córdoba. Cómo protegemos tus datos personales según el RGPD.";
+
+const breadcrumbData = [
+  { name: "Inicio", url: "https://psicologia-mata.es/" },
+  { name: "Política de Privacidad", url: "https://psicologia-mata.es/privacidad" }
+];
+---
+
+<Layout {title} {description}>
+  <Header activePage="" />
+  
+  <main id="main-content">
+    
+    <section class="section bg-alabaster relative overflow-hidden" aria-labelledby="privacy-heading">
+      <div class="bg-aurora"></div>
+      
+      <div class="container-editorial relative z-10">
+        <PageHeader
+          label="Legal"
+          title="Política de"
+          highlight="Privacidad"
+          description="Información sobre cómo protegemos tus datos personales."
+        />
+      </div>
+    </section>
+
+    <section class="section bg-cream relative">
+      <div class="container-editorial">
+        <div class="max-w-3xl mx-auto prose prose-lg">
+          
+          <p class="text-body text-charcoal"><strong>Última actualización:</strong> Enero 2025</p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">1. Responsable del Tratamiento</h2>
+          <p class="text-body text-charcoal mb-4">
+            <strong>María Ángeles Mata Cala</strong><br />
+            Psicóloga General Sanitaria<br />
+            Colegiada AN 12177<br />
+            Dirección: C/ Rodríguez Sánchez, 22, 14003 Córdoba<br />
+            Teléfono: +34 661 471 971<br />
+            Email: mangelesmatacala@hotmail.com
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">2. Finalidad del Tratamiento</h2>
+          <p class="text-body text-charcoal mb-4">
+            Los datos personales que me proporciones serán utilizados exclusivamente para:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li>Gestionar la cita solicitada y la comunicación contigo</li>
+            <li>Prestar los servicios de psicología acordados</li>
+            <li>Cumplir con las obligaciones legales aplicables</li>
+            <li>Mantener la documentación clínica según la normativa vigente</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">3. Base Legal</h2>
+          <p class="text-body text-charcoal mb-4">
+            El tratamiento de tus datos se realiza bajo las siguientes bases legales:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li><strong>Consentimiento:</strong> Mediante el envío del formulario de contacto o comunicación directa.</li>
+            <li><strong>Ejecución de un contrato:</strong> Para la prestación de servicios terapéuticos.</li>
+            <li><strong>Obligaciones legales:</strong> Para la conservación de documentación clínica.</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">4. Confidencialidad Profesional</h2>
+          <p class="text-body text-charcoal mb-4">
+            Como psicóloga, estoy sujeta al <strong>deber de secreto profesional</strong>. Toda información que compartas en sesión está protegida por la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales, y el Código Deontológico del Psicólogo.
+          </p>
+          <p class="text-body text-charcoal mb-4">
+            Tus datos nunca serán compartidos con terceros sin tu consentimiento expreso, excepto en los casos legalmente establecidos.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">5. Destinatarios</h2>
+          <p class="text-body text-charcoal mb-4">
+            No cederé tus datos personales a terceros, excepto:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li>Cuando sea necesario para la prestación del servicio (ej: plataforma de videoconsulta)</li>
+            <li>Por obligación legal (ej: requerimiento judicial)</li>
+            <li>Con tu consentimiento previo y expreso</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">6. Tiempo de Conservación</h2>
+          <p class="text-body text-charcoal mb-4">
+            Los datos de contacto se conservarán mientras mantengamos comunicación activa. La documentación clínica se conservará durante el tiempo que marque la normativa sanitaria vigente (mínimo 5 años).
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">7. Tus Derechos</h2>
+          <p class="text-body text-charcoal mb-4">
+            Puedes ejercer en cualquier momento los siguientes derechos:
+          </p>
+          <ul class="list-disc pl-8 mb-4 space-y-2 text-body text-charcoal">
+            <li><strong>Acceso:</strong> Conocer qué datos tuyos tengo</li>
+            <li><strong>Rectificación:</strong> Corregir datos inexactos</li>
+            <li><strong>Supresión:</strong> Solicitar la eliminación de tus datos</li>
+            <li><strong>Limitación:</strong> Restringir el uso de tus datos</li>
+            <li><strong>Oposición:</strong> Oponerte al tratamiento</li>
+            <li><strong>Portabilidad:</strong> Recibir tus datos en formato electrónico</li>
+          </ul>
+          <p class="text-body text-charcoal mb-4">
+            Para ejercer tus derechos, contacta conmigo a través del email o teléfono indicados.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">8. Medidas de Seguridad</h2>
+          <p class="text-body text-charcoal mb-4">
+            Implemento medidas técnicas y organizativas apropiadas para proteger tus datos contra pérdida, acceso no autorizado o tratamiento ilegal.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">9. Formulario de Contacto</h2>
+          <p class="text-body text-charcoal mb-4">
+            Los datos enviados a través del formulario de contacto (nombre, email, teléfono y mensaje) se utilizan únicamente para responder a tu consulta. No se almacenan con fines de marketing.
+          </p>
+
+          <h2 class="font-serif text-2xl text-ink mt-12 mb-6">10. Modificaciones</h2>
+          <p class="text-body text-charcoal mb-4">
+            Esta política puede actualizarse periódicamente. La fecha de última actualización se indica al inicio del documento.
+          </p>
+
+          <div class="mt-16 pt-8 border-t border-border-delicate">
+            <a href="/contact" class="btn btn-outline">Contactar para más información</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <Footer />
+</Layout>

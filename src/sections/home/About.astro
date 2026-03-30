@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import mariaAngelesMata from "../../assets/maria-angeles-mata.jpeg";
 
 const credentials = [
@@ -19,6 +19,16 @@ const credentials = [
         institution:
             "Escuela de Postgrado de Psicología y Psiquiatría. Reconocido por Univ. Católica de Cuyo (Argentina) y Univ. CLEA (México)",
     },
+    {
+        year: "2021",
+        title: "Máster en Deterioros Cognitivos",
+        institution: "Escuela De Postgrado de Psicología y Psiquiatría",
+    },
+    {
+        year: "2020",
+        title: "Máster en Gerontología: Intervención Psicológica y Pedagógica en la Tercera Edad",
+        institution: "Universidad San Jorge",
+    },
 ];
 ---
 
@@ -27,9 +37,7 @@ const credentials = [
         <!-- Introducción con tipografía gigante -->
         <div class="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-24">
             <div data-reveal>
-                <span class="label-section"
-                    >María Ángeles Mata</span
-                >
+                <span class="label-section">María Ángeles Mata</span>
             </div>
             <h2
                 class="title-section mt-6 sm:mt-8"
@@ -110,12 +118,9 @@ const credentials = [
                 data-reveal="right"
                 data-reveal-delay="300"
             >
-                <div>
+                <div class="flex flex-col gap-8 sm:gap-10">
                     <div class="mb-6 sm:mb-8">
-                        <span
-                            class="text-label-xs text-olive"
-                            >Sobre mí</span
-                        >
+                        <span class="text-label-xs text-olive">Sobre mí</span>
                     </div>
 
                     <h3 class="title-section mb-6 sm:mb-8">
@@ -142,22 +147,21 @@ const credentials = [
                     <!-- Trayectoria Académica -->
                     <div class="mb-8 sm:mb-12">
                         <div class="flex items-center gap-4 mb-4 sm:mb-6">
-                            <span
-                                class="text-label-xs text-charcoal"
-                                >Formación</span
+                            <span class="text-label-xs text-charcoal"
+                                >Formación Reciente</span
                             >
                             <span class="h-[1px] flex-1 bg-border-delicate"
                             ></span>
                         </div>
 
-                        <div class="space-y-2 sm:space-y-3">
+                        <div class="space-y-2 sm:space-y-2">
                             {
                                 credentials.map((cred) => (
                                     <div class="flex items-baseline gap-3 sm:gap-4">
                                         <span class="text-label-xs text-olive w-8 sm:w-10 shrink-0 text-[0.625rem] sm:text-xs">
                                             {cred.year}
                                         </span>
-                                        <span class="text-body-sm text-ink">
+                                        <span class="text-xs sm:text-sm text-ink leading-relaxed">
                                             {cred.title}
                                             <span class="text-charcoal">
                                                 {" "}
@@ -169,12 +173,10 @@ const credentials = [
                             }
                         </div>
                     </div>
-                </div>
 
-                <div>
                     <a
                         href="/contact"
-                        class="btn btn-sage py-3 px-5 sm:py-4 sm:px-8"
+                        class="btn btn-sage py-3 px-5 sm:py-4 sm:px-8 self-start"
                     >
                         Descubre cómo puedo ayudarte
                     </a>

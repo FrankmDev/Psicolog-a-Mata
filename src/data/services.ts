@@ -15,7 +15,7 @@ export const services: Service[] = [
     number: "01",
     title: "Terapia Individual",
     shortDescription: "¿Te despiertas con ansiedad? ¿Sientes que no eres suficiente? Aquí no juzgamos lo que sientes — lo entendemos y trabajamos juntos para que deje de pesar.",
-    description: "Espacio confidencial para trabajar dificultades emocionales como ansiedad, estrés, problemas de autoestima y procesos de cambio personal. Un lugar donde puedes ser completamente tú sin miedo al juicio.",
+    description: "Espacio confidencial para trabajar dificultades emocionales como ansiedad, estrés, problemas de autoestima y procesos de cambio personal. Un lugar donde puedes ser completamente tú sin miedo al juicio. Disponible presencial en Córdoba y online.",
     approaches: ["Cognitivo-Conductual", "Tercera Generación", "Mindfulness"],
     duration: "50 minutos",
     iconName: "user"
@@ -25,7 +25,7 @@ export const services: Service[] = [
     number: "02",
     title: "Terapia de Pareja",
     shortDescription: "¿Hablan pero no se entienden? La terapia de pareja no es señalar culpables: es aprender a estar del mismo lado otra vez.",
-    description: "Cuando la comunicación se rompe, la distancia crece. Trabajamos juntos para reconstruir el vínculo, aprender a escucharse de verdad y recuperar la conexión que os unió.",
+    description: "Cuando la comunicación se rompe, la distancia crece. Trabajamos juntos para reconstruir el vínculo, aprender a escucharse de verdad y recuperar la conexión que os unión. Sesiones presenciales en Córdoba y online para facilitar la asistencia.",
     approaches: ["Comunicación efectiva", "Resolución de conflictos", "Reconstrucción"],
     duration: "60 minutos",
     iconName: "users"
@@ -35,7 +35,7 @@ export const services: Service[] = [
     number: "03",
     title: "Terapia Familiar",
     shortDescription: "Cuando un miembro de la familia sufre, todos sufren. Y cuando uno mejora, todos respiran mejor. Trabajamos juntos para encontrar ese equilibrio.",
-    description: "La familia es un sistema donde todo está conectado. Abordamos las dinámicas familiares desde una perspectiva sistémica, ayudando a cada miembro a comprender su rol y contribuir a un ambiente más saludable.",
+    description: "La familia es un sistema donde todo está conectado. Abordamos las dinámicas familiares desde una perspectiva sistémica, ayudando a cada miembro a comprender su rol y contribuir a un ambiente más saludable. Online y presencial.",
     approaches: ["Sistémica", "Comunicación", "Límites"],
     duration: "75 minutos",
     iconName: "home"
@@ -45,7 +45,7 @@ export const services: Service[] = [
     number: "04",
     title: "Evaluación Neuropsicológica",
     shortDescription: "¿Notas que algo no funciona como antes? Una evaluación exhaustiva nos ayuda a entender qué pasa y qué podemos hacer al respecto.",
-    description: "Diagnóstico completo mediante entrevistas y pruebas psicométricas estandarizadas. Fundamental para entender dificultades cognitivas, atencionales o de memoria, y diseñar un plan de intervención adecuado.",
+    description: "Diagnóstico completo mediante entrevistas y pruebas psicométricas estandarizadas. Fundamental para entender dificultades cognitivas, atencionales o de memoria, y diseñar un plan de intervención adecuado. Disponible online y presencial.",
     approaches: ["Entrevista clínica", "Pruebas estandarizadas", "Informe completo"],
     duration: "90-120 minutos",
     iconName: "brain"
@@ -55,8 +55,8 @@ export const services: Service[] = [
     number: "05",
     title: "Estimulación Cognitiva",
     shortDescription: "Para personas mayores que quieren mantener su mente activa. Programas personalizados que se adaptan a tus necesidades y ritmo.",
-    description: "Intervención personalizada a domicilio para personas mayores. Programas diseñados para mantener y mejorar funciones cognitivas como memoria, atención y orientación, adaptados a cada persona y sus intereses.",
-    approaches: ["A domicilio", "Materiales personalizados", "Seguimiento"],
+    description: "Intervención personalizada a domicilio para personas mayores y online. Programas diseñados para mantener y mejorar funciones cognitivas como memoria, atención y orientación, adaptados a cada persona y sus intereses.",
+    approaches: ["A domicilio", "Online", "Materiales personalizados", "Seguimiento"],
     duration: "45-60 minutos",
     iconName: "sparkles"
   }
