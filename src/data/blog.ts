@@ -138,7 +138,7 @@ export const blogPosts: Record<string, BlogPost> = {
   },
   "gestion-ansiedad": {
     slug: "gestion-ansiedad",
-    title: "Cuando el pecho se aprieta",
+    title: "Cuando el pecho aprieta",
     excerpt: "La ansiedad no es debilidad. Es tu cuerpo intentando protegerte de algo que percibe como peligroso. Aquí te cuento cómo puedes ayudarte a ti mismo.",
     date: "2 Enero 2025",
     dateShort: "2 Ene",
