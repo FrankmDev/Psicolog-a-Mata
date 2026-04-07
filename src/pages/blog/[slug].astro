@@ -18,8 +18,8 @@ if (!post) {
   return Astro.redirect('/404');
 }
 
-const title = `${post.title} | María Ángeles Mata`;
-const canonicalUrl = `https://psicologia-mata.es/blog/${slug}`;
+const title = `${post.seoTitle ?? post.title} | Psicóloga en Córdoba`;
+const canonicalUrl = `https://www.matacalapsicologia.es/blog/${slug}`;
 
 // Parse date
 function parseDate(dateStr: string): string {
@@ -57,19 +57,19 @@ const articleData = {
   datePublished: datePublished,
   dateModified: datePublished,
   author: {
-    name: "María Ángeles Mata",
-    url: "https://psicologia-mata.es"
+    name: "María Ángeles Mata Cala",
+    url: "https://www.matacalapsicologia.es#person"
   },
   publisher: {
     name: "María Ángeles Mata - Psicóloga",
-    logo: "https://psicologia-mata.es/favicon.avif"
+    logo: "https://www.matacalapsicologia.es/favicon.avif"
   },
   url: canonicalUrl
 };
 
 const breadcrumbData = [
-  { name: "Inicio", url: "https://psicologia-mata.es/" },
-  { name: "Blog", url: "https://psicologia-mata.es/blog" },
+  { name: "Inicio", url: "https://www.matacalapsicologia.es/" },
+  { name: "Blog", url: "https://www.matacalapsicologia.es/blog" },
   { name: post.title, url: canonicalUrl }
 ];
 
@@ -82,9 +82,9 @@ const shareUrls = {
 };
 ---
 
-<Layout 
-  {title} 
-  description={post.excerpt}
+<Layout
+  {title}
+  description={post.seoDescription ?? post.excerpt}
   type="article"
   image={post.image.src}
   canonical={`/blog/${slug}`}
@@ -246,7 +246,7 @@ const shareUrls = {
                 <p class="font-serif text-2xl text-ink mb-2">María Ángeles Mata</p>
                 <p class="font-sans text-body-sm text-charcoal mb-4">Psicóloga General Sanitaria · Colegiada nº AN 12177 · Más de 15 años acompañando a personas en su proceso de crecimiento personal</p>
                 <div class="flex items-center gap-4">
-                  <a href="/contact" class="text-label text-olive hover:text-ink transition-colors">Contactar</a>
+                  <a href="/contacto" class="text-label text-olive hover:text-ink transition-colors">Contactar</a>
                   <span class="text-charcoal">·</span>
                   <a href="/services" class="text-label text-olive hover:text-ink transition-colors">Servicios</a>
                 </div>

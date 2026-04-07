@@ -11,6 +11,8 @@ import psicologia from '../assets/psicologia.avif';
 export interface BlogPost {
   slug: string;
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
   excerpt: string;
   date: string;
   dateShort: string;
@@ -24,6 +26,8 @@ export const blogPosts: Record<string, BlogPost> = {
   "beneficios-terapia-individual": {
     slug: "beneficios-terapia-individual",
     title: "¿Por qué la terapia individual funciona?",
+    seoTitle: "Beneficios de la terapia individual — Psicóloga en Córdoba",
+    seoDescription: "Descubre por qué la terapia individual funciona para la ansiedad, la autoestima y el bienestar emocional. Psicóloga sanitaria en Córdoba con 15+ años de experiencia.",
     excerpt: "No se trata de tener a alguien que te diga qué hacer. Se trata de tener un espacio donde puedas ser tú mismo, sin filtros, sin prisas.",
     date: "15 Enero 2025",
     dateShort: "15 Ene",
@@ -77,6 +81,8 @@ export const blogPosts: Record<string, BlogPost> = {
   "comunicacion-pareja": {
     slug: "comunicacion-pareja",
     title: "Cuando hablar no sirve de nada",
+    seoTitle: "Problemas de comunicación en pareja: cómo mejorarlos",
+    seoDescription: "Cuando habláis pero no os entendéis. Claves para mejorar la comunicación en pareja según la terapia psicológica. Psicóloga en Córdoba.",
     excerpt: "Hablan, hablan, pero no se entienden. Si esto te suena familiar, no estás solo. La comunicación en pareja puede mejorar, pero no de la forma que piensas.",
     date: "8 Enero 2025",
     dateShort: "8 Ene",
@@ -139,6 +145,8 @@ export const blogPosts: Record<string, BlogPost> = {
   "gestion-ansiedad": {
     slug: "gestion-ansiedad",
     title: "Cuando el pecho aprieta",
+    seoTitle: "Cómo manejar la ansiedad: técnicas que funcionan",
+    seoDescription: "La ansiedad no es debilidad. Técnicas psicológicas para gestionar la ansiedad en el día a día. Por psicóloga sanitaria en Córdoba.",
     excerpt: "La ansiedad no es debilidad. Es tu cuerpo intentando protegerte de algo que percibe como peligroso. Aquí te cuento cómo puedes ayudarte a ti mismo.",
     date: "2 Enero 2025",
     dateShort: "2 Ene",
@@ -186,6 +194,8 @@ export const blogPosts: Record<string, BlogPost> = {
   "autoestima-saludable": {
     slug: "autoestima-saludable",
     title: "¿Por qué es tan difícil querernos?",
+    seoTitle: "Baja autoestima: señales y cómo trabajarla con psicología",
+    seoDescription: "Por qué nos cuesta querernos y cómo la terapia psicológica puede ayudar a mejorar la autoestima. Psicóloga en Córdoba.",
     excerpt: "No nacemos odiándonos. Aprendemos a hacerlo. Y lo bueno es que lo que se aprende, se puede desaprender. Aquí te cuento cómo empezar.",
     date: "28 Diciembre 2024",
     dateShort: "28 Dic",

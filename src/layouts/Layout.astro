@@ -31,7 +31,7 @@ const {
   modifiedTime
 } = Astro.props;
 
-const siteUrl = 'https://psicologia-mata.es';
+const siteUrl = 'https://www.matacalapsicologia.es';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
 
 // Generar una versión PNG del logo para máxima compatibilidad con Open Graph
@@ -67,8 +67,8 @@ const ogImageUrl = ogImage
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     
     <!-- Prefetch para navegación inmediata -->
-    <link rel="prefetch" href="/services" />
-    <link rel="prefetch" href="/contact" />
+    <link rel="prefetch" href="/servicios" />
+    <link rel="prefetch" href="/contacto" />
     
 
     <!-- Fuentes con display=swap para evitar render blocking -->
@@ -109,7 +109,7 @@ const ogImageUrl = ogImage
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="María Ángeles Mata - Psicóloga" />
+    <meta property="og:site_name" content="María Ángeles Mata - Psicóloga Sanitaria" />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     

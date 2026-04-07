@@ -15,15 +15,18 @@ import { mainServices } from '../data/services';
 import { faqs } from '../data/faqs';
 import { blogPostsList } from '../data/blog';
 
-const title = "Psicóloga en Córdoba | María Ángeles Mata - Terapia Individual y de Pareja";
-const description = "Psicóloga General Sanitaria en Córdoba con 15+ años de experiencia. Especialista en terapia individual, de pareja y familiar. Primera consulta sin compromiso.";
+const title = "Psicóloga en Córdoba | María Ángeles Mata";
+const description = "Psicóloga Sanitaria en Córdoba con 15+ años de experiencia. Terapia individual, de pareja, familiar y evaluación neuropsicológica. Primera consulta sin compromiso.";
 
 const previewPosts = blogPostsList.slice(0, 3);
 
+const SITE = "https://www.matacalapsicologia.es";
+
 const localBusinessData = {
   name: "María Ángeles Mata - Psicóloga Sanitaria",
+  legalName: "María Ángeles Mata Cala",
   description: "Psicóloga General Sanitaria en Córdoba especializada en terapia individual, de pareja y familiar con más de 15 años de experiencia. Consulta presencial en Córdoba y online.",
-  url: "https://psicologia-mata.es",
+  url: SITE,
   telephone: "+34 661 471 971",
   email: "mangelesmatacala@hotmail.com",
   address: {
@@ -36,16 +39,19 @@ const localBusinessData = {
     latitude: 37.8882,
     longitude: -4.7794
   },
-  image: "https://psicologia-mata.es/favicon.avif",
+  image: `${SITE}/profile.jpg`,
   priceRange: "€€",
   openingHours: ["Mo-Fr 09:00-20:00"],
   serviceArea: "Córdoba, provincia y online",
+  foundingDate: "2010",
   specialties: [
     "Psicología Clínica",
+    "Terapia Cognitivo-Conductual",
     "Terapia Individual Online",
     "Terapia de Pareja Online",
     "Terapia Familiar",
-    "Evaluación Neuropsicológica"
+    "Evaluación Neuropsicológica",
+    "Estimulación Cognitiva"
   ],
   services: [
     "Terapia Individual (Presencial y Online)",
@@ -60,8 +66,51 @@ const localBusinessData = {
   ]
 };
 
+const personData = {
+  name: "María Ángeles Mata Cala",
+  url: SITE,
+  jobTitle: "Psicóloga General Sanitaria",
+  description: "Psicóloga General Sanitaria colegiada (AN 12177) en Córdoba con más de 15 años de experiencia clínica. Especialista en terapia individual, terapia de pareja, terapia familiar y evaluación neuropsicológica.",
+  telephone: "+34 661 471 971",
+  email: "mangelesmatacala@hotmail.com",
+  image: `${SITE}/profile.jpg`,
+  sameAs: [
+    "https://www.instagram.com/psicologamata",
+    "https://www.facebook.com/psicologamata"
+  ],
+  address: {
+    streetAddress: "C/ Rodríguez Sánchez, 22",
+    addressLocality: "Córdoba",
+    postalCode: "14003",
+    addressCountry: "ES"
+  },
+  knowsAbout: [
+    "Terapia Cognitivo-Conductual",
+    "Terapia de Aceptación y Compromiso (ACT)",
+    "Mindfulness",
+    "Ansiedad y trastornos de ansiedad",
+    "Depresión",
+    "Terapia de pareja",
+    "Terapia familiar sistémica",
+    "Evaluación neuropsicológica",
+    "Estimulación cognitiva en personas mayores",
+    "Autoestima y desarrollo personal",
+    "Gestión del estrés",
+    "Habilidades sociales"
+  ],
+  credentials: [
+    { name: "Máster en Psicología General Sanitaria", year: "2025", institution: "Universidad Católica de Ávila", type: "Master" },
+    { name: "Grado en Psicología — Mención en Psicología de la Salud", year: "2023", institution: "Universidad Católica de Ávila", type: "Degree" },
+    { name: "Máster en Neuropsicología", year: "2021", institution: "Escuela de Postgrado de Psicología y Psiquiatría", type: "Master" },
+    { name: "Máster en Deterioros Cognitivos", year: "2021", institution: "Escuela de Postgrado de Psicología y Psiquiatría", type: "Master" },
+    { name: "Máster en Gerontología: Intervención Psicológica y Pedagógica", year: "2020", institution: "Universidad San Jorge", type: "Master" }
+  ],
+  licenseNumber: "AN 12177",
+  licenseOrganization: "Colegio Oficial de Psicólogos de Andalucía"
+};
+
 const breadcrumbData = [
-  { name: "Inicio", url: "https://psicologia-mata.es/" }
+  { name: "Inicio", url: `${SITE}/` }
 ];
 
 // FAQ schema data
@@ -112,8 +161,9 @@ const values = [
   type="website"
 >
   <Schema slot="schema" type="localbusiness" data={localBusinessData} />
+  <Schema slot="schema" type="person" data={personData} />
   <Schema slot="schema" type="breadcrumbs" data={breadcrumbData} />
-  <Schema slot="schema" type="webpage" data={{ name: title, description, url: "https://psicologia-mata.es/" }} />
+  <Schema slot="schema" type="webpage" data={{ name: title, description, url: `${SITE}/` }} />
   <Schema slot="schema" type="faqpage" data={faqSchemaData} />
   
   <Header activePage="Inicio" />
@@ -151,7 +201,7 @@ const values = [
             </div>
 
             <div class="flex flex-wrap items-center gap-8" data-reveal data-reveal-delay="500">
-              <a href="/contact" class="btn btn-sage group">
+              <a href="/contacto" class="btn btn-sage group">
                 <span>Quiero hablar contigo</span>
               </a>
 
@@ -299,7 +349,7 @@ const values = [
             </div>
 
             <div>
-              <a href="/contact" class="btn btn-sage">Descubre cómo puedo ayudarte</a>
+              <a href="/contacto" class="btn btn-sage">Descubre cómo puedo ayudarte</a>
             </div>
           </div>
         </div>
@@ -444,7 +494,7 @@ const values = [
             </p>
 
             <div class="flex flex-col sm:flex-row items-start gap-4 mb-16" data-reveal data-reveal-delay="300">
-              <a href="/contact" class="btn btn-primary !bg-terracotta-light !text-ink hover:!bg-alabaster group">
+              <a href="/contacto" class="btn btn-primary !bg-terracotta-light !text-ink hover:!bg-alabaster group">
                 <span>Me gustaría hablar contigo</span>
                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.75L21 12m0 0l-3.75 3.25M21 12H3" />
@@ -526,7 +576,7 @@ const values = [
             <p class="text-label-sm text-charcoal mb-2">¿No encuentras lo que buscas?</p>
             <p class="text-title-sm text-ink">Escríbeme directamente</p>
           </div>
-          <a href="/contact" class="btn btn-outline">Contactar ahora</a>
+          <a href="/contacto" class="btn btn-outline">Contactar ahora</a>
         </div>
       </div>
     </section>

@@ -216,19 +216,26 @@ const faqSchemaData = faqs.map(faq => ({
     <!-- Tarifas -->
     <section class="section bg-alabaster relative overflow-hidden" id="tarifas" aria-labelledby="tarifas-heading">
 
+      <!-- Número decorativo de fondo -->
       <span class="absolute -right-8 top-1/2 -translate-y-1/2 font-serif text-[22rem] leading-none text-olive/[0.025] select-none pointer-events-none hidden lg:block" aria-hidden="true">€</span>
 
       <div class="container-editorial relative z-10">
         <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
+          <!-- Columna izquierda: encabezado editorial -->
           <div class="lg:col-span-4 lg:sticky lg:top-32" data-reveal>
+
             <span class="label-section">Tarifas</span>
+
             <h2 id="tarifas-heading" class="title-section mt-8">
               Lo que<br />supone <em class="text-olive italic">invertir</em><br />en ti
             </h2>
+
             <p class="text-body-sm text-charcoal mt-8 leading-relaxed">
               La primera consulta es sin compromiso. Hablamos, vemos si encajamos, y decidimos juntos si tiene sentido continuar.
             </p>
+
+            <!-- Trust signals -->
             <div class="mt-10 space-y-4">
               {[
                 { icon: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Primera consulta sin compromiso" },
@@ -243,6 +250,7 @@ const faqSchemaData = faqs.map(faq => ({
                 </div>
               ))}
             </div>
+
             <a href="/contacto" class="btn btn-sage mt-12 group">
               <span>Reservar sesión</span>
               <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -251,41 +259,113 @@ const faqSchemaData = faqs.map(faq => ({
             </a>
           </div>
 
+          <!-- Columna derecha: lista editorial de precios -->
           <div class="lg:col-span-8" data-reveal data-reveal-delay="150">
+
             <div class="border-t border-ink/10">
               {[
-                { number: "01", service: "Terapia Individual", description: "Un espacio solo para ti, presencial en Córdoba o en línea.", price: "60", unit: "€", duration: "50 min", tags: ["Presencial", "Online"] },
-                { number: "02", service: "Terapia de Pareja", description: "Para volver a entenderos, sin señalar culpables.", price: "70", unit: "€", duration: "60 min", tags: ["Presencial", "Online"] },
-                { number: "03", service: "Terapia Familiar", description: "Cuando la familia necesita encontrar su equilibrio.", price: "80", unit: "€", duration: "75 min", tags: ["Presencial", "Online"] },
-                { number: "04", service: "Evaluación Neuropsicológica", description: "Diagnóstico completo con informe clínico incluido.", price: "—", unit: "", duration: "90–120 min", tags: ["Consultar precio", "Informe incluido"] },
-                { number: "05", service: "Estimulación Cognitiva", description: "Para personas mayores. Online o a domicilio en Córdoba.", price: "—", unit: "", duration: "45–60 min", tags: ["A domicilio", "Online"] },
+                {
+                  number: "01",
+                  service: "Terapia Individual",
+                  description: "Un espacio solo para ti, presencial en Córdoba o en línea.",
+                  price: "60",
+                  unit: "€",
+                  duration: "50 min",
+                  tags: ["Presencial", "Online"],
+                },
+                {
+                  number: "02",
+                  service: "Terapia de Pareja",
+                  description: "Para volver a entenderos, sin señalar culpables.",
+                  price: "70",
+                  unit: "€",
+                  duration: "60 min",
+                  tags: ["Presencial", "Online"],
+                },
+                {
+                  number: "03",
+                  service: "Terapia Familiar",
+                  description: "Cuando la familia necesita encontrar su equilibrio.",
+                  price: "80",
+                  unit: "€",
+                  duration: "75 min",
+                  tags: ["Presencial", "Online"],
+                },
+                {
+                  number: "04",
+                  service: "Evaluación Neuropsicológica",
+                  description: "Diagnóstico completo con informe clínico incluido.",
+                  price: "—",
+                  unit: "",
+                  duration: "90–120 min",
+                  tags: ["Consultar precio", "Informe incluido"],
+                },
+                {
+                  number: "05",
+                  service: "Estimulación Cognitiva",
+                  description: "Para personas mayores. Online o a domicilio en Córdoba.",
+                  price: "—",
+                  unit: "",
+                  duration: "45–60 min",
+                  tags: ["A domicilio", "Online"],
+                },
               ].map((item, index) => (
-                <div class="group border-b border-ink/10 hover:border-olive/30 transition-colors duration-500 cursor-default" data-reveal data-reveal-delay={index * 80}>
+                <div
+                  class="group border-b border-ink/10 hover:border-olive/30 transition-colors duration-500 cursor-default"
+                  data-reveal
+                  data-reveal-delay={index * 80}
+                >
                   <div class="py-8 lg:py-10 flex items-center gap-8 lg:gap-12">
-                    <span class="font-sans text-xs font-medium tracking-widest text-olive/40 group-hover:text-olive transition-colors duration-500 shrink-0 hidden sm:block">{item.number}</span>
+
+                    <!-- Número -->
+                    <span class="font-sans text-xs font-medium tracking-widest text-olive/40 group-hover:text-olive transition-colors duration-500 shrink-0 hidden sm:block">
+                      {item.number}
+                    </span>
+
+                    <!-- Contenido central -->
                     <div class="flex-1 min-w-0">
                       <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
-                        <h3 class="font-serif text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-500 leading-tight">{item.service}</h3>
+                        <h3 class="font-serif text-xl lg:text-2xl text-ink group-hover:text-olive transition-colors duration-500 leading-tight">
+                          {item.service}
+                        </h3>
                         <div class="flex items-center gap-2 flex-wrap">
                           {item.tags.map((tag) => (
-                            <span class="inline-flex items-center px-2.5 py-0.5 text-[0.6rem] font-medium tracking-widest uppercase border border-border-strong text-charcoal/70 group-hover:border-olive/40 group-hover:text-olive/80 transition-colors duration-500">{tag}</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 text-[0.6rem] font-medium tracking-widest uppercase border border-border-strong text-charcoal/70 group-hover:border-olive/40 group-hover:text-olive/80 transition-colors duration-500">
+                              {tag}
+                            </span>
                           ))}
                         </div>
                       </div>
-                      <p class="text-body-sm text-charcoal/60 group-hover:text-charcoal/80 transition-colors duration-500 leading-relaxed">{item.description}</p>
+                      <p class="text-body-sm text-charcoal/60 group-hover:text-charcoal/80 transition-colors duration-500 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
+
+                    <!-- Precio -->
                     <div class="shrink-0 text-right">
                       <div class="flex items-baseline justify-end gap-0.5">
-                        <span class="font-serif text-4xl lg:text-5xl text-ink group-hover:text-olive transition-colors duration-700 leading-none tabular-nums">{item.price}</span>
-                        {item.unit && <span class="font-serif text-xl lg:text-2xl text-ink/60 group-hover:text-olive/60 transition-colors duration-700 leading-none">{item.unit}</span>}
+                        <span class="font-serif text-4xl lg:text-5xl text-ink group-hover:text-olive transition-colors duration-700 leading-none tabular-nums">
+                          {item.price}
+                        </span>
+                        {item.unit && (
+                          <span class="font-serif text-xl lg:text-2xl text-ink/60 group-hover:text-olive/60 transition-colors duration-700 leading-none">
+                            {item.unit}
+                          </span>
+                        )}
                       </div>
-                      <p class="text-label-xs text-charcoal/50 mt-1.5 group-hover:text-olive/60 transition-colors duration-500">{item.duration}</p>
+                      <p class="text-label-xs text-charcoal/50 mt-1.5 group-hover:text-olive/60 transition-colors duration-500">
+                        {item.duration}
+                      </p>
                     </div>
+
                   </div>
+                  <!-- Línea expansiva en hover (mismo patrón que sección servicios) -->
                   <div class="w-0 h-[1px] bg-olive/40 group-hover:w-full transition-all duration-700 ease-out -mt-px"></div>
                 </div>
               ))}
             </div>
+
+            <!-- Nota mutuas -->
             <div class="mt-10 flex items-start gap-4 p-6 border border-border-delicate bg-cream/50" data-reveal data-reveal-delay="400">
               <svg class="w-4 h-4 text-olive/60 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
@@ -296,8 +376,8 @@ const faqSchemaData = faqs.map(faq => ({
                 parcialmente según tu póliza — consulta con tu aseguradora.
               </p>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>

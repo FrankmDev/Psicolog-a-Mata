@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   // Site configuration
-  site: 'https://psicologia-mata.es',
+  site: 'https://www.matacalapsicologia.es',
 
   // Build output directory
   outDir: './dist',
@@ -15,6 +15,11 @@ export default defineConfig({
   prefetch: false,
 
   // Integrations
+  redirects: {
+    '/services': '/servicios',
+    '/contact': '/contacto',
+  },
+
   integrations: [sitemap({
     i18n: {
       defaultLocale: 'es',

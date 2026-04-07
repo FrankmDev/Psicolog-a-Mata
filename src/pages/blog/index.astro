@@ -4,19 +4,29 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import CTASection from '../../components/CTASection.astro';
+import Schema from '../../components/Schema.astro';
 import { blogPostsList } from '../../data/blog';
 import { Image } from 'astro:assets';
 
+const SITE = "https://www.matacalapsicologia.es";
+
 const title = "Blog de Psicología en Córdoba | Artículos sobre Salud Mental";
-const description = "Artículos sobre psicología, salud mental, terapia y crecimiento personal. Reflexiones de una psicóloga sanitaria con 15+ años de experiencia.";
+const description = "Artículos sobre psicología, ansiedad, terapia de pareja y autoestima escritos por María Ángeles Mata, psicóloga sanitaria colegiada en Córdoba (AN 12177).";
 
 const featuredPost = blogPostsList[0];
 const recentPosts = blogPostsList.slice(1);
 
 const categories = [...new Set(blogPostsList.map(post => post.category))];
+
+const breadcrumbData = [
+  { name: "Inicio", url: `${SITE}/` },
+  { name: "Blog", url: `${SITE}/blog` }
+];
 ---
 
 <Layout {title} {description}>
+  <Schema slot="schema" type="breadcrumbs" data={breadcrumbData} />
+  <Schema slot="schema" type="webpage" data={{ name: title, description, url: `${SITE}/blog` }} />
   <Header activePage="Blog" />
   
   <main id="main-content">

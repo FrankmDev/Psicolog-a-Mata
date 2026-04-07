@@ -10,6 +10,7 @@ interface GeoCoordinates {
 
 interface LocalBusinessData {
   name: string;
+  legalName?: string;
   description: string;
   url: string;
   telephone: string;
@@ -28,6 +29,7 @@ interface LocalBusinessData {
   specialties?: string[];
   services?: string[];
   socialProfiles?: string[];
+  foundingDate?: string;
 }
 
 interface ArticleData {
@@ -64,21 +66,48 @@ interface FAQItem {
   answer: string;
 }
 
+interface PersonData {
+  name: string;
+  url: string;
+  jobTitle?: string;
+  description?: string;
+  telephone?: string;
+  email?: string;
+  image?: string;
+  sameAs?: string[];
+  address?: {
+    streetAddress: string;
+    addressLocality: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  knowsAbout?: string[];
+  credentials?: {
+    name: string;
+    year?: string;
+    institution?: string;
+    type?: string;
+  }[];
+  licenseNumber?: string;
+  licenseOrganization?: string;
+}
+
 interface Props {
-  type: 'localbusiness' | 'article' | 'webpage' | 'breadcrumbs' | 'faqpage' | 'professionalservice';
-  data: LocalBusinessData | ArticleData | WebPageData | BreadcrumbItem[] | FAQItem[];
+  type: 'localbusiness' | 'article' | 'webpage' | 'breadcrumbs' | 'faqpage' | 'professionalservice' | 'person';
+  data: LocalBusinessData | ArticleData | WebPageData | BreadcrumbItem[] | FAQItem[] | PersonData;
 }
 
 const { type, data } = Astro.props;
 
-const siteUrl = 'https://psicologia-mata.es';
+const siteUrl = 'https://www.matacalapsicologia.es';
 
 function generateLocalBusinessSchema(data: LocalBusinessData) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'MedicalBusiness', 'HealthAndBeautyBusiness'],
+    '@type': ['LocalBusiness', 'MedicalBusiness', 'ProfessionalService'],
     '@id': `${data.url}#business`,
     name: data.name,
+    ...(data.legalName && { legalName: data.legalName }),
     description: data.description,
     url: data.url,
     telephone: data.telephone,
@@ -97,7 +126,16 @@ function generateLocalBusinessSchema(data: LocalBusinessData) {
     isAccessibleForFree: false,
     paymentAccepted: ['Cash', 'Credit Card', 'Bank Transfer'],
     currenciesAccepted: 'EUR',
-    areaServed: data.serviceArea || 'Córdoba, España'
+    areaServed: data.serviceArea || 'Córdoba, España',
+    ...(data.foundingDate && { foundingDate: data.foundingDate }),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: data.telephone,
+      contactType: 'customer service',
+      availableLanguage: 'Spanish',
+      areaServed: 'ES',
+      contactOption: 'TollFree'
+    }
   };
 
   // Add geo coordinates if provided
@@ -204,6 +242,65 @@ function generateFAQSchema(items: FAQItem[]) {
   };
 }
 
+function generatePersonSchema(data: PersonData) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${data.url}#person`,
+    name: data.name,
+    url: data.url,
+    jobTitle: data.jobTitle || 'Psicóloga General Sanitaria',
+    description: data.description,
+    telephone: data.telephone,
+    email: data.email,
+    image: data.image,
+    sameAs: data.sameAs || [],
+    worksFor: {
+      '@type': 'MedicalBusiness',
+      '@id': `${data.url}#business`
+    }
+  };
+
+  if (data.address) {
+    schema.address = {
+      '@type': 'PostalAddress',
+      ...data.address
+    };
+  }
+
+  if (data.knowsAbout) {
+    schema.knowsAbout = data.knowsAbout;
+  }
+
+  if (data.credentials && data.credentials.length > 0) {
+    schema.hasCredential = data.credentials.map(cred => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: cred.name,
+      ...(cred.year && { dateCreated: cred.year }),
+      ...(cred.type && { credentialCategory: cred.type }),
+      ...(cred.institution && {
+        recognizedBy: {
+          '@type': cred.type === 'license' ? 'Organization' : 'CollegeOrUniversity',
+          name: cred.institution
+        }
+      })
+    }));
+  }
+
+  if (data.licenseNumber) {
+    schema.identifier = {
+      '@type': 'PropertyValue',
+      name: 'Número de colegiada',
+      value: data.licenseNumber,
+      ...(data.licenseOrganization && {
+        propertyID: data.licenseOrganization
+      })
+    };
+  }
+
+  return schema;
+}
+
 let schemaData: Record<string, unknown> | null = null;
 
 switch (type) {
@@ -221,6 +318,9 @@ switch (type) {
     break;
   case 'faqpage':
     schemaData = generateFAQSchema(data as FAQItem[]);
+    break;
+  case 'person':
+    schemaData = generatePersonSchema(data as PersonData);
     break;
 }
 

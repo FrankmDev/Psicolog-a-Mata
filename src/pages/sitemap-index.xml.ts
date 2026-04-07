@@ -2,14 +2,14 @@ import type { APIRoute } from 'astro';
 import { blogPosts } from '../data/blog';
 
 export const GET: APIRoute = async ({ site }) => {
-  const baseUrl = (site?.toString().replace(/\/$/, '') || 'https://psicologia-mata.es');
+  const baseUrl = (site?.toString().replace(/\/$/, '') || 'https://www.matacalapsicologia.es');
   const today = new Date().toISOString().split('T')[0];
-  
+
   // Static pages configuration
   const staticPages = [
     { url: '/', priority: 1.0, changefreq: 'weekly' },
-    { url: '/services', priority: 0.9, changefreq: 'monthly' },
-    { url: '/contact', priority: 0.9, changefreq: 'monthly' },
+    { url: '/servicios', priority: 0.9, changefreq: 'monthly' },
+    { url: '/contacto', priority: 0.9, changefreq: 'monthly' },
     { url: '/blog', priority: 0.8, changefreq: 'weekly' },
   ];
 
