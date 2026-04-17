@@ -27,7 +27,7 @@ export const blogPosts: Record<string, BlogPost> = {
     slug: "beneficios-terapia-individual",
     title: "¿Por qué la terapia individual funciona?",
     seoTitle: "Beneficios de la terapia individual — Psicóloga en Córdoba",
-    seoDescription: "Descubre por qué la terapia individual funciona para la ansiedad, la autoestima y el bienestar emocional. Psicóloga sanitaria en Córdoba con 15+ años de experiencia.",
+    seoDescription: "Descubre por qué la terapia individual funciona para la ansiedad, la autoestima y el bienestar emocional. Psicóloga sanitaria en Córdoba con amplia experiencia.",
     excerpt: "No se trata de tener a alguien que te diga qué hacer. Se trata de tener un espacio donde puedas ser tú mismo, sin filtros, sin prisas.",
     date: "15 Enero 2025",
     dateShort: "15 Ene",
