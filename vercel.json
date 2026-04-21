@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "matacalapsicologia.es"
+        }
+      ],
+      "destination": "https://www.matacalapsicologia.es/:path*",
+      "permanent": true
+    }
+  ]
+}

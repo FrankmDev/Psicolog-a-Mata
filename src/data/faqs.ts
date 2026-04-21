@@ -18,7 +18,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "¿Necesito derivación médica para ir al psicólogo?",
-    answer: "No. Puedes contactar directamente sin necesidad de derivación médica ni informe previo. Como psicóloga sanitaria en consulta privada en Córdoba, cualquier persona puede solicitar cita directamente. Solo en el caso de la sanidad pública andaluza sería necesaria derivación desde el médico de cabecera."
+    answer: "No. Puedes contactar directamente sin necesidad de derivación médica ni informe previo. Como psicóloga en consulta privada en Córdoba, cualquier persona puede solicitar cita directamente. Solo en el caso de la sanidad pública andaluza sería necesaria derivación desde el médico de cabecera."
   },
   {
     question: "¿Cuánto dura una sesión de terapia?",

@@ -46,7 +46,7 @@ export const services: Service[] = [
     title: "Evaluación Neuropsicológica",
     shortDescription: "¿Notas que algo no funciona como antes? Una evaluación exhaustiva nos ayuda a entender qué pasa y qué podemos hacer al respecto.",
     description: "Diagnóstico completo mediante entrevistas y pruebas psicométricas estandarizadas. Fundamental para entender dificultades cognitivas, atencionales o de memoria, y diseñar un plan de intervención adecuado. Disponible online y presencial.",
-    approaches: ["Entrevista clínica", "Pruebas estandarizadas", "Informe completo"],
+    approaches: ["Entrevista psicológica", "Pruebas estandarizadas", "Informe completo"],
     duration: "90-120 minutos",
     iconName: "brain"
   },
